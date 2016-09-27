@@ -4,5 +4,7 @@ Feature: As a restaurant Owner
 
 Scenario: Viewing the Menu page
   Given I am on the "menu" page
-  Then I should see "Menu for Restaurant"
-  
+  Then I should see:
+    | content    |
+    | Menu for X |
+    | Dish 1     |
