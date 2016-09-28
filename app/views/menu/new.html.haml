@@ -1,4 +1,7 @@
 .row
   .column-md-12
     %h1 add menu
-    
+
+    = form_for @menu, url: {action: "create"}, html: {class: "add_menu"} do |f|
+      = f.text_field :title
+      = f.submit "Create"
