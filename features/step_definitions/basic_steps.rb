@@ -28,6 +28,4 @@ def set_goto(page)
   else
     @goto = '/'
   end
-  #@goto = '/restaurant' if page == "restaurant"
-  #@goto = '/menu'if page == "menu"
 end
