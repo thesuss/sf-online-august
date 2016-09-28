@@ -23,7 +23,7 @@ Then(/^I should see "([^"]*)" button$/) do |button|
   expect(page).to have_button button
 end
 When(/^I fill in "([^"]*)" with "([^"]*)"$/) do |element, text|
-  fill_in element with: text
+  fill_in element, with: text
 end
 
 When(/^I click the "([^"]*)" button$/) do |button|
