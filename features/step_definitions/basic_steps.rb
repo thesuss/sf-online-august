@@ -10,6 +10,15 @@ Then(/^I should see:$/) do |table|
   end
 end
 
+When(/^I click the link "([^"]*)"$/) do |link|
+  click_link(link)
+end
+
+Then(/^I should be on the "([^"]*)" page$/) do |page|
+  set_goto(page)
+  expect(current_path).to eq @goto
+end
+
 def set_goto(page)
   case page
   when 'restaurant'
