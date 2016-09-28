@@ -1,7 +1,7 @@
 Given(/^I am on the "([^"]*)" page$/) do |page|
-  set_goto(page)
-  visit @goto
-  expect(current_path).to eq @goto
+  expected_page = goto(page)
+  visit expected_page
+  expect(current_path).to eq expected_page
 end
 
 Then(/^I should see:$/) do |table|
@@ -15,17 +15,17 @@ When(/^I click the link "([^"]*)"$/) do |link|
 end
 
 Then(/^I should be on the "([^"]*)" page$/) do |page|
-  set_goto(page)
-  expect(current_path).to eq @goto
+  expected_page = goto(page)
+  expect(current_path).to eq expected_page
 end
 
-def set_goto(page)
+def goto(page)
   case page
   when 'restaurant'
-    @goto = '/restaurant'
+    restaurant_path
   when 'menu'
-    @goto = '/menu'
+    menu_path
   else
-    @goto = '/'
+    root_path
   end
 end
