@@ -25,6 +25,8 @@ def goto(page)
     restaurant_path
   when 'menu'
     menu_path
+  when 'add menu'
+    new_menu_path
   else
     root_path
   end
