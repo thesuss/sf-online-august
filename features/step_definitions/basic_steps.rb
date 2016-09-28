@@ -11,6 +11,14 @@ Then(/^I should see:$/) do |table|
 end
 
 def set_goto(page)
-  @goto = '/restaurant' if page == "restaurant"
-  @goto = '/menu'if page == "menu"
+  case page
+  when 'restaurant'
+    @goto = '/restaurant'
+  when 'menu'
+    @goto = '/menu'
+  else
+    @goto = '/'
+  end
+  #@goto = '/restaurant' if page == "restaurant"
+  #@goto = '/menu'if page == "menu"
 end
