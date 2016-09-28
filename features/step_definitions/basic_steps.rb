@@ -19,6 +19,10 @@ Then(/^I should be on the "([^"]*)" page$/) do |page|
   expect(current_path).to eq expected_page
 end
 
+Then(/^"([^"]*)" button$/) do |button|
+  expect(page).to have_button button
+end
+
 def goto(page)
   case page
   when 'restaurant'

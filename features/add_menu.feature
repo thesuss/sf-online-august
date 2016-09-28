@@ -7,3 +7,4 @@ Scenario: Viewing the Add Menu page
   Then I should see:
     | content    |
     | add menu   |
+  And "create" button
