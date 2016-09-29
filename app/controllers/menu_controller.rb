@@ -3,7 +3,7 @@ class MenuController < ApplicationController
   end
 
   def new
-    @menu = Menu.new()
+    @menu = Menu.new
   end
 
   def create
