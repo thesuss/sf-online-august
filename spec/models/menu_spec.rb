@@ -1,5 +1,19 @@
 require 'rails_helper'
 
 RSpec.describe Menu, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+  describe "regression test" do
+    it { is_expected.to have_db_column :title }
+
+  end
+
+  describe "validations" do
+    it { is_expected.to validate_presence_of :title }
+  end
+
+  describe 'Factory' do
+    it 'should have valid Factory' do
+      expect(FactoryGirl.create(:menu)).to be_valid
+    end
+  end
 end
