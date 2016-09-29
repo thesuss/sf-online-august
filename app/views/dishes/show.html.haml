@@ -9,3 +9,7 @@ Allergens: #{@dish.dish_allergy}
 Ingredients: #{@dish.dish_ingredients}
 %br/
 Calories: #{@dish.dish_cal}
+%br/
+%br/
+
+= link_to 'Add to cart', dish_add_item_path(@dish), method: :post, class: "btn btn-success"

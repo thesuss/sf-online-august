@@ -10,6 +10,7 @@ gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem "haml-rails", "~> 0.9"
+gem 'acts_as_shopping_cart', '~> 0.4.1'
 
 
 group :development, :test do
