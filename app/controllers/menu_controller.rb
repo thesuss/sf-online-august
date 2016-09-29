@@ -7,9 +7,14 @@ class MenuController < ApplicationController
   end
 
   def create
-    @menu = Menu.create(menu_params)
-    flash[:notice] = "Successfully added menu"
-    redirect_to menu_index_path(@menu)
+    @menu = Menu.new(menu_params)
+    if @menu.save
+      flash[:notice] = "Successfully added menu"
+      render :index
+    else
+      flash[:error] = @menu.errors.full_messages.first
+      render :new
+    end
   end
 
   private
