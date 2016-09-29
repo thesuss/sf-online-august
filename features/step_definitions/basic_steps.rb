@@ -51,7 +51,7 @@ def goto(page)
   when 'Create Dish'
     new_dish_path
   when 'cart'
-    cart_path
+    carts_path
   else
     root_path
   end

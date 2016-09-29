@@ -11,4 +11,5 @@ Ingredients: #{@dish.dish_ingredients}
 Calories: #{@dish.dish_cal}
 %br/
 %br/
-=link_to "Add to cart", cart_path, class: "btn btn-success"
+- form_for @cart, :url => {:action => "add_item", :id => @cart.id} do |f|
+  = f.submit 'Add to cart', class: "btn btn-success"

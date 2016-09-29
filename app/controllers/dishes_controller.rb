@@ -15,6 +15,14 @@ class DishesController < ApplicationController
 
   def show
     @dish = Dish.find(params[:id])
+    @cart = ShoppingCart.new
+  end
+
+  def add_item
+    @cart = ShoppingCart.create
+    @dish = Dish.find(params[:id])
+
+    @cart.add(@dish)
   end
 
   private
