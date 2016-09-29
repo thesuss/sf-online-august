@@ -3,8 +3,9 @@ class CartsController < ApplicationController
   end
 
   def add_item
-    @cart = ShoppingCart.create
     @dish = Dish.find(params[:dish_id])
-    @cart.add(@dish)
+    @cart = ShoppingCart.create
+
+    @cart.add(@dish, @dish.dish_price)
   end
 end
