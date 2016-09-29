@@ -18,14 +18,8 @@ class DishesController < ApplicationController
     @cart = ShoppingCart.new
   end
 
-  def add_item
-    @cart = ShoppingCart.create
-    @dish = Dish.find(params[:id])
-
-    @cart.add(@dish)
-  end
-
   private
+  
   def dish_params
     params.require(:dish).permit(:dish_name, :dish_desc, :dish_price, :dish_allergy, :dish_ingredients, :dish_cal)
   end
