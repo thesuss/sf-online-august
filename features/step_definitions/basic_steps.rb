@@ -31,28 +31,22 @@ When(/^I click the link "([^"]*)"$/) do |link|
   click_link(link)
 end
 
-private
-
 Then(/^I should see "([^"]*)" button$/) do |button|
   expect(page).to have_button button
 end
+
 When(/^I fill in "([^"]*)" with "([^"]*)"$/) do |element, text|
   fill_in element, with: text
 end
 
-When(/^I click the "([^"]*)" button$/) do |button|
-  click_button(button)
-end
+private
 
-Then(/^I should see "([^"]*)"$/) do |message|
-  expect(page).to have_content(message)
-end
 def goto(page)
   case page
   when 'restaurant'
     restaurant_path
   when 'menu'
-    menu_path
+    menu_index_path
   when 'add menu'
     new_menu_path
   when 'Create Dish'
