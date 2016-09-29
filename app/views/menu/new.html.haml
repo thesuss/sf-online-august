@@ -3,5 +3,6 @@
     %h1 add menu
 
     = form_for @menu, url: {action: 'create'}, html: {class: 'add_menu'} do |f|
-      = f.text_field :title
+      = f.label :title do
+        = f.text_field :title, id: 'title'
       = f.submit 'Create', id: 'create'
