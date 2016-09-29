@@ -5,6 +5,6 @@ Rails.application.routes.draw do
 
   get '/menu', controller: :menu, action: :index
 
-  get '/cart'
+  get '/cart', controller: :cart, action: :index 
 
 end
