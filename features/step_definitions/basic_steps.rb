@@ -46,7 +46,7 @@ def goto(page)
   when 'restaurant'
     restaurant_path
   when 'menu'
-    menu_index_path
+    menus_path
   when 'add menu'
     new_menu_path
   when 'Create Dish'
