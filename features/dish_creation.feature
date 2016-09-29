@@ -31,7 +31,6 @@ Scenario: I create a dish
     | gluten               |
     | cheese, sauce, crust |
     | 10000                |
-  Then I should see "Add to cart" button
 
 Scenario: I attempt to create a dish with bad info
   Given I am on the "Create Dish" page

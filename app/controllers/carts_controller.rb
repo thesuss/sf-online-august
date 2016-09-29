@@ -4,8 +4,6 @@ class CartsController < ApplicationController
 
   def add_item
     @cart = ShoppingCart.create
-    binding.pry
-
     @dish = Dish.find(params[:dish_id])
     @cart.add(@dish)
   end
