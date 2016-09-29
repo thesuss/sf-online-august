@@ -10,7 +10,7 @@ Scenario: Viewing the Add Menu page
   And I should see "create" button
 
 Scenario: Adding a menu
-  Given I am on the "add menu" page
+  Given I am on the "Add menu" page
   When I fill in "title" with "Awesome Menu"
   And I click the "create" button
   Then I should see "Successfully added menu"
