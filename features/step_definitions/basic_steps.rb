@@ -35,6 +35,11 @@ Then(/^I should see "([^"]*)" button$/) do |button|
   expect(page).to have_button button
 end
 
+Given(/^I am on the "([^"]*)" page for "([^"]*)"$/) do |page, dish|
+  dish_id = Dish.find_by(dish_name: dish)
+  visit dish_path(dish_id)
+end
+
 private
 
 def goto(page)

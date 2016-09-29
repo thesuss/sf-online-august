@@ -4,4 +4,10 @@ Feature: As a Customer
 
 Scenario: Viewing the Cart page
   Given I am on the "cart" page
-  Then I should see "selected dishes"  
+  Then I should see "selected dishes"
+
+Scenario: Adding dish to cart
+  Given the following dish exist
+  | dish_name | dish_desc       | dish_price |
+  | Pizza     | Delicious pizza | 7000       |
+  And I am on the "dish" page for "Pizza"
