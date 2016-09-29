@@ -31,6 +31,10 @@ When(/^I click the link "([^"]*)"$/) do |link|
   click_link(link)
 end
 
+Then(/^I should see "([^"]*)" button$/) do |button|
+  expect(page).to have_button button
+end
+
 private
 
 def goto(page)
