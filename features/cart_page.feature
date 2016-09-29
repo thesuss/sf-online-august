@@ -11,3 +11,6 @@ Scenario: Adding dish to cart
   | dish_name | dish_desc       | dish_price |
   | Pizza     | Delicious pizza | 7000       |
   And I am on the "dish" page for "Pizza"
+  When I click the link "Add to cart" 
+  Then I should be on the "cart" page
+  And I should see "Pizza"
