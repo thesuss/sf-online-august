@@ -16,3 +16,4 @@ Scenario: Adding dish to cart
   And I click the link "Show cart"
   Then I should be on the "cart" page
   And I should see "700000"
+  And I should see "Pizza"
