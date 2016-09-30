@@ -12,7 +12,7 @@ class MenusController < ApplicationController
       flash[:notice] = "Successfully added menu"
       render :index
     else
-      flash[:error] = @menu.errors.full_messages.first
+      flash[:alert] = @menu.errors.full_messages.first
       render :new
     end
   end
