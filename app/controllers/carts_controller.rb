@@ -7,5 +7,6 @@ class CartsController < ApplicationController
     @cart = ShoppingCart.create
 
     @cart.add(@dish, @dish.dish_price)
+    redirect_to carts_path
   end
 end
