@@ -1,5 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe ShoppingCart, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe 'DB table' do
+    it { is_expected.to have_db_column :created_at }
+  end
 end
