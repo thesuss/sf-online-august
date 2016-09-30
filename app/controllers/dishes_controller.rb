@@ -8,7 +8,7 @@ class DishesController < ApplicationController
     if @dish.save
       render :show
     else
-      flash[:error] = @dish.errors.full_messages.first
+      flash[:alert] = @dish.errors.full_messages.first
       render :new
     end
   end
