@@ -9,5 +9,6 @@ class CartsController < ApplicationController
     @cart = ShoppingCart.create
 
     @cart.add(@dish, @dish.dish_price)
+    redirect_back(fallback_location: restaurant_path)
   end
 end
