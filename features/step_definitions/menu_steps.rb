@@ -10,3 +10,9 @@ Then(/^I should be on the "([^"]*)" page for "([^"]*)"$/) do |page, title|
   menu_id = Menu.find_by(title: title)
   expect(current_path).to eq menu_path(menu_id)
 end
+
+Given(/^the following menus exist:$/) do |table|
+  table.hashes.each do |title|
+    FactoryGirl.create(:menu, title: title)
+  end
+end
