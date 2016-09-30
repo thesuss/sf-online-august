@@ -15,4 +15,4 @@ Scenario: Adding dish to cart
   Then I should see "Delicious pizza"
   And I click the link "Show cart"
   Then I should be on the "cart" page
-  And I should see "Pizza"
+  And I should see "700000"
