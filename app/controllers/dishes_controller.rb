@@ -1,6 +1,7 @@
 class DishesController < ApplicationController
   def new
     @dish = Dish.new
+    @menus = Menu.all # Later on, we need to restrict this to only the menus of the current Owner
   end
 
   def create

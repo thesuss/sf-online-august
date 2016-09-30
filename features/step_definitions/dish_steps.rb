@@ -4,7 +4,7 @@ Then(/^I should be on the dish page for "([^"]*)"$/) do |name|
 end
 
 When(/^select "([^"]*)" from "([^"]*)"$/) do |menu, field_name|
-  # select(menu) from (field_name)
+  page.check(menu)
 end
 
 When(/^visit the "([^"]*)" menu page$/) do |menu_name|
