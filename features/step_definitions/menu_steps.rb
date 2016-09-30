@@ -12,7 +12,7 @@ Then(/^I should be on the "([^"]*)" page for "([^"]*)"$/) do |page, title|
 end
 
 Given(/^the following menus exist:$/) do |table|
-  table.hashes.each do |title|
-    FactoryGirl.create(:menu, title: title)
+  table.hashes.each do |menu|
+    FactoryGirl.create(:menu, title: menu[:title])
   end
 end

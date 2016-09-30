@@ -24,11 +24,8 @@
     = form.label :dish_ingredients, 'Ingredients'
     %br/
     = form.text_field :dish_ingredients
-  %p
+  %p#menus
     %h3 Add to Menu
-    - @menus.each do |menu|
-      = form.check_box :menus
-      = form.label :menus, menu.title
-      %br/
+    = form.collection_check_boxes :menu_ids, @menus, :id, :title
   %p
     = form.submit 'Add a Dish'

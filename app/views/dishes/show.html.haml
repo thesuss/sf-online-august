@@ -9,3 +9,7 @@ Allergens: #{@dish.dish_allergy}
 Ingredients: #{@dish.dish_ingredients}
 %br/
 Calories: #{@dish.dish_cal}
+%br/
+Menu(s):
+- @dish.menus.each do |menu|
+  = menu.title

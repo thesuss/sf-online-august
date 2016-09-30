@@ -39,6 +39,12 @@ When(/^I fill in "([^"]*)" with "([^"]*)"$/) do |element, text|
   fill_in element, with: text
 end
 
+Then(/^show me the page$/) do
+  save_and_open_page
+end
+
+
+
 private
 
 def goto(page)

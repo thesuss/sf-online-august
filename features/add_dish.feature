@@ -4,15 +4,16 @@ Feature: As a restaurant Owner
 
 Background:
   Given the following menus exist:
-    | menu   |
+    | title   |
     | Lunch  |
     | Dinner |
 
 Scenario: I create a dish and put it on a menu
   Given I am on the "Create Dish" page
   Then I should see:
-    | content             |
-    | Menu                |
+    | content |
+    | Menu    |
+    | Lunch   |
   When I fill in:
     | element          | content              |
     | Dish Name        | Pizza                |
@@ -20,4 +21,5 @@ Scenario: I create a dish and put it on a menu
     | Price            | 7000kr               |
   And select "Lunch" from "Add to a menu"
   When I click the "Add a Dish" button
-  And visit the "Lunch" menu page
+  Then I should see "Pizza"
+  And I should see "Lunch"

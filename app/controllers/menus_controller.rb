@@ -17,6 +17,10 @@ class MenusController < ApplicationController
     end
   end
 
+  def show
+    @menu = Menu.find(params[:id])
+  end
+
   private
   def menu_params
     params.require(:menu).permit(:title)
