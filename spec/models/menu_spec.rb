@@ -4,7 +4,7 @@ RSpec.describe Menu, type: :model do
 
   describe "regression test" do
     it { is_expected.to have_db_column :title }
-
+    it { is_expected.to have_and_belong_to_many :dishes}
   end
 
   describe "validations" do

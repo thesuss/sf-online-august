@@ -1,6 +1,7 @@
 class DishesController < ApplicationController
   def new
     @dish = Dish.new
+    @menus = Menu.all # Later on, we need to restrict this to only the menus of the current Owner
   end
 
   def create
@@ -20,6 +21,6 @@ class DishesController < ApplicationController
   private
 
   def dish_params
-    params.require(:dish).permit(:dish_name, :dish_desc, :dish_price, :dish_allergy, :dish_ingredients, :dish_cal)
+    params.require(:dish).permit(:dish_name, :dish_desc, :dish_price, :dish_allergy, :dish_ingredients, :dish_cal, {menu_ids: []})
   end
 end

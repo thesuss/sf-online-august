@@ -13,6 +13,7 @@ Scenario: I create a dish
     | Allergy Info        |
     | Ingredients         |
     | Calories            |
+
   When I fill in:
     | element          | content              |
     | Dish Name        | Pizza                |
