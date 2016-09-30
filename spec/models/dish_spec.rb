@@ -8,6 +8,7 @@ RSpec.describe Dish, type: :model do
     it { is_expected.to have_db_column :dish_allergy }
     it { is_expected.to have_db_column :dish_cal }
     it { is_expected.to have_db_column :dish_ingredients }
+    it { is_expected.to have_and_belong_to_many :menus}
   end
 
   describe 'Validations' do
