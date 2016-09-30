@@ -12,5 +12,6 @@ Scenario: Adding dish to cart
   | Pizza     | Delicious pizza | 7000       |
   And I am on the "dish" page for "Pizza"
   When I click the link "Add to cart"
+  And I click the link "Show cart"
   Then I should be on the "cart" page
   And I should see "Pizza"

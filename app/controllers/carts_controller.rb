@@ -1,5 +1,7 @@
 class CartsController < ApplicationController
   def index
+    #binding.pry
+    #@cart = ShoppingCart.find(params[:dish_id])
   end
 
   def add_item
@@ -7,6 +9,5 @@ class CartsController < ApplicationController
     @cart = ShoppingCart.create
 
     @cart.add(@dish, @dish.dish_price)
-    redirect_to carts_path
   end
 end

@@ -2,3 +2,7 @@
   .column-md-12
     %h1 Cart for X
     %p selected dishes
+
+    = @cart.shopping_cart_items.each do |dish|
+      -# Dish.find(params[:id])
+      = dish.price_cents 
