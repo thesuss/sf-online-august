@@ -15,6 +15,11 @@ Scenario: Adding a menu
   And I click the "create" button
   Then I should see "Successfully added menu"
 
+Scenario: Viewing my menu
+  Given I create a menu "Lunch"
+  Then I should see "Successfully added menu"
+  Then I should see "Lunch"
+
 Scenario: Not adding a menu
   Given I am on the "add menu" page
   When I fill in:

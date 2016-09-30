@@ -10,7 +10,7 @@ class MenusController < ApplicationController
     @menu = Menu.new(menu_params)
     if @menu.save
       flash[:notice] = "Successfully added menu"
-      render :index
+      render :show
     else
       flash[:alert] = @menu.errors.full_messages.first
       render :new
