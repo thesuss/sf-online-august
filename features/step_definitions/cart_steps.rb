@@ -20,9 +20,14 @@ Given(/^there are two dishes in my cart$/) do
     And I am on the "dish" page for "Pizza"
     Then I click the link "Add to cart"
     And I am on the "dish" page for "Salad"
-    Then I click the link "Add to cart"}
+    Then I click the link "Add to cart"
+    And the database says there are "2" dishes in my cart}
 end
 
 Given(/^there are no dishes in my cart$/) do
  expect(ShoppingCart.first).to eq nil
+end
+
+Given(/^the database says there (?:is|are) "([^"]*)" (?:dish|dishes) in my cart$/) do |count|
+  expect(ShoppingCart.all.count).to eq count.to_i
 end

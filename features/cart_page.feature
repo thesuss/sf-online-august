@@ -14,7 +14,6 @@ Scenario: Adding dish to cart
   And I should see "700000"
   And I should see "Pizza"
 
-
 Scenario: Can only checkout as registered user
   Given there is one dish in my cart
   And I am on the "cart" page
@@ -44,6 +43,8 @@ Scenario: Adding two dishes to cart
   Given I register as a user with username "Amber" and email "amber@random.com"
   And there are two dishes in my cart
   And I am on the "cart" page
+  Then I should see "Pizza"
+  And I should see "Salad"
   When I click the link "Pay Now"
   Then I should see "Pizza"
   And I should see "Salad"
