@@ -2,10 +2,15 @@
   .column-md-12
     %h1 Cart for X
     %p selected dishes
-    - @cart.shopping_cart_items.each do |dish|
-      = dish.price_cents
-      = dish.item.dish_name
-    - if current_user
-      = link_to 'Pay Now', checkout_path(@cart), method: :post
+    - if @cart.nil?
+      You have no dishes in your cart.
+      %br
+      = link_to 'Search for dishes!', root_path	
     - else
-      = link_to 'Log in to pay', new_user_registration_path
+      - @cart.shopping_cart_items.each do |dish|
+        = dish.price_cents
+        = dish.item.dish_name
+      - if current_user
+        = link_to 'Pay Now', checkout_path(@cart), method: :post
+      - else
+        = link_to 'Log in to pay', new_user_registration_path

@@ -4,10 +4,25 @@ Given(/^the following dish exist$/) do |table|
   end
 end
 
-Given(/^the following dishes are in my cart:$/) do |table|
+Given(/^there is one dish in my cart$/) do
   steps %Q{Given the following dish exist
     | dish_name | dish_desc       | dish_price |
     | Pizza     | Delicious pizza | 7000       |
     And I am on the "dish" page for "Pizza"
     Then I click the link "Add to cart"}
+end
+
+Given(/^there are two dishes in my cart$/) do
+  steps %Q{Given the following dish exist
+    | dish_name | dish_desc       | dish_price |
+    | Pizza     | Delicious pizza | 7000       |
+    | Salad     | Leaves & stuff  | 1500       |
+    And I am on the "dish" page for "Pizza"
+    Then I click the link "Add to cart"
+    And I am on the "dish" page for "Salad"
+    Then I click the link "Add to cart"}
+end
+
+Given(/^there are no dishes in my cart$/) do
+ expect(ShoppingCart.first).to eq nil
 end
