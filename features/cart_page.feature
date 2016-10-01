@@ -28,9 +28,10 @@ Scenario: Can only checkout as registered user
   Then I should see "Log in to pay"
   When I click the link "Log in to pay"
   Then I should be on the "register" page
-  When I register as a new user
+  When I register as a user with username "Amber" and email "amber@random.com"
   Then I should be on the "cart" page
   And I should see "Pay Now"
+  And I should not see "Log in to pay"
 
 
 # Scenario: Checking out as registered user
