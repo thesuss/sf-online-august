@@ -62,6 +62,8 @@ private
 
 def goto(page)
   case page
+  when 'index'
+    root_path
   when 'restaurant'
     restaurant_path
   when 'menu'

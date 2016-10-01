@@ -17,7 +17,7 @@ Scenario: I register as a Customer
 
 Scenario: Redirects to restaurant index page after registration
   Given I register as a user with username "Amber" and email "amber@random.com"
-  Then I should be on the "restaurant" page
+  Then I should be on the "index" page
   And I should see "Amber"
 
 Scenario: Gives you an error when you register without name
