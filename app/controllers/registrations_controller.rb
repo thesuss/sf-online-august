@@ -7,9 +7,4 @@ class RegistrationsController < Devise::RegistrationsController
 
   end
 
-  def after_sign_up_path_for(resource)
-    #this is highly temporary and needs to be the page you were on, and it should be by default... 
-    carts_path
-  end
-
 end
