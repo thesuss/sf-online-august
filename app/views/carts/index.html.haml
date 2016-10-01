@@ -5,3 +5,4 @@
     - @cart.shopping_cart_items.each do |dish|
       = dish.price_cents
       = dish.item.dish_name
+    = link_to 'Pay Now', checkout_path(@cart), method: :post
