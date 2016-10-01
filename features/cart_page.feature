@@ -13,3 +13,8 @@ Scenario: Adding dish to cart
   Then I should be on the "cart" page
   And I should see "700000"
   And I should see "Pizza"
+  And I click the "check out" button
+  Then I should be on the "order" page
+  And I should see "700000"
+  And I should see "Pizza"
+  And I should see "Success"
