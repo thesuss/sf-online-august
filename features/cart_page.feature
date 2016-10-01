@@ -18,10 +18,7 @@ Scenario: Checking out
   Given the following dishes are in my cart:
     | dish      |
     | Pizza     |
-    | Hamburger |
   And I am on the "cart" page
   When I click the link "Pay Now"
-  Then I should be on the "success" page
   And I should see "Your food is on its way!"
   And I should see "Pizza"
-  And I should see "Hamburger"

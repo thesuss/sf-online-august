@@ -5,9 +5,14 @@ class CartsController < ApplicationController
 
   def add_item
     @dish = Dish.find(params[:dish_id])
-    @cart = ShoppingCart.create
+    @cart = ShoppingCart.create # Needs to be find or create - find_or_create_by() - when we implement current_user
 
     @cart.add(@dish, @dish.dish_price)
     redirect_back(fallback_location: restaurant_path)
+  end
+
+  def checkout
+    @order = ShoppingCart.find(params[:format])
+    flash[:success] = "Your food is on its way!"
   end
 end
