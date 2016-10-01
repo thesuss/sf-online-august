@@ -14,5 +14,7 @@ class CartsController < ApplicationController
   def checkout
     @order = ShoppingCart.find(params[:format])
     flash[:success] = "Your food is on its way!"
+    # Somehow confirming that money has changed hands.
+    # Restrict this function to a Customer
   end
 end

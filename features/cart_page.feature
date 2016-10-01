@@ -22,3 +22,4 @@ Scenario: Checking out
   When I click the link "Pay Now"
   And I should see "Your food is on its way!"
   And I should see "Pizza"
+  And I should see "700000"
