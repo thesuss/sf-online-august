@@ -5,8 +5,8 @@ Feature: As a visitor to the site
 Scenario: Viewing the Menu page
   Given I am on the "index" page
   Then I should see:
-    | content    |
-    | Link 1     |
-    | Link 2     |
-  When I click the link "Link 1"
+    | content     |
+    | Restaurants |
+    | Link 2      |
+  When I click the link "Restaurants"
   Then I should be on the "restaurant" page
