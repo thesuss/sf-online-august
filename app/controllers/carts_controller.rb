@@ -2,12 +2,10 @@ class CartsController < ApplicationController
   before_action :find_or_create_cart, only: [:index, :add_item]
 
   def index
-    find_or_create_cart
   end
 
   def add_item
     @dish = Dish.find(params[:dish_id])
-    find_or_create_cart
     @cart.add(@dish, @dish.dish_price)
     redirect_back(fallback_location: restaurant_path)
   end
