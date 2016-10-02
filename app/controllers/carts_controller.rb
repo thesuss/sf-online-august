@@ -1,6 +1,10 @@
 class CartsController < ApplicationController
   def index
-    @cart = ShoppingCart.find(session[:cart_id])
+    if session[:cart_id] == nil
+      @cart = nil
+    else
+      @cart = ShoppingCart.find(session[:cart_id])
+    end
   end
 
   def add_item
@@ -19,7 +23,7 @@ class CartsController < ApplicationController
 
   def checkout
     @order = ShoppingCart.find(params[:format])
-    # Make sure to destroy the session (empty the cart)
+    session.delete(:cart_id)
     flash[:success] = "Your food is on its way!"
     # Somehow confirming that money has changed hands.
     # Restrict this function to a Customer
