@@ -1,4 +1,6 @@
 class CartsController < ApplicationController
+  before_action :find_or_create_cart, only: [:index, :add_item]
+
   def index
     find_or_create_cart
   end
@@ -14,17 +16,13 @@ class CartsController < ApplicationController
     @order = ShoppingCart.find(params[:format])
     session.delete(:cart_id)
     flash[:success] = "Your food is on its way!"
-    # Somehow confirming that money has changed hands.
+    # In a later feature this needs to create some action item to actually make the order happen.
     # Restrict this function to a Customer
   end
 
   private
   def find_or_create_cart
-    if session[:cart_id] == nil
-      @cart = ShoppingCart.create
-      session[:cart_id] = @cart.id
-    else
-      @cart = ShoppingCart.find(session[:cart_id])
-    end
+    @cart = ShoppingCart.find_or_create_by(id: session[:cart_id])
+    session[:cart_id] = @cart.id
   end
 end
