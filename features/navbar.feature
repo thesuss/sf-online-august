@@ -8,3 +8,5 @@ Scenario: Viewing the Menu page
     | content    |
     | Link 1     |
     | Link 2     |
+And when I click "Link 1" link
+Then I should be redirected to "restaurant" page
