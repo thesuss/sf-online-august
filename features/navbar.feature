@@ -7,6 +7,6 @@ Scenario: Viewing the Menu page
   Then I should see:
     | content     |
     | Restaurants |
-    | Link 2      |
+    | Show cart   |
   When I click the link "Restaurants"
   Then I should be on the "restaurant" page
