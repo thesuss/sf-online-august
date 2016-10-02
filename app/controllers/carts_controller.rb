@@ -1,22 +1,11 @@
 class CartsController < ApplicationController
   def index
-    if session[:cart_id] == nil
-      @cart = nil
-    else
-      @cart = ShoppingCart.find(session[:cart_id])
-    end
+    find_or_create_cart
   end
 
   def add_item
     @dish = Dish.find(params[:dish_id])
-    if session[:cart_id] == nil
-      @cart = ShoppingCart.create
-      session[:cart_id] = @cart.id
-    else
-      @cart = ShoppingCart.find(session[:cart_id])
-    end
-    # Needs to be find or create - find_or_create_by() - when we implement current_user
-
+    find_or_create_cart
     @cart.add(@dish, @dish.dish_price)
     redirect_back(fallback_location: restaurant_path)
   end
@@ -27,5 +16,15 @@ class CartsController < ApplicationController
     flash[:success] = "Your food is on its way!"
     # Somehow confirming that money has changed hands.
     # Restrict this function to a Customer
+  end
+
+  private
+  def find_or_create_cart
+    if session[:cart_id] == nil
+      @cart = ShoppingCart.create
+      session[:cart_id] = @cart.id
+    else
+      @cart = ShoppingCart.find(session[:cart_id])
+    end
   end
 end

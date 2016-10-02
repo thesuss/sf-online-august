@@ -2,10 +2,10 @@
   .column-md-12
     %h1 Cart for X
     %p selected dishes
-    - if @cart.nil?
+    - if @cart.shopping_cart_items.count == 0
       You have no dishes in your cart.
       %br
-      = link_to 'Search for dishes!', root_path	
+      = link_to 'Search for dishes!', root_path
     - else
       - @cart.shopping_cart_items.each do |dish|
         = dish.price_cents
