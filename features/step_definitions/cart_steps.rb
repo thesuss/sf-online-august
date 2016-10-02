@@ -25,9 +25,9 @@ Given(/^there are two dishes in my cart$/) do
 end
 
 Given(/^there are no dishes in my cart$/) do
- expect(ShoppingCart.first).to eq nil
+ expect(ShoppingCart.first..shopping_cart_items[0]).to eq nil
 end
 
 Given(/^the database says there (?:is|are) "([^"]*)" (?:dish|dishes) in my cart$/) do |count|
-  expect(ShoppingCart.all.count).to eq count.to_i
+  expect(ShoppingCart.first.shopping_cart_items.count).to eq count.to_i
 end
