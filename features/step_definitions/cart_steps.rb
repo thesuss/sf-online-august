@@ -31,3 +31,11 @@ end
 Given(/^the database says there (?:is|are) "([^"]*)" (?:dish|dishes) in my cart$/) do |count|
   expect(ShoppingCart.first.shopping_cart_items.count).to eq count.to_i
 end
+
+Given(/^I check out$/) do
+  steps %Q{
+    When I am on the "cart" page
+    And I click the link "Pay Now"
+    Then I should see "Pizza"
+  }
+end

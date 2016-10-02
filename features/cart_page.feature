@@ -48,3 +48,10 @@ Scenario: Adding two dishes to cart
   When I click the link "Pay Now"
   Then I should see "Pizza"
   And I should see "Salad"
+
+Scenario: My cart clears after checkout
+  Given I register as a user with username "Amber" and email "amber@random.com"
+  And there are two dishes in my cart
+  And I check out
+  When I am on the "cart" page
+  Then I should see "You have no dishes in your cart."
