@@ -29,9 +29,12 @@ Scenario: Checking out as registered user
   And there is one dish in my cart
   And I am on the "cart" page
   When I click the link "Pay Now"
-  And I should see "Your food is on its way!"
-  And I should see "Pizza"
-  And I should see "700000"
+  Then I should see:
+    | content                  |
+    | Your food is on its way! |
+    | Pizza                    |
+    | 700000                   |
+    | Fjällgatan 3             |
 
 Scenario: I view the cart before I add dishes
   Given there are no dishes in my cart
