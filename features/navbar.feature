@@ -39,4 +39,4 @@ Scenario: Links to see as a restaurant owner
     | Home        |
     | Create menu |
     | Create dish |
-    | Show cart   |
+    And I should not see "Show cart"
