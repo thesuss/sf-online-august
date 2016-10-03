@@ -11,8 +11,7 @@
       %ul.nav.navbar-nav
         %li
           = link_to 'Home', root_path
-        - if current_user
-          - if current_user.owner?
+          - if can? :manage, @restaurant
             %li
               = link_to 'Create restaurant', new_restaurant_path
             %li
@@ -20,9 +19,8 @@
             %li
               = link_to 'Create dish', new_dish_path
         %li
-          - unless !current_user
-            - unless !current_user.owner?
-              = link_to 'Show cart', carts_path
+          - if cannot? :manage, @restaurant
+            = link_to 'Show cart', carts_path
       %ul.nav.navbar-nav.navbar-right
         - if current_user
           %p.navbar-text.navbar-right

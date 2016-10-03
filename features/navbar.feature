@@ -33,10 +33,10 @@ Scenario: Links to see as a user
 
 Scenario: Links to see as a restaurant owner
   Given I am logged in as a restaurant owner
-  And I am on the "index" page
+  And I am on the "create restaurant" page
   Then I should see:
     | content     |
     | Home        |
     | Create menu |
     | Create dish |
-    And I should not see "Show cart"
+  And I should not see "Show cart"
