@@ -1,7 +1,7 @@
 %nav.navbar.navbar-inverse
   .container-fluid
     .navbar-header
-      %button.navbar-toggle.collapsed{"aria-controls" => "navbar", "aria-expanded" => "false", "data-target" => "#navbar", "data-toggle" => "collapse", :type => "button"}
+      %button.navbar-toggle.collapsed{aria: {controls: 'navbar', expanded: 'false'}, data: {target: '#navbar', toggle: 'collapse'}, type: 'button'}
         %span.sr-only Toggle navigation
         %span.icon-bar
         %span.icon-bar
@@ -10,13 +10,11 @@
     #navbar.navbar-collapse.collapse
       %ul.nav.navbar-nav
         %li
-          = link_to "Home", root_path
+          = link_to 'Home', root_path
         %li
-          = link_to "Create dish", new_dish_path
+          = link_to 'Create dish', new_dish_path
         %li
           = link_to 'Show cart', carts_path
-        %li
-          = link_to 'First dish in system', dish_path(1)
       %ul.nav.navbar-nav.navbar-right
         %li
           = link_to 'Log in', new_user_session_path
