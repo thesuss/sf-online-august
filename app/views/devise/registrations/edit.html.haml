@@ -2,7 +2,7 @@
   .column-md-12
     %h2
       Edit #{resource_name.to_s.humanize}
-  .col-xs-8
+  .col-md-8.col-xs-12
     = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }, class: 'form-group') do |f|
       = devise_error_messages!
       .form-group
