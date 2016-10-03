@@ -1,2 +1,26 @@
-%h1 New Restaurants form
-%p part of another feature
+.row
+  .column-md-12
+    %h1 New Restaurant form
+    = form_for @restaurant do |f|
+
+      = f.label :name
+      %br/
+      = f.text_field :name
+      %br/
+      = f.label :description
+      %br/
+      = f.text_area :description
+      %br/
+      = f.label :street
+      %br/
+      = f.text_field :street
+      %br/
+      = f.label :zipcode
+      %br/
+      = f.text_field :zipcode
+      %br/
+      = f.label :town
+      %br/
+      = f.text_field :town
+
+      = f.submit 'Create', id: 'create'

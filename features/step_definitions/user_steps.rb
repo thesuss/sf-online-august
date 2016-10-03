@@ -53,11 +53,6 @@ Given(/^I am logged in as a user$/) do
   login_as(user, scope: :user)
 end
 
-Given(/^I am logged in as a restaurant owner$/) do
-  user = FactoryGirl.create(:user, role: 'owner')
-  login_as(user, scope: :user)
-end
-
 Given(/^I am not logged in$/) do
   logout
 end
