@@ -3,7 +3,8 @@ Feature: As a visitor to the site
   I should see a nav-bar with links
 
 Scenario: Viewing the cart page
-  Given I am on the "index" page
+  Given I am not logged in
+  And I am on the "index" page
   Then I should see:
     | content     |
     | Home        |
@@ -13,7 +14,8 @@ Scenario: Viewing the cart page
 
 
 Scenario: Links to see as a visitor
-  Given I am on the "index" page
+  Given I am not logged in
+  And I am on the "index" page
   Then I should see:
     | content     |
     | Home        |
