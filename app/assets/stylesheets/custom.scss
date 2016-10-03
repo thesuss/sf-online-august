@@ -1,7 +1,14 @@
-.checkbox label {
-  padding:0px;
+.checkbox label::before {
+  position: absolute;
+  width: 17px;
+  height: 17px;
+  left: 0;
 }
 
+.radio input[type="radio"], .radio-inline input[type="radio"], .checkbox input[type="checkbox"], .checkbox-inline input[type="checkbox"] {
+  position: absolute;
+  margin-left: 0px;
+}
 .navbar-text {
   padding-right:20px;
 }
