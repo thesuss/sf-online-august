@@ -1,26 +1,19 @@
 .row
   .column-md-12
     %h1 New Restaurant form
-    = form_for @restaurant do |f|
-
-      = f.label :name
-      %br/
-      = f.text_field :name
-      %br/
-      = f.label :description
-      %br/
-      = f.text_area :description
-      %br/
-      = f.label :street
-      %br/
-      = f.text_field :street
-      %br/
-      = f.label :zipcode
-      %br/
-      = f.text_field :zipcode
-      %br/
-      = f.label :town
-      %br/
-      = f.text_field :town
-
-      = f.submit 'Create', id: 'create'
+  .col-xs-8
+    = form_for @restaurant, class: 'form-group' do |f|
+      .form-group
+        = f.label :name
+        = f.text_field :name, class: 'form-control'
+      .form-group
+        = f.label :description
+        = f.text_area :description, class: 'form-control'
+      .form-group
+        = f.label :street
+        = f.text_field :street, class: 'form-control'
+        = f.label :zipcode
+        = f.text_field :zipcode, class: 'form-control'
+        = f.label :town
+        = f.text_field :town, class: 'form-control'
+      = f.submit 'Create', id: 'create', class: 'btn btn-warning'
