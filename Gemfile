@@ -13,6 +13,7 @@ gem 'haml-rails', '~> 0.9'
 gem 'acts_as_shopping_cart', '~> 0.4.1'
 gem 'devise'
 gem 'cancancan', '~> 1.10'
+gem 'geocoder'
 
 
 group :development, :test do
