@@ -1,6 +1,6 @@
 Feature: As a visitor to the site
   In order to easily navigate through the site
-  I should see a nav-bar with links
+  I should see a nav-bar with relevant links
 
 Scenario: Viewing the cart page
   Given I am not logged in
