@@ -7,7 +7,10 @@ Background:
   | name |
   | McD  |
 
-Scenario: Show map on restaurant page
+Scenario: Geolocate restaurant
   Given I am on restaurant page for "McD"
   Then "McD" should have a latitude
-  And I should see a map-div
+
+Scenario: Show map on index page
+  When I am on the "index" page
+  Then I should see a map-div
