@@ -27,3 +27,6 @@ Geocoder::Lookup::Test.set_default_stub(
     }
   ]
 )
+
+require 'capybara/poltergeist'
+Capybara.javascript_driver = :poltergeist

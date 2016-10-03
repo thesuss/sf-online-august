@@ -28,6 +28,7 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'coveralls', require: false
   gem 'launchy'
+  gem 'poltergeist'
 end
 
 group :development do
