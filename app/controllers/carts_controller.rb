@@ -8,12 +8,13 @@ class CartsController < ApplicationController
     @dish = Dish.find(params[:dish_id])
     @cart.add(@dish, @dish.dish_price)
     redirect_back(fallback_location: restaurants_path)
+    flash[:notice] = "#{dish.name} added to cart"
   end
 
   def checkout
     @order = ShoppingCart.find(params[:format])
     session.delete(:cart_id)
-    flash[:success] = "Your food is on its way!"
+    flash[:notice] = "Your food is on its way!"
     # In a later feature this needs to create some action item to actually make the order happen.
     # Restrict this function to a Customer
   end
