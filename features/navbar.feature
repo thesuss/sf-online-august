@@ -10,3 +10,12 @@ Scenario: Viewing the cart page
     | Show cart   |
   When I click the link "Show cart"
   Then I should be on the "cart" page
+
+
+Scenario: Links to see as a user
+  Given I am on the "index" page
+  Then I should see:
+    | content     |
+    | Home        |
+    | Show cart   |
+  And I should not see "Create dish"
