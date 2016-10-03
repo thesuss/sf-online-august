@@ -8,7 +8,7 @@ class CartsController < ApplicationController
     @dish = Dish.find(params[:dish_id])
     @cart.add(@dish, @dish.dish_price)
     redirect_back(fallback_location: restaurants_path)
-    flash[:notice] = "#{dish.name} added to cart"
+    flash[:notice] = "#{@dish.dish_name} added to cart"
   end
 
   def checkout
