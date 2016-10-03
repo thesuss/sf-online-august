@@ -2,7 +2,7 @@
   .column-md-12
     %h1 Add menu
 
-    = form_for @menu do |f|
+    = form_for @menu, class: 'form-group' do |f|
       = f.label :title do
-        = f.text_field :title, id: 'title'
-      = f.submit 'Create', id: 'create'
+        = f.text_field :title, id: 'title', class: 'form-control'
+      = f.submit 'Create', id: 'create', class: 'btn btn-warning'
