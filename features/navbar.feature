@@ -31,12 +31,12 @@ Scenario: Links to see as a user
     | Show cart   |
   And I should not see "Create dish"
 
-
-Scenario: Links to see as a user
+Scenario: Links to see as a restaurant owner
   Given I am logged in as a restaurant owner
   And I am on the "index" page
   Then I should see:
     | content     |
     | Home        |
+    | Create menu |
+    | Create dish |
     | Show cart   |
-  And I should see "Create dish"
