@@ -9,4 +9,5 @@ Background:
 
 Scenario: Show map on restaurant page
   Given I am on restaurant page for "McD"
-  Then I should see "google map"
+  Then "McD" should have a latitude
+  And I should see a map-div
