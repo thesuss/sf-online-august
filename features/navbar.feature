@@ -26,9 +26,10 @@ Scenario: Links to see as a user
   Given I am logged in as a user
   And I am on the "index" page
   Then I should see:
-    | content     |
-    | Home        |
-    | Show cart   |
+    | content      |
+    | Home         |
+    | Edit profile |
+    | Show cart    |
   And I should not see "Create dish"
 
 Scenario: Links to see as a restaurant owner

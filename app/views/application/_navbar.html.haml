@@ -11,6 +11,9 @@
       %ul.nav.navbar-nav
         %li
           = link_to 'Home', root_path
+          - if current_user.try(:customer?)
+            %li
+              = link_to 'Edit profile', edit_user_registration_path
           - if current_user.try(:owner?)
             %li
               = link_to 'Create restaurant', new_restaurant_path
