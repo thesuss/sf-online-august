@@ -18,3 +18,7 @@ Then(/^I should see a map-div$/) do
   loop until all(:css, '#map').length == 1
   expect(page).to have_css '#map'
 end
+
+Then(/^The map\-div should contain a Google map$/) do
+  element = find('#map#gmap')
+end
