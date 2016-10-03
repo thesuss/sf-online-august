@@ -48,6 +48,10 @@ Given(/^I register as a user with address "([^"]*)"$/) do |address|
   }
 end
 
+Given(/^I am logged in as a user$/) do
+  user = FactoryGirl.create(:user, role: 'customer')
+  login_as(user, scope: :user)
+end
 
 Given(/^I am logged in as a restaurant owner$/) do
   user = FactoryGirl.create(:user, role: 'owner')

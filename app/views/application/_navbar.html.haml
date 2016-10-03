@@ -11,8 +11,9 @@
       %ul.nav.navbar-nav
         %li
           = link_to 'Home', root_path
-        %li
-          = link_to 'Create dish', new_dish_path
+        - if current_user
+          %li
+            = link_to 'Create dish', new_dish_path
         %li
           = link_to 'Show cart', carts_path
       %ul.nav.navbar-nav.navbar-right
