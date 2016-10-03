@@ -8,6 +8,8 @@ RSpec.describe Restaurant, type: :model do
     it { is_expected.to have_db_column :street}
     it { is_expected.to have_db_column :zipcode}
     it { is_expected.to have_db_column :town}
+    it { is_expected.to have_db_column :latitude}
+    it { is_expected.to have_db_column :longitude}
     it {is_expected.to belong_to :user}
     it {is_expected.to validate_presence_of :user}
   end
@@ -25,5 +27,10 @@ RSpec.describe Restaurant, type: :model do
     end
   end
 
+  describe 'geocoding' do
+    it 'should generate a full address from Factory' do
+      expect(create(:restaurant).full_address).to eq "Fjällgatan 3, 41463, Gothenburg"
+    end
+  end
 
 end

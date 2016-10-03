@@ -104,6 +104,7 @@ GEM
       factory_girl (~> 4.7.0)
       railties (>= 3.0.0)
     ffi (1.9.14)
+    geocoder (1.4.0)
     gherkin (4.0.0)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
@@ -289,6 +290,7 @@ DEPENDENCIES
   devise
   erb2haml
   factory_girl_rails
+  geocoder
   haml-rails (~> 0.9)
   jbuilder (~> 2.5)
   jquery-rails

@@ -2,9 +2,9 @@ FactoryGirl.define do
   factory :restaurant do
     name 'MyString'
     description 'MyText'
-    street 'My Street'
-    zipcode '99912'
-    town 'GothenburgCity'
+    street 'Fjällgatan 3'
+    zipcode '41463'
+    town 'Gothenburg'
     user {association(:user)}
   end
 end
