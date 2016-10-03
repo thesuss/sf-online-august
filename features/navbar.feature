@@ -6,7 +6,7 @@ Scenario: Viewing the Menu page
   Given I am on the "index" page
   Then I should see:
     | content     |
-    | Restaurants |
+    | Home        |
     | Show cart   |
-  When I click the link "Restaurants"
-  Then I should be on the "restaurant" page
+  When I click the link "Show cart"
+  Then I should be on the "cart" page
