@@ -7,10 +7,17 @@ class ApplicationController < ActionController::Base
     redirect_to root_path, alert: exception.message
   end
 
+  def signout
+    redirect_to root_path
+  end
 
   private
   def store_current_location
     store_location_for(:user, request.url)
+  end
+
+  def after_sign_out_path_for(resource_or_scope)
+    root_path
   end
 
 end

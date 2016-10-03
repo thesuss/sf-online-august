@@ -8,7 +8,8 @@ Rails.application.routes.draw do
     post 'add_item', controller: :carts, action: :add_item
   end
 
-  devise_for :users, controllers: { registrations: 'registrations' }
+  devise_for :users, controllers: { registrations: 'registrations'}
+  # get '/users/sign_out', controller: :application, action: :signout
 
   resources :menus, only: [:index, :create, :new, :show, :edit, :update]
 

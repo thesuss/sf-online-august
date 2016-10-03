@@ -21,6 +21,13 @@ Scenario: Redirects to restaurant index page after registration
   Then I should be on the "index" page
   And I should see "Amber"
 
+Scenario: I log out
+  Given I am logged in as a user
+  And I am on the "index" page
+  When I click the link "Logout"
+  Then I should be on the "index" page
+  And I should see "Signed out successfully"
+
 Scenario: Gives you an error when you register without name
   Given I register as a user with username "" and email "amber@random.com"
   Then I should be on the "user registration" page
