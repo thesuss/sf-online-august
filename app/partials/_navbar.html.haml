@@ -1,0 +1,22 @@
+.container-fluid
+  .row
+    .col-md-12
+      %nav.navbar.navbar-default{:role => "navigation"}
+        .navbar-header
+          %button.navbar-toggle{"data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
+            %span.sr-only Toggle navigation
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+          %a.navbar-brand Best Slow Food
+        #bs-example-navbar-collapse-1.collapse.navbar-collapse
+          %ul.nav.navbar-nav
+            %li.active
+              = link_to "Home", root_path
+              = link_to "Create dish", new_dish_path
+              = link_to 'Show cart', carts_path
+            %li{:style => "list-style: none; display: inline"}
+              %ul.nav.navbar-nav.navbar-right
+                %li)
+                  = link_to 'Sign up', new_user_registration_path
+                  = link_to 'Log in', new_session_path(user

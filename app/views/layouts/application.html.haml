@@ -7,29 +7,11 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
+    = render partial: 'navbar'
     .container
       - flash.each do |key, value|
         %div{class: "#{flash_class(key)}"}
           %a.close{"aria-label" => "close", "data-dismiss" => "alert", :href => "#"} ×
           %strong
             = value
-    .container-fluid
-      .row
-        .col-md-12
-          %nav.navbar.navbar-default{:role => "navigation"}
-            .navbar-header
-              %button.navbar-toggle{"data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
-                %span.sr-only Toggle navigation
-                %span.icon-bar
-                %span.icon-bar
-                %span.icon-bar
-              %a.navbar-brand Best Slow Food
-            #bs-example-navbar-collapse-1.collapse.navbar-collapse
-              %ul.nav.navbar-nav
-                %li.active
-                  = link_to "Restaurants", restaurant_path
-                %li{:style => "list-style: none; display: inline"}
-                  %ul.nav.navbar-nav.navbar-right
-                    %li
-                      = link_to 'Show cart', carts_path
       = yield
