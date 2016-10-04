@@ -20,5 +20,5 @@ Then(/^I should see a map-div$/) do
 end
 
 Then(/^the map\-div should contain a map$/) do
-  pending # Write code here that turns the phrase above into concrete actions
+  element = find('#map#gmap')
 end
