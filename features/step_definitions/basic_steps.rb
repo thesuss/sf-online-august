@@ -64,6 +64,8 @@ def goto(page)
   case page
   when 'index'
     root_path
+  when 'login'
+    new_user_session_path
   when 'restaurant'
     restaurants_path
   when 'menu'
