@@ -1,5 +1,3 @@
-- @kanelbulle = 11.971639
-
 :javascript
   var map;
   $(document).ready(function(){
@@ -13,18 +11,13 @@
     performGeolocation();
     addMarker();
   });
-
-
-
   function addMarker() {
-    map.addMarker({
-      lat: 57.690943,
-      lng: #{@kanelbulle},
-      title: 'Lima',
-      click: function(e) {
-        alert('You clicked in this marker');
-      }
-    });
+    for (i = 0; i < gon.restaurants.length; i++) {
+      map.addMarker({
+          lat: gon.restaurants[0].latitude,
+          lng: gon.restaurants[0].longitude,
+      });
+    }
   }
 
   function performGeolocation() {
@@ -62,9 +55,14 @@
       - if current_user
         Buy some food, #{current_user.name}
     %div Picture placeholder
-    %div Restaurant Name placeholder
-    %div Restaurant info placeholder
-    %div Map placeholder
+    - @restaurants.each do | restaurant |
+      %h5
+        = restaurant.name
+      %p
+        = restaurant.description
+      %p
+        = restaurant.town
+        
     %div Placeholder for popular restaurants
     %div Highlighted dishes placeholder
     %div Comment and rate placeholder
