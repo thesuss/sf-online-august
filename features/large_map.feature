@@ -34,4 +34,5 @@ Scenario: Listing restaurants on index
   | Home      |
   | McF       |
   | Gone      |
-  
+  When I click the link "McD"
+  Then I should be on the restaurant page for "McD"
