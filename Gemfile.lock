@@ -59,6 +59,7 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    cliver (0.3.2)
     coderay (1.1.1)
     concurrent-ruby (1.0.2)
     coveralls (0.8.15)
@@ -108,6 +109,7 @@ GEM
     gherkin (4.0.0)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
+    gmapsjs (0.4.21.1)
     haml (4.0.7)
       tilt
     haml-rails (0.9.0)
@@ -164,6 +166,10 @@ GEM
     orm_adapter (0.5.0)
     pg (0.19.0)
     pkg-config (1.1.7)
+    poltergeist (1.10.0)
+      capybara (~> 2.1)
+      cliver (~> 0.3.1)
+      websocket-driver (>= 0.2.0)
     pry (0.10.4)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -291,12 +297,14 @@ DEPENDENCIES
   erb2haml
   factory_girl_rails
   geocoder
+  gmapsjs
   haml-rails (~> 0.9)
   jbuilder (~> 2.5)
   jquery-rails
   launchy
   listen (~> 3.0.5)
   pg (~> 0.18)
+  poltergeist
   pry
   pry-byebug
   puma (~> 3.0)
