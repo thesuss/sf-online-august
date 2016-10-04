@@ -6,3 +6,5 @@
   - @menu.dishes.each do |dish|
     = link_to dish.dish_name, dish
     %br/
+
+= link_to 'Edit menu', edit_menu_path(@menu.id)
