@@ -20,5 +20,5 @@ Then(/^I should see a map-div$/) do
 end
 
 Then(/^the map\-div should contain a map$/) do
-  element = find('#map#gmap')
+  element = find('#map.div.gm-style')
 end

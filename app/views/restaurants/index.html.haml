@@ -1,3 +1,16 @@
+:javascript
+  var map;
+  $(document).ready(function(){
+    map = new GMaps({
+      div: '#map',
+      lat: -12.043333,
+      lng: -77.028333,
+      width: '800px',
+      height: '300px'
+    });
+  });
+.mapdiv
+  %div#map
 .row
   .col-md-12
     .jumbotron
@@ -11,4 +24,3 @@
     %div Placeholder for popular restaurants
     %div Highlighted dishes placeholder
     %div Comment and rate placeholder
-    %div#map
