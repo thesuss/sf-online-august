@@ -3,6 +3,7 @@ class RestaurantsController < ApplicationController
   before_action :check_for_exisiting_restaurant, only: :new
 
   def index
+    gon.restaurants = Restaurant.all
   end
 
   def new
