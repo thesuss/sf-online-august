@@ -20,5 +20,7 @@ Then(/^I should see a map-div$/) do
 end
 
 Then(/^the map\-div should contain a map$/) do
-  element = find('#map.div.gm-style')
+  within('#map') do
+    expect(page).to have_css '.gm-style'
+  end
 end
