@@ -45,5 +45,4 @@ def simulate_location(lat, lng)
                   success: function (position) {
                     map.setCenter(#{lat}, #{lng})}
                     });")
-  # page.execute_script("map.setCenter(#{lat}, #{lng});")
 end
