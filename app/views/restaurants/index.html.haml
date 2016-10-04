@@ -3,13 +3,26 @@
   $(document).ready(function(){
     map = new GMaps({
       div: '#map',
-      lat: -12.043333,
-      lng: -77.028333,
+      lat: 57.7089,
+      lng: 11.9746,
       width: '800px',
       height: '300px'
     });
     performGeolocation();
+    addMarker();
   });
+
+  function addMarker() {
+    map.addMarker({
+      lat: 57.690943,
+      lng: 11.971639,
+      title: 'Lima',
+      click: function(e) {
+        alert('You clicked in this marker');
+      }
+    });
+  }
+
   function performGeolocation() {
     var latitude;
     var longitude;
