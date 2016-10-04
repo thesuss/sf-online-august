@@ -11,12 +11,16 @@
     = include_gon
   %body
     = render partial: 'navbar'
+    - flash.each do |key, value|
+      %div{class: "#{flash_class(key)}"}
+        %a.close{aria: {label:'close'}, data: {dismiss: 'alert'}, href: '#'} ×
+        %strong
+          = value
+  - if current_page?(root_path)
+    .landing-container
+      = yield
+  - else
     .container
-      - flash.each do |key, value|
-        %div{class: "#{flash_class(key)}"}
-          %a.close{aria: {label:'close'}, data: {dismiss: 'alert'}, href: '#'} ×
-          %strong
-            = value
       = yield
       - unless current_user
         = link_to 'Register your restaurant account', new_user_registration_path(role: 'owner')

@@ -3,9 +3,7 @@ $(document).ready(function(){
   map = new GMaps({
     div: '#map',
     lat: 57.7089,
-    lng: 11.9746,
-    width: '800px',
-    height: '300px'
+    lng: 11.9746
   });
   performGeolocation();
   addMarker();

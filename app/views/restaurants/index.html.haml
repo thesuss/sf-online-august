@@ -1,20 +1,20 @@
-.mapdiv
-  %div#map{data: {test: {env: "#{Rails.env.test?}"}}}
-.row
-  .col-md-12
-    .jumbotron
-      %h2 "What do you feel like tonight?"
-      - if current_user
-        Buy some food, #{current_user.name}
-    %div Picture placeholder
-    - @restaurants.each do | restaurant |
-      %h5
-        = restaurant.name
-      %p
-        = restaurant.description
-      %p
-        = restaurant.town
+%div#map{data: {test: {env: "#{Rails.env.test?}"}}}
+.container
+  .row
+    .col-md-12
+      .jumbotron
+        %h2 "What do you feel like tonight?"
+        - if current_user
+          Buy some food, #{current_user.name}
+      %div Picture placeholder
+      - @restaurants.each do | restaurant |
+        %h5
+          = restaurant.name
+        %p
+          = restaurant.description
+        %p
+          = restaurant.town
 
-    %div Placeholder for popular restaurants
-    %div Highlighted dishes placeholder
-    %div Comment and rate placeholder
+      %div Placeholder for popular restaurants
+      %div Highlighted dishes placeholder
+      %div Comment and rate placeholder
