@@ -14,6 +14,8 @@ gem 'acts_as_shopping_cart', '~> 0.4.1'
 gem 'devise'
 gem 'cancancan', '~> 1.10'
 gem 'geocoder'
+gem 'gmapsjs'
+
 
 
 group :development, :test do
