@@ -14,7 +14,7 @@ Then(/^"([^"]*)" should have a latitude$/) do |name|
   expect(restaurant.latitude).not_to be nil
 end
 
-Then(/^I should see a map-div$/) do
+Then(/^I see a map-div$/) do
   expect(page).to have_css '#map'
 end
 

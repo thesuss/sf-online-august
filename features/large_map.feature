@@ -4,17 +4,24 @@ Feature: As a Customer
 
 Background:
   Given the following restaurant exist
-  | name |
-  | McD  |
+  | name | description | town |
+  | McD  | Nice food   | Home |
+  And I am on the "index" page
+
 
 @javascript
 Scenario: Show map on index page
-  When I am on the "index" page
-  Then I should see a map-div
+  Then I see a map-div
   And the map-div should contain a map
 
 @javascript
 Scenario: Viewing my location on the map
-  Given I am on the "index" page
   And my location is "Gothenburg"
   Then I expect a Google map to load
+
+Scenario: Listing restaurants on index
+  Then I should see:
+  | content   |
+  | McD       |
+  | Nice food |
+  | Home      |
