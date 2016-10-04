@@ -1,7 +1,7 @@
 Feature: Geocoding restaurants
 
 Background:
-  Given the following restaurant exist
+  Given the following restaurants exist
   | name |
   | McD  |
 
