@@ -1,3 +1,5 @@
+- @kanelbulle = 11.971639
+
 :javascript
   var map;
   $(document).ready(function(){
@@ -12,10 +14,12 @@
     addMarker();
   });
 
+
+
   function addMarker() {
     map.addMarker({
       lat: 57.690943,
-      lng: 11.971639,
+      lng: #{@kanelbulle},
       title: 'Lima',
       click: function(e) {
         alert('You clicked in this marker');
