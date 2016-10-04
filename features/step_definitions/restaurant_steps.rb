@@ -21,3 +21,18 @@ Given(/^I already have a restaurant$/) do
     And I click the "Create" button
   }
 end
+
+Given(/^"([^"]*)" owns the following restaurant$/) do |name, table|
+  table.hashes.each do |hash|
+    set_user(name)
+    name = hash[:name]
+    description = hash[:description]
+    town = hash[:town]
+    FactoryGirl.create(:restaurant, name: name, description: description, town: town, user: @user)
+  end
+end
+
+private
+def set_user(name)
+  @user = User.find_by(name: name)
+end

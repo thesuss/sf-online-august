@@ -3,9 +3,16 @@ Feature: As a Customer
   I need to see a map and list with local restaurants.
 
 Background:
-  Given the following restaurant exist
+  Given the following users exist
+  | name   | email         | role  |
+  | Anna   | anna@food.se  | owner |
+  | Janne  | janne@food.se | owner |
+  And "Anna" owns the following restaurant
   | name | description | town |
   | McD  | Nice food   | Home |
+  And "Janne" owns the following restaurant
+  | name | description | town |
+  | McF  | Nice food   | Gone |
   And I am on the "index" page
 
 
@@ -25,3 +32,6 @@ Scenario: Listing restaurants on index
   | McD       |
   | Nice food |
   | Home      |
+  | McF       |
+  | Gone      |
+  
