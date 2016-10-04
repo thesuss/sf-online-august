@@ -13,7 +13,8 @@ Scenario: Show map on index page
   Then I should see a map-div
   And the map-div should contain a map
 
+@javascript
 Scenario: Viewing my location on the map
   Given I am on the "index" page
-  Then the page should know my location
-  And the map should focus on my location
+  And my location is "Gothenburg"
+  Then I expect a Google map to load
