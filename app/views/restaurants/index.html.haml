@@ -10,7 +10,7 @@
       %div Picture placeholder
       - @restaurants.each do | restaurant |
         %h5
-          = restaurant.name
+          = link_to restaurant.name, restaurant_path(restaurant.id)
         %p
           = restaurant.description
         %p
