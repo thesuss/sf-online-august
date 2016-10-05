@@ -33,6 +33,7 @@ Given(/^I am on the restaurant page for "([^"]*)"$/) do |name|
 end
 
 Then(/^"([^"]*)" should have lat "([^"]*)" and long "([^"]*)"$/) do |name, lat, long|
+  binding.pry
   restaurant = Restaurant.find_by(name: name)
   expect(restaurant.latitude).to be lat.to_f
   expect(restaurant.longitude).to be long.to_f
