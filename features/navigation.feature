@@ -47,6 +47,11 @@ Scenario: Menus should link to dishes
 
 Scenario: Menu page should have edit link
   Given I am on the menu page for "Lunch"
+  Then show me the page
   And I click the link "Edit menu"
   Then I should be on the edit menu page for "Lunch"
-  And show me the page
+
+Scenario: Dish page should have edit link
+  Given I am on the dish page for "Pizza"
+  And I click the link "Edit dish"
+  Then I should be on the edit dish page for "Pizza"
