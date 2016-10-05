@@ -14,6 +14,15 @@ Background:
     | Olives    | Salty           | 90         |
   And I add "Pizza" to the "Lunch" menu
 
+Scenario: Index should link to restaurants
+  Given I am on the "index" page
+  Then I should see:
+    | content |
+    | McD     |
+    | McF     |
+  When I click the link "McD"
+  Then I should be on the restaurant page for "McD"
+
 
 #Waiting for Amber's PR to be merged
 # Scenario: Restaurant pages should link to menus
