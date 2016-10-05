@@ -7,6 +7,14 @@ class ApplicationController < ActionController::Base
     redirect_to root_path, alert: exception.message
   end
 
+  rescue_from ActiveRecord::RecordNotFound do |exception|
+    item = params[:controller].singularize.capitalize
+    if exception.message == "Couldn't find #{item} with 'id'=#{params[:id]}"
+      flash[:alert] = item + ' not found'
+      redirect_to request.referer ? :back : root_url
+    end
+  end
+
   def owner_has_restaurant?
     if Restaurant.exists?(user: current_user)
       true

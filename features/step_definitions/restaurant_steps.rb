@@ -27,6 +27,18 @@ Given(/^I already have a restaurant$/) do
   }
 end
 
+Given(/^I try to visit the restaurant page for a restaurant that doesn't exist$/) do
+  visit restaurant_path(99999)
+end
+
+Given(/^I try to visit the dish page for a dish that doesn't exist$/) do
+  visit dish_path(99999)
+end
+
+Given(/^I try to visit the menu page for a menu that doesn't exist$/) do
+  visit menu_path(999999)
+end
+
 When(/^I am on my restaurant page$/) do
   restaurant = Restaurant.first
   visit restaurant_path(restaurant)
