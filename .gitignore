@@ -22,5 +22,8 @@ coverage/
 #Ignore mac files
 .DS_Store
 
+#Ignore .env
+.env
+
 #vendor files
 vendor/bundle/
