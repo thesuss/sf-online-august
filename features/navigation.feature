@@ -4,6 +4,14 @@ Feature: As a visitor/customer
 
 Background:
   Given I am logged in as a restaurant owner
+  And the following users exist
+    | name  | email         | role  |
+    | Anna  | anna@food.se  | owner |
+    | Janne | janne@food.se | owner |
+  And the following restaurants exists
+    | name | description | town | owner |
+    | McD  | Nice food   | Home | Anna  |
+    | McF  | Nice food   | Gone | Janne |
   And the following menus exist:
     | title |
     | Lunch |
@@ -23,10 +31,9 @@ Scenario: Index should link to restaurants
   When I click the link "McD"
   Then I should be on the restaurant page for "McD"
 
-
 #Waiting for Amber's PR to be merged
 # Scenario: Restaurant pages should link to menus
-#   Given I am on the restaurant page for "Awesome"
+#   Given I am on the restaurant page for "McD"
 #   Then I should see "Lunch"
 #   When I click the link "Lunch"
 #   Then I should be on the menu page for "Lunch"
