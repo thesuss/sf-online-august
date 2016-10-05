@@ -59,3 +59,8 @@ Scenario: Dish page should have edit link
   Given I am on the dish page for "Pizza"
   And I click the link "Edit dish"
   Then I should be on the edit dish page for "Pizza"
+
+Scenario: Menu page should NOT have edit link for visitors
+  Given I am not logged in
+  And I am on the dish page for "Pizza"
+  Then I should not see "Edit menu"

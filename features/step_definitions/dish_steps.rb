@@ -11,12 +11,14 @@ When(/^visit the "([^"]*)" menu page$/) do |menu_name|
   menu = Menu.find_by(title: menu_name)
   visit menu_path(menu)
 end
-Given(/^I am on the dish page for "([^"]*)"$/) do |arg1|
+
+Given(/^I am on the dish page for "([^"]*)"$/) do |name|
   dish = Dish.find_by(dish_name: name)
+  binding.pry
   visit dish_path(dish)
 end
 
-Then(/^I should be on the edit dish page for "([^"]*)"$/) do |arg1|
+Then(/^I should be on the edit dish page for "([^"]*)"$/) do |name|
   dish = Dish.find_by(dish_name: name)
   expect(current_path).to eq edit_dish_path(dish)
 end
