@@ -10,6 +10,8 @@ Ingredients: #{@dish.dish_ingredients}
 %br/
 Calories: #{@dish.dish_cal}
 %br/
+= link_to 'Edit', edit_dish_path(@dish), class: 'btn btn-primary'
+%br/
 Menu(s):
 - @dish.menus.each do |menu|
   = menu.title

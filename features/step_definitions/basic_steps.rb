@@ -49,8 +49,8 @@ Given(/^I am on the "([^"]*)" page for "([^"]*)"$/) do |page, dish|
 end
 
 Then(/^I should be on the "([^"]*)" page for "([^"]*)"$/) do |page, dish|
-  dish_id = Dish.find_by(dish_name: dish)
-  expect(current_path).to eq dish_path(dish_id)
+  @dish = Dish.find_by(dish_name: dish)
+  expect(current_path).to eq goto(page)
 end
 
 Then(/^show me the page$/) do
@@ -74,6 +74,8 @@ def goto(page)
     new_menu_path
   when 'Create Dish'
     new_dish_path
+  when 'edit dish'
+    edit_dish_path(@dish)
   when 'cart'
     carts_path
   when 'register'
