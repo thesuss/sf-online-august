@@ -49,3 +49,4 @@ Scenario: Menu page should have edit link
   Given I am on the menu page for "Lunch"
   And I click the link "Edit menu"
   Then I should be on the edit menu page for "Lunch"
+  And show me the page
