@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   post '/checkout', controller: :carts, action: :checkout
 
   resources :restaurants, only: [:index, :new, :create, :show]
-  resources :dishes, only: [:new, :show, :create, :edit] do
+  resources :dishes, only: [:new, :show, :create, :edit, :update] do
     post 'add_item', controller: :carts, action: :add_item
   end
 

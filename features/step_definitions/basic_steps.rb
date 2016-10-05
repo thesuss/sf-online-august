@@ -44,8 +44,8 @@ When(/^I fill in "([^"]*)" with "([^"]*)"$/) do |element, text|
 end
 
 Given(/^I am on the "([^"]*)" page for "([^"]*)"$/) do |page, dish|
-  dish_id = Dish.find_by(dish_name: dish)
-  visit dish_path(dish_id)
+  @dish = Dish.find_by(dish_name: dish)
+  visit goto(page)
 end
 
 Then(/^I should be on the "([^"]*)" page for "([^"]*)"$/) do |page, dish|
@@ -76,6 +76,8 @@ def goto(page)
     new_dish_path
   when 'edit dish'
     edit_dish_path(@dish)
+  when 'show dish'
+    dish_path(@dish)
   when 'cart'
     carts_path
   when 'register'
