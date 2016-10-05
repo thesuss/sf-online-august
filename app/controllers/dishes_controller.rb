@@ -1,9 +1,10 @@
 class DishesController < ApplicationController
   load_and_authorize_resource
+  before_action :owner_has_restaurant?, only: :new
 
   def new
     @dish = Dish.new
-    @menus = Menu.all # Later on, we need to restrict this to only the menus of the current Owner
+    @menus = Menu.where(restaurant: current_user.restaurant)
   end
 
   def create

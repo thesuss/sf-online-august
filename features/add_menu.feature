@@ -4,6 +4,7 @@ Feature: As a restaurant Owner
 
   Background:
     Given I am logged in as a restaurant owner
+    And I already have a restaurant
 
   Scenario: Viewing the Add Menu page
     Given I am on the "add menu" page
@@ -30,3 +31,9 @@ Feature: As a restaurant Owner
       | title   |         |
     And I click the "create" button
     Then I should see "Title can't be blank"
+
+  Scenario: I attempt to access the create menu page when not logged in
+    Given I am not logged in
+    When I am on the "add menu" page
+    Then I should be on the "index" page
+    And I should see "You are not authorized to access this page"

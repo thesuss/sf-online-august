@@ -1,5 +1,6 @@
 FactoryGirl.define do
   factory :menu do
-    title 'title'
+    title "title"
+    restaurant {association(:restaurant)}
   end
 end

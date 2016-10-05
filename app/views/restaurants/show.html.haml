@@ -1,3 +1,6 @@
 here is the show for restaurants
 
 = @restaurant.name
+%p
+  - @restaurant.menus.each do |menu|
+    = link_to menu.title, menu_path(menu)

@@ -7,6 +7,15 @@ class ApplicationController < ActionController::Base
     redirect_to root_path, alert: exception.message
   end
 
+  def owner_has_restaurant?
+    if Restaurant.exists?(user: current_user)
+      true
+    else
+      flash[:alert] = 'Please create your restaurant before continuing'
+      redirect_to new_restaurant_path
+    end
+  end
+
   private
   def store_current_location
     store_location_for(:user, request.url)

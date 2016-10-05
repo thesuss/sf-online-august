@@ -1,5 +1,6 @@
 class MenusController < ApplicationController
   before_action :find_menu_from_params, only: [:show, :edit, :update]
+  before_action :owner_has_restaurant?, only: :new
 
   load_and_authorize_resource
 
@@ -14,12 +15,13 @@ class MenusController < ApplicationController
   end
 
   def create
-    @menu = Menu.new(menu_params)
-    if @menu.save
+    restaurant = Restaurant.find_by(user: current_user)
+    menu = restaurant.menus.new(menu_params)
+    if menu.save
       flash[:notice] = 'Successfully added menu'
       render :show
     else
-      flash[:alert] = @menu.errors.full_messages.first
+      flash[:alert] = menu.errors.full_messages.first
       render :new
     end
   end
