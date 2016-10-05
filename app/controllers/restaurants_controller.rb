@@ -3,6 +3,7 @@ class RestaurantsController < ApplicationController
   before_action :check_for_exisiting_restaurant, only: :new
 
   def index
+    gon.restaurants = Restaurant.all
   end
 
   def new
@@ -26,7 +27,7 @@ class RestaurantsController < ApplicationController
 
   def check_for_exisiting_restaurant
     unless current_user.restaurant.nil?
-      flash[:alert] = "You already have a restaurant, how many do you need?"
+      flash[:alert] = 'You already have a restaurant, how many do you need?'
       redirect_back(fallback_location: root_path)
     end
   end

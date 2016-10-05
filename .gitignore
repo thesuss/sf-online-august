@@ -19,5 +19,8 @@ coverage/
 #Ignore Ruby Mine files
 .idea
 
+#Ignore mac files
+.DS_Store
+
 #vendor files
 vendor/bundle/

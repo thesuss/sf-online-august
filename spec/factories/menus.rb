@@ -1,5 +1,5 @@
 FactoryGirl.define do
   factory :menu do
-    title "title"
+    title 'title'
   end
 end

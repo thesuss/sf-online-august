@@ -1,14 +1,18 @@
-.row
-  .col-md-12
-    .jumbotron
-      %h2 "What do you feel like tonight?"
-      - if current_user
-        Buy some food, #{current_user.name}
-    %div Picture placeholder
-    %div Restaurant Name placeholder
-    %div Restaurant info placeholder
-    %div Map placeholder
-    %div Placeholder for popular restaurants
-    %div Highlighted dishes placeholder
-    %div Comment and rate placeholder
-    %div#map
+.question-row
+  .question-container
+    %h2 What do you feel like tonight?
+    - if current_user
+      Buy some food, #{current_user.name}
+#map{data: {test: {env: "#{Rails.env.test?}"}}}
+.container
+  .row
+    .col-md-12
+      %div Picture placeholder
+      - @restaurants.each do | restaurant |
+        %h5
+          = link_to restaurant.name, restaurant_path(restaurant.id)
+      %div Placeholder for popular restaurants
+      %div Highlighted dishes placeholder
+      %div Comment and rate placeholder
+      - unless current_user
+        = link_to 'Register your restaurant account', new_user_registration_path(role: 'owner')

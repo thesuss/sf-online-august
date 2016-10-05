@@ -14,22 +14,22 @@
       .form-group
         = f.label :password
         %i (leave blank if you don't want to change it)
-        = f.password_field :password, autocomplete: "off", class: 'form-control'
+        = f.password_field :password, autocomplete: 'off', class: 'form-control'
         - if @minimum_password_length
           %em
             = @minimum_password_length
             characters minimum
       .form-group
         = f.label :password_confirmation
-        = f.password_field :password_confirmation, autocomplete: "off", class: 'form-control'
+        = f.password_field :password_confirmation, autocomplete: 'off', class: 'form-control'
       .form-group
         %br
         = f.label :current_password
-        = f.password_field :current_password, autocomplete: "off", class: 'form-control'
+        = f.password_field :current_password, autocomplete: 'off', class: 'form-control'
         %i (we need your current password to confirm your changes)
       .actions
-        = f.submit "Update", class: 'btn btn-warning'
+        = f.submit 'Update', class: 'btn btn-warning'
     %h3 Cancel my account
     %p
-      Unhappy? #{button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'btn btn-danger'}
-    = link_to "Back", :back
+      Unhappy? #{button_to 'Cancel my account', registration_path(resource_name), data: { confirm: 'Are you sure?' }, method: :delete, class: 'btn btn-danger'}
+    = link_to 'Back', :back

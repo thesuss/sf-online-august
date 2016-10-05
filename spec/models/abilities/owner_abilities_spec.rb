@@ -15,4 +15,8 @@ RSpec.describe 'Owners Abilities', type: :model do
     expect(subject).to be_able_to(:manage, Restaurant.new)
   end
 
+  it 'can not create ShoppingCart' do
+    expect(subject).not_to be_able_to(:create, ShoppingCart)
+  end
+
 end

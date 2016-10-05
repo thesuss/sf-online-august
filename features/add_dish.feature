@@ -24,3 +24,4 @@ Scenario: I create a dish and put it on a menu
   When I click the "Add a Dish" button
   Then I should see "Pizza"
   And I should see "Lunch"
+  And I should not see "Add to cart"

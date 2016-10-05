@@ -4,7 +4,7 @@ Feature: As a restaurant Owner
 
   Scenario: I register as a Restaurant Owner
     Given there are "0" restaurant owners in the system
-    And I am on the "home" page
+    And I am on the "index" page
     And I click the link "Register your restaurant account"
     Then I should see "Sign up as Owner"
     When I fill in:

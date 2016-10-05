@@ -19,7 +19,7 @@ Scenario: Can only checkout as registered user
   And I am on the "cart" page
   When I click the link "Log in to pay"
   Then I should be on the "register" page
-  When I there register as a user with username "Amber" and email "amber@random.com"
+  When I register as a user with username "Amber" and email "amber@random.com"
   Then I should be on the "cart" page
   And I should see "Pay Now"
   And I should not see "Log in to pay"

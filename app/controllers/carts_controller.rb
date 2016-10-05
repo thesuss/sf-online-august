@@ -14,7 +14,7 @@ class CartsController < ApplicationController
   def checkout
     @order = ShoppingCart.find(params[:format])
     session.delete(:cart_id)
-    flash[:notice] = "Your food is on its way!"
+    flash[:notice] = 'Your food is on its way!'
     # In a later feature this needs to create some action item to actually make the order happen.
     # Restrict this function to a Customer
   end

@@ -7,6 +7,7 @@ class Ability
       can :manage, Menu
       can :manage, Dish
       can :manage, Restaurant
+      cannot :create, ShoppingCart
       can :read, :all
     elsif user.customer?
       cannot :manage, Menu

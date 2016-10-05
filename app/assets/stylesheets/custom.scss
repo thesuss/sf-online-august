@@ -5,7 +5,7 @@
   left: 0;
 }
 
-.radio input[type="radio"], .radio-inline input[type="radio"], .checkbox input[type="checkbox"], .checkbox-inline input[type="checkbox"] {
+.radio input[type='radio'], .radio-inline input[type='radio'], .checkbox input[type='checkbox'], .checkbox-inline input[type='checkbox'] {
   position: absolute;
   margin-left: 0px;
 }
@@ -20,4 +20,46 @@
 .navbar-text {
   margin-top: 10px;
   margin-bottom: 10px
+}
+
+#map {
+  min-width: 1000px;
+  min-height: 300px;
+  z-index: 0;
+}
+
+.landing-container {
+  width: 100%;
+  height: 100%;
+  padding: 0px;
+  margin: -22px 0px 0px 0px;
+}
+
+.question-row {
+    position: absolute;
+    width: 100%;
+    z-index: 10;
+    left: 0;
+}
+.question-container {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    padding: 15px 15px 15px 15px;
+    background: rgba(255,159,79,0.8);
+    width: 50%;
+}
+.question-container h2 {
+  margin-top: 0px;
+}
+
+@media (max-width: 600px) {
+  .question-container {
+    margin-top: 5px;
+    width: 100%;
+  }
+  .question-row {
+    z-index: 0;
+    position: relative;
+  }
 }

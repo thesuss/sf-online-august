@@ -14,6 +14,8 @@ gem 'acts_as_shopping_cart', '~> 0.4.1'
 gem 'devise'
 gem 'cancancan', '~> 1.10'
 gem 'geocoder'
+gem 'gmapsjs'
+gem 'gon'
 
 
 group :development, :test do
@@ -28,6 +30,8 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'coveralls', require: false
   gem 'launchy'
+  gem 'poltergeist'
+  gem 'capybara-screenshot'
 end
 
 group :development do
