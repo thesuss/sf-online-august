@@ -20,3 +20,11 @@ Feature: As a restaurant Owner
     And I fill in "Name" with ""
     And I click the "Submit" button
     Then I should see "Name can't be blank"
+
+  Scenario: My geolocation gets updated when I update my address
+    Given I am on the restaurant page for "Awesome"
+    Then "Awesome" should have lat "57.7089" and long "11.9746"
+    And I click the link "Edit"
+    When I fill in "Street" with "Blåsbackegatan 17"
+    And I click the "Submit" button
+    Then "Awesome" should have lat "56.6755" and long "12.8783"

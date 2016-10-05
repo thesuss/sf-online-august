@@ -32,6 +32,12 @@ Given(/^I am on the restaurant page for "([^"]*)"$/) do |name|
   visit(restaurant_path(restaurant))
 end
 
+Then(/^"([^"]*)" should have lat "([^"]*)" and long "([^"]*)"$/) do |name, lat, long|
+  restaurant = Restaurant.find_by(name: name)
+  expect(restaurant.latitude).to be lat.to_f
+  expect(restaurant.longitude).to be long.to_f
+end
+
 Then(/^I should be on the edit restaurant page for "([^"]*)"$/) do |restaurant|
   restaurant = Restaurant.find_by(name: restaurant)
   expect(current_path).to eq edit_restaurant_path(id: restaurant)
