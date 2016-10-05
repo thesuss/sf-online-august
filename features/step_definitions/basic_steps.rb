@@ -53,6 +53,7 @@ Then(/^I should be on the "([^"]*)" page for "([^"]*)"$/) do |page, dish|
   expect(current_path).to eq dish_path(dish_id)
 end
 
+
 Then(/^show me the page$/) do
   save_and_open_page
 end

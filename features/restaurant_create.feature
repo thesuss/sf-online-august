@@ -14,7 +14,7 @@ Scenario: I create a restaurant
     | Street      | Holtermansgatan 17d  |
     | Zipcode     | 41235                |
     | Town        | Göteborg             |
-  And I click the "Create" button
+  And I click the "Submit" button
   And I should see "here is the show"
   And I should see "Awesome restaurant"
 
@@ -27,7 +27,7 @@ Scenario: I attempt to create a restaurant with no address
     | Street      |                      |
     | Zipcode     | 41235                |
     | Town        | Göteborg             |
-  And I click the "Create" button
+  And I click the "Submit" button
   And I should see "Street can't be blank"
 
 Scenario: I attempt to access new restaurant page without being logged in

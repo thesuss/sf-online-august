@@ -23,8 +23,28 @@ Given(/^I already have a restaurant$/) do
       | Street      | Holtermansgatan 17d  |
       | Zipcode     | 41235                |
       | Town        | Göteborg             |
-    And I click the "Create" button
+    And I click the "Submit" button
   }
+end
+
+Given(/^the "([^"]*)" restaurant exists$/) do |restaurant|
+  user = User.first
+  FactoryGirl.create(:restaurant, name: restaurant, user: user)
+end
+
+Given(/^I am on the restaurant page for "([^"]*)"$/) do |name|
+  restaurant = Restaurant.find_by(name: name)
+  visit(restaurant_path(restaurant))
+end
+
+Then(/^I should be on the edit restaurant page for "([^"]*)"$/) do |restaurant|
+  restaurant = Restaurant.find_by(name: restaurant)
+  expect(current_path).to eq edit_restaurant_path(id: restaurant)
+end
+
+Then(/^I should be on the show page for "([^"]*)"$/) do |restaurant|
+  restaurant = Restaurant.find_by(name: restaurant)
+  expect(current_path).to eq restaurant_path(id: restaurant)
 end
 
 Given(/^I try to visit the restaurant page for a restaurant that doesn't exist$/) do
