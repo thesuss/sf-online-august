@@ -12,15 +12,16 @@ Background:
     | name | description | town | owner |
     | McD  | Nice food   | Home | Anna  |
     | McF  | Nice food   | Gone | Janne |
-  And the following menus exist:
-    | title |
-    | Lunch |
+  And "Anna" has a menu "Lunch"
+  And "Janne" has a menu "Addons"
   And the following dishes exist
     | dish_name | dish_desc       | dish_price |
     | Pizza     | Delicious pizza | 70         |
     | Salad     | Leafy           | 15         |
     | Olives    | Salty           | 90         |
   And I add "Pizza" to the "Lunch" menu
+  And I add "Olives" to the "Addons" menu
+
 
 Scenario: Index should link to restaurants
   Given I am on the "index" page
@@ -31,12 +32,11 @@ Scenario: Index should link to restaurants
   When I click the link "McD"
   Then I should be on the restaurant page for "McD"
 
-#Waiting for Amber's PR to be merged
-# Scenario: Restaurant pages should link to menus
-#   Given I am on the restaurant page for "McD"
-#   Then I should see "Lunch"
-#   When I click the link "Lunch"
-#   Then I should be on the menu page for "Lunch"
+Scenario: Restaurant pages should link to menus
+  Given I am on the restaurant page for "McD"
+  Then I should see "Lunch"
+  When I click the link "Lunch"
+  Then I should be on the menu page for "Lunch"
 
 Scenario: Menus should link to dishes
   Given I am not logged in
