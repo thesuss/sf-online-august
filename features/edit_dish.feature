@@ -22,3 +22,16 @@ Feature: As a restaurant owner
     And I fill in "Dish description" with "Kebab med sås"
     And I click the "Update Dish" button
     Then I should be on the "show dish" page for "Kebab"
+
+  Scenario: I should be the only one who can edit my dishes
+    Given the following users exist
+      | name  | email         | role  |
+      | Anna  | anna@food.se  | owner |
+      | Bosse | bosse@food.se | owner |
+    And the following dishes exists
+      | dish_name | dish_desc       | dish_price |
+      | Kebab     | Delicious kebab | 9000       |
+    When I log in as "Bosse"
+    And I visit the restaurant page for "Anna"
+    And I click the link "Edit"
+    Then I should see "You are not authorized to access this page."

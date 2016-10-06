@@ -19,3 +19,14 @@ Given(/^I am on the dish page for "([^"]*)"$/) do |dish|
   dish_id = Dish.find_by(dish_name: dish)
   visit dish_path(dish_id)
 end
+
+Given(/^the following dishes exists$/) do |table|
+  table.hashes.each do |hash|
+    user = User.find_by(name: hash[:owner])
+    FactoryGirl.create(:dish, dish_name: hash[:dish_name],
+                       dish_desc: hash[:dish_desc],
+                       dish_price: hash[:dish_price],
+                       user: user)
+  end
+end
+
