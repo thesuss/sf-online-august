@@ -13,7 +13,7 @@ class Restaurant < ApplicationRecord
   end
 
   def full_address_changed?
-    if  self.zipcode_changed? || self.address_changed? || self.town_changed?
+    if  self.zipcode_changed? || self.street_changed? || self.town_changed?
       true
     else
       false

@@ -11,7 +11,7 @@ Feature: As a restaurant Owner
     And I click the link "Edit"
     When I fill in "Name" with "tacos"
     And I click the "Submit" button
-    Then I should be on the show page for "tacos"
+    Then I should be on the restaurant page for "tacos"
     And I should see "tacos"
 
   Scenario: I messed up the edit
@@ -34,3 +34,16 @@ Feature: As a restaurant Owner
     Then I should be on the restaurant page for "Awesome"
     And I should see "Blåsbackegatan 17"
     Then "Awesome" should have lat "56.6755" and long "12.8783"
+
+  Scenario: I should be the only one who can edit my restaurant
+    Given the following users exist
+      | name  | email         | role  |
+      | Anna  | anna@food.se  | owner |
+      | Janne | janne@food.se | owner |
+    And the following restaurants exists
+      | name | description | town | owner |
+      | MAC  | Nice food   | Home | Anna  |
+    When I log in as "Janne"
+    And I visit the restaurant page for "Anna"
+    And I click the link "Edit"
+    Then I should see "You are not authorized to access this page."

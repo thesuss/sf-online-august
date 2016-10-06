@@ -33,7 +33,6 @@ Given(/^I am on the restaurant page for "([^"]*)"$/) do |name|
 end
 
 Then(/^"([^"]*)" should have lat "([^"]*)" and long "([^"]*)"$/) do |name, lat, long|
-  binding.pry
   restaurant = Restaurant.find_by(name: name)
   expect(restaurant.latitude).to be lat.to_f
   expect(restaurant.longitude).to be long.to_f
@@ -95,6 +94,11 @@ Given(/^the following restaurants exists$/) do |table|
                                     town: hash[:town],
                                     user: user)
   end
+end
+
+When(/^I log in as "([^"]*)"$/) do |name|
+  user = User.find_by(name: name)
+  login_as(user, scope: :user)
 end
 
 private
