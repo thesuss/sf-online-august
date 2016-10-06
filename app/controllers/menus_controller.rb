@@ -9,6 +9,7 @@ class MenusController < ApplicationController
 
   def new
     @menu = Menu.new
+    @dishes = current_user.restaurant.dishes
   end
 
   def show
@@ -16,18 +17,18 @@ class MenusController < ApplicationController
 
   def create
     restaurant = Restaurant.find_by(user: current_user)
-    menu = restaurant.menus.new(menu_params)
-    if menu.save
+    @menu = restaurant.menus.new(menu_params)
+    if @menu.save
       flash[:notice] = 'Successfully added menu'
       render :show
     else
-      flash[:alert] = menu.errors.full_messages.first
+      flash[:alert] = @menu.errors.full_messages.first
       render :new
     end
   end
 
   def edit
-    @dishes = Dish.all #this needs to be restricted to only dishes created by the restaurant later on
+    @dishes = current_user.restaurant.dishes
   end
 
   def update

@@ -1,5 +1,7 @@
 %h1 Here's the menu page for #{@menu.title}
 %br/
+- if current_user == @menu.restaurant.user #this is throwing a nil error
+  = link_to 'Edit Menu', edit_menu_path(@menu)
 - if !@menu.dishes.nil?
   Dishes:
   %br/

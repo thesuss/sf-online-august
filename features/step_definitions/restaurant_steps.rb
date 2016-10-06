@@ -90,6 +90,11 @@ Given(/^the following restaurants exists$/) do |table|
   end
 end
 
+When(/^I log in as "([^"]*)"$/) do |name|
+  user = User.find_by(name: name)
+  login_as(user, scope: :user)
+end
+
 private
 def set_user(name)
   @user = User.find_by(name: name)
