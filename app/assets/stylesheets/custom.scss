@@ -138,7 +138,6 @@ p.desc-text{
 }
 
 #story li {
-  padding: 15px;
   margin: 3px 0px;
   border-left: 3px solid rgba(255,159,79,0.8);
   background-color: rgba(255,159,79,0.5);
@@ -146,5 +145,7 @@ p.desc-text{
 }
 
 #story li a {
+  line-height: 35px;
+  padding-left: 20px;
   color: #000;
 }
