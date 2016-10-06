@@ -42,6 +42,12 @@ Then(/^I should be on the show page for "([^"]*)"$/) do |restaurant|
   expect(current_path).to eq restaurant_path(id: restaurant)
 end
 
+Given(/^I am on the edit restaurant page for "([^"]*)"$/) do |restaurant|
+  restaurant = Restaurant.find_by(name: restaurant)
+  visit edit_restaurant_path(id: restaurant)
+end
+
+
 Given(/^I try to visit the restaurant page for a restaurant that doesn't exist$/) do
   visit restaurant_path(99999)
 end
