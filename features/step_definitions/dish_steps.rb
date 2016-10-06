@@ -20,12 +20,6 @@ Given(/^I am on the dish page for "([^"]*)"$/) do |dish|
   visit dish_path(dish_id)
 end
 
-Given(/^I am on the dish page for "([^"]*)"$/) do |name|
-  dish = Dish.find_by(dish_name: name)
-  binding.pry
-  visit dish_path(dish)
-end
-
 Then(/^I should be on the edit dish page for "([^"]*)"$/) do |name|
   dish = Dish.find_by(dish_name: name)
   expect(current_path).to eq edit_dish_path(dish)

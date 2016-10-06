@@ -56,3 +56,10 @@ When(/^visit the "([^"]*)" menu page$/) do |menu_name|
   menu = Menu.find_by(title: menu_name)
   visit menu_path(menu)
 end
+
+Given(/^the following menus exits$/) do |table|
+  owner = User.owners.first
+  table.hashes.each do |menu|
+    FactoryGirl.create(:menu, title: menu[:title], restaurant: owner.restaurant)
+  end
+end

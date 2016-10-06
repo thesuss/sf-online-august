@@ -16,5 +16,3 @@ Menu(s):
 %br/
 - if can? :create, ShoppingCart
   = link_to 'Add to cart', dish_add_item_path(@dish), method: :post, class: 'btn btn-success'
-- if current_user.try(:owner?)
-  = link_to 'Edit dish', edit_dish_path(@dish.id)
