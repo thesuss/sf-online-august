@@ -22,8 +22,6 @@ class RestaurantsController < ApplicationController
   end
 
   def show
-    binding.pry
-    @restaurant.geocode
   end
 
   def edit
