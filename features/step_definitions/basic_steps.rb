@@ -53,9 +53,8 @@ Then(/^show me the page$/) do
   save_and_open_page
 end
 
-Then(/^I should be able to select "([^"]*)"$/) do |category|
-  visit goto(page)
-  expect(page).to have_select_box
+Then(/^I should be able to select "([^"]*)" from "([^"]*)"$/) do |category, list|
+  page.select category, from: list
 end
 
 

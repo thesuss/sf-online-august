@@ -4,4 +4,4 @@ Feature: As a restaurant Owner
 
 Scenario: I categorize a Restaurant
   Given I am on the "create restaurant" page
-  Then I should be able to select "Pizza"
+  Then I should be able to select "Pizza" from "Category"
