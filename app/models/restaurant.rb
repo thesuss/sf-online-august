@@ -4,7 +4,7 @@ class Restaurant < ApplicationRecord
   has_many :dishes
 
   geocoded_by :full_address
-  after_validation :geocode, if: ->(obj){ obj.full_address.present? and obj.full_address_changed? }
+  after_validation :geocode
 
   validates_presence_of :user, :name, :street, :zipcode, :town
 
@@ -12,11 +12,4 @@ class Restaurant < ApplicationRecord
     [street, zipcode, town].join(', ')
   end
 
-  def full_address_changed?
-    if  self.zipcode_changed? || self.street_changed? || self.town_changed?
-      true
-    else
-      false
-    end
-  end
 end

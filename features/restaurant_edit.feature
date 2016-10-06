@@ -31,7 +31,7 @@ Feature: As a restaurant Owner
       | Zipcode     | 30247              |
       | Town        | Halmstad           |
     And I click the "Submit" button
-    Then I should be on the restaurant page for "Awesome"
+    When I am on the restaurant page for "Awesome"
     And I should see "Blåsbackegatan 17"
     Then "Awesome" should have lat "56.6755" and long "12.8783"
 

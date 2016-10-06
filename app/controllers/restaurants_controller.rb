@@ -22,6 +22,8 @@ class RestaurantsController < ApplicationController
   end
 
   def show
+    binding.pry
+    @restaurant.geocode
   end
 
   def edit
@@ -55,7 +57,4 @@ class RestaurantsController < ApplicationController
     params.require(:restaurant).permit(:name, :description, :street, :zipcode, :town)
   end
 
-  def re_geolocate
-    @restaurant.geocode
-  end
 end
