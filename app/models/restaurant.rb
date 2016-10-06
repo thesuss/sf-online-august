@@ -4,7 +4,7 @@ class Restaurant < ApplicationRecord
   has_many :dishes
   geocoded_by :full_address
   after_validation :geocode
-  validates_presence_of :user, :name, :street, :zipcode, :town
+  validates_presence_of :user, :name, :category, :street, :zipcode, :town
 
   def full_address
     [street, zipcode, town].join(', ')

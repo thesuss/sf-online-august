@@ -4,6 +4,7 @@ RSpec.describe Restaurant, type: :model do
 
   describe 'regression test' do
     it { is_expected.to have_db_column :name }
+    it { is_expected.to have_db_column :category}
     it { is_expected.to have_db_column :description}
     it { is_expected.to have_db_column :street}
     it { is_expected.to have_db_column :zipcode}
@@ -18,6 +19,7 @@ RSpec.describe Restaurant, type: :model do
 
   describe 'validations' do
     it { is_expected.to validate_presence_of :name}
+    it { is_expected.to validate_presence_of :category}
     it { is_expected.to validate_presence_of :street}
     it { is_expected.to validate_presence_of :zipcode}
     it { is_expected.to validate_presence_of :town}
