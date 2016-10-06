@@ -4,7 +4,7 @@
   = f.label :description
   = f.text_area :description, class: 'form-control', value: @restaurant.description
   = f.label :category
-  = f.select :category, ['Pizza', 'Korv']
+  = f.select :category, ['Pizza', 'Sushi', 'Italian', 'Asian', 'Fast Food', 'BBQ', 'French', 'Traditional', 'Vegan', 'Seafood']
 
   = f.label :street
   = f.text_field :street, class: 'form-control', value: @restaurant.street
