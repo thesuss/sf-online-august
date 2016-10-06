@@ -28,9 +28,6 @@ Feature: As a restaurant owner
       | name  | email         | role  |
       | Anna  | anna@food.se  | owner |
       | Bosse | bosse@food.se | owner |
-    And the following dishes exists
-      | dish_name | dish_desc       | dish_price |
-      | Kebab     | Delicious kebab | 9000       |
     When I log in as "Bosse"
     And I visit the restaurant page for "Anna"
     And I click the link "Edit"
