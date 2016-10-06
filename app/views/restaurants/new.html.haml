@@ -2,17 +2,4 @@
   .column-md-12
     %h1 New Restaurant form
   .col-md-8.col-xs-12
-    = form_for @restaurant, class: 'form-group' do |f|
-      .form-group
-        = f.label :name
-        = f.text_field :name, class: 'form-control'
-        = f.label :description
-        = f.text_area :description, class: 'form-control'
-      .form-group
-        = f.label :street
-        = f.text_field :street, class: 'form-control'
-        = f.label :zipcode
-        = f.text_field :zipcode, class: 'form-control'
-        = f.label :town
-        = f.text_field :town, class: 'form-control'
-      = f.submit 'Create', id: 'create', class: 'btn btn-warning'
+    = render partial: 'form'

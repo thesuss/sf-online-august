@@ -1,0 +1,13 @@
+= form_for @restaurant, class: 'form-group'  do |f|
+  = f.label :name
+  = f.text_field :name, class: 'form-control', value: @restaurant.name
+  = f.label :description
+  = f.text_area :description, class: 'form-control', value: @restaurant.description
+  = f.label :street
+  = f.text_field :street, class: 'form-control', value: @restaurant.street
+  = f.label :zipcode
+  = f.text_field :zipcode, class: 'form-control', value: @restaurant.zipcode
+  = f.label :town
+  = f.text_field :town, class: 'form-control', value: @restaurant.town
+  %br/
+  = f.submit 'Submit', class: 'btn btn-warning'

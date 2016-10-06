@@ -1,15 +1,17 @@
 class DishesController < ApplicationController
-  before_action :find_dish_from_params, only: [:show, :edit, :update]
+  before_action :authenticate_user!,
+                :find_dish_from_params, only: [:show, :edit, :update]
 
   load_and_authorize_resource
+  before_action :owner_has_restaurant?, only: :new
 
   def new
     @dish = Dish.new
-    @menus = Menu.all # Later on, we need to restrict this to only the menus of the current Owner
+    @menus = Menu.where(restaurant: current_user.restaurant)
   end
 
   def create
-    @dish = Dish.new(dish_params)
+    @dish = current_user.restaurant.dishes.create(dish_params)
     if @dish.save
       render :show
     else
