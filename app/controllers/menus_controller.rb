@@ -23,6 +23,7 @@ class MenusController < ApplicationController
     @menu = restaurant.menus.new(menu_params)
     if @menu.save
       flash[:notice] = 'Successfully added menu'
+      @headline = "#{@menu.title} for #{@menu.restaurant.name}"
       render :show
     else
       flash[:alert] = @menu.errors.full_messages.first
@@ -37,6 +38,7 @@ class MenusController < ApplicationController
 
   def update
     @menu.update(menu_params)
+    @headline = "#{@menu.title} for #{@menu.restaurant.name}"
     render :show
   end
 

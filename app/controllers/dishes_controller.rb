@@ -11,6 +11,7 @@ class DishesController < ApplicationController
   def create
     @dish = current_user.restaurant.dishes.create(dish_params)
     if @dish.save
+      @headline = "#{@dish.dish_name}"
       render :show
     else
       flash[:alert] = @dish.errors.full_messages.first

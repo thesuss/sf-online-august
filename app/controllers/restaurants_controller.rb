@@ -15,6 +15,7 @@ class RestaurantsController < ApplicationController
   def create
     @restaurant = Restaurant.new(restaurant_params.merge({user: current_user}))
     if @restaurant.save
+      @headline = "#{@restaurant.name}"
       render :show
     else
       flash[:alert] = @restaurant.errors.full_messages.first
@@ -32,6 +33,7 @@ class RestaurantsController < ApplicationController
 
   def update
     if @restaurant.update_attributes(restaurant_params)
+      @headline = "#{@restaurant.name}"
       render :show
     else
       flash[:alert] = @restaurant.errors.full_messages.first
