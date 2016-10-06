@@ -4,7 +4,7 @@ Feature: As a restaurant Owner
 
   Background:
     Given I am logged in as a restaurant owner
-
+    And I already have a restaurant
 
   Scenario: I create a dish
     Given I am on the "Create Dish" page

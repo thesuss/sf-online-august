@@ -1,3 +1,20 @@
 here is the show for restaurants
-
+%br/
+%br/
 = @restaurant.name
+%br/
+= @restaurant.description
+%br/
+= @restaurant.street
+%br/
+= @restaurant.zipcode
+%br/
+= @restaurant.town
+%br/
+%br/
+
+%p
+  - @restaurant.menus.each do |menu|
+    = link_to menu.title, menu_path(menu)
+
+= link_to 'Edit', edit_restaurant_path(@restaurant), class: "btn btn-success"

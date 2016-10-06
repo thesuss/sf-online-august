@@ -4,13 +4,14 @@ Feature: As a restaurant Owner
 
 Background:
   Given I am logged in as a restaurant owner
+  And I already have a restaurant
   And the following dishes exist
     | dish_name | dish_desc       | dish_price |
     | Pizza     | Delicious pizza | 7000       |
     | Salad     | Leafy           | 1500       |
     | Olives    | Salty           | 900        |
 
-  And the following menus exist:
+  And I have the following menus:
     | title |
     | Lunch |
   And I add "Pizza" to the "Lunch" menu

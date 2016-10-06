@@ -11,10 +11,12 @@ Then(/^I should be on the menu page for "([^"]*)"$/) do |title|
   expect(current_path).to eq menu_path(menu_id)
 end
 
-Given(/^the following menus exist:$/) do |table|
+Given(/^I have the following menus:$/) do |table|
+  owner = User.owners.first
   table.hashes.each do |menu|
-    FactoryGirl.create(:menu, title: menu[:title])
+    FactoryGirl.create(:menu, title: menu[:title], restaurant: owner.restaurant)
   end
+
 end
 
 Given(/^I am on the edit menu page for "([^"]*)"$/) do |menu_name|
@@ -34,4 +36,18 @@ end
 Given(/^I am on the menu page for "([^"]*)"$/) do |menu_name|
   menu_page = Menu.find_by(title: menu_name)
   visit(menu_path(menu_page))
+end
+
+Given(/^"([^"]*)" has a menu "([^"]*)"$/) do |owner_name, menu_name|
+  owner = User.find_by(name: owner_name).restaurant
+  FactoryGirl.create(:menu, restaurant: owner, title: menu_name)
+end
+
+When(/^I check the "([^"]*)" box$/) do |menu|
+  page.check(menu)
+end
+
+When(/^visit the "([^"]*)" menu page$/) do |menu_name|
+  menu = Menu.find_by(title: menu_name)
+  visit menu_path(menu)
 end

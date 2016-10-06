@@ -6,5 +6,6 @@ FactoryGirl.define do
     dish_allergy 'MyText'
     dish_cal 1
     dish_ingredients 'MyText'
+    restaurant {association(:restaurant)}
   end
 end

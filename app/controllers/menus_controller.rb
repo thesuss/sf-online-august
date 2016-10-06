@@ -1,5 +1,6 @@
 class MenusController < ApplicationController
   before_action :find_menu_from_params, only: [:show, :edit, :update]
+  before_action :owner_has_restaurant?, only: :new
 
   load_and_authorize_resource
 
@@ -8,13 +9,15 @@ class MenusController < ApplicationController
 
   def new
     @menu = Menu.new
+    @dishes = current_user.restaurant.dishes
   end
 
   def show
   end
 
   def create
-    @menu = Menu.new(menu_params)
+    restaurant = Restaurant.find_by(user: current_user)
+    @menu = restaurant.menus.new(menu_params)
     if @menu.save
       flash[:notice] = 'Successfully added menu'
       render :show
@@ -25,7 +28,7 @@ class MenusController < ApplicationController
   end
 
   def edit
-    @dishes = Dish.all #this needs to be restricted to only dishes created by the restaurant later on
+    @dishes = current_user.restaurant.dishes
   end
 
   def update

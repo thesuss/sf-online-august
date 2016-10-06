@@ -15,6 +15,7 @@
 
 .navbar {
   border-radius: 0px;
+  z-index: 99;
 }
 
 .navbar-text {
@@ -23,9 +24,9 @@
 }
 
 #map {
-  min-width: 1000px;
-  min-height: 300px;
-  z-index: 0;
+  width: 100%;
+  min-height: 350px;
+  z-index: 2;
 }
 
 .landing-container {
@@ -33,21 +34,24 @@
   height: 100%;
   padding: 0px;
   margin: -22px 0px 0px 0px;
+  z-index: 1;
 }
 
 .question-row {
-    position: absolute;
-    width: 100%;
-    z-index: 10;
-    left: 0;
+  position: absolute;
+  width: 100%;
+  z-index: 3;
+  left: 0;
+  top: 120px;
 }
 .question-container {
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 30px;
-    padding: 15px 15px 15px 15px;
-    background: rgba(255,159,79,0.8);
-    width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+  padding: 15px 15px 15px 15px;
+  background: rgba(255,159,79,0.8);
+  width: 50%;
+  z-index: 4;
 }
 .question-container h2 {
   margin-top: 0px;
@@ -60,6 +64,7 @@
   }
   .question-row {
     z-index: 0;
+    top: 0px;
     position: relative;
   }
 }
