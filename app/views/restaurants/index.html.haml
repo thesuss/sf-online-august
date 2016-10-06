@@ -5,21 +5,22 @@
       Buy some food, #{current_user.name}
 #map{data: {test: {env: "#{Rails.env.test?}"}}}
 %section#story.description_content
-  .text-content.container
+  .container
     .col-md-6
       %h1 About us
       %p.desc-text Restaurant is a place for simplicity. Good food, good beer, and good service. Simple is the name of the game, and we’re good at finding it in all the right places, even in your dining experience. We’re a small group from Denver, Colorado who make simple food possible. Come join us and see what simplicity tastes like.
     .col-md-6
+      %h1 Popular restaurants
       - @restaurants.each do | restaurant |
-        %h5
-          = link_to restaurant.name, restaurant_path(restaurant.id)
+        %ul
+          %li
+            = link_to restaurant.name, restaurant_path(restaurant.id)
 %section#info.description_content
   .info.background_content
     %h1
-      %span Affordable
-      pricing
-  .text-content.container
-    .container
-      .row
-        - unless current_user
-          = link_to 'Register your restaurant account', new_user_registration_path(role: 'owner')
+      %span Quick
+      deliveries
+  .container
+    .col-md-8.col-sm-12
+      - unless current_user
+        = link_to 'Register your restaurant account', new_user_registration_path(role: 'owner')
