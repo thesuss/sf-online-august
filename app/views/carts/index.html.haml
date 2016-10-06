@@ -13,8 +13,10 @@
       = link_to 'Search for dishes!', root_path
     - else
       - @cart.shopping_cart_items.each do |dish|
-        = dish.price_cents
         = dish.item.dish_name
+      %p
+        Total:
+        = @cart.total.to_i
       - if current_user
         = link_to 'Pay Now', checkout_path(@cart), method: :post
       - else

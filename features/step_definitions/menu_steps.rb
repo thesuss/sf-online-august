@@ -42,3 +42,12 @@ Given(/^"([^"]*)" has a menu "([^"]*)"$/) do |owner_name, menu_name|
   owner = User.find_by(name: owner_name).restaurant
   FactoryGirl.create(:menu, restaurant: owner, title: menu_name)
 end
+
+When(/^I check the "([^"]*)" box$/) do |menu|
+  page.check(menu)
+end
+
+When(/^visit the "([^"]*)" menu page$/) do |menu_name|
+  menu = Menu.find_by(title: menu_name)
+  visit menu_path(menu)
+end
