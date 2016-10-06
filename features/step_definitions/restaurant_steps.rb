@@ -101,6 +101,16 @@ When(/^I log in as "([^"]*)"$/) do |name|
   login_as(user, scope: :user)
 end
 
+Then(/^"([^"]*)" should be a restaurant category of "([^"]*)"$/) do |category, restaurant|
+  rest = Restaurant.find_by(name: restaurant)
+  expect(rest.category).to eq category
+  binding.pry
+end
+
+Then(/^"([^"]*)" should be an allowed restaurant category$/) do |category|
+  expect(@categories).to include category
+end
+
 private
 def set_user(name)
   @user = User.find_by(name: name)

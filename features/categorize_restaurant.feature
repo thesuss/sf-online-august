@@ -16,5 +16,5 @@ Feature: As a restaurant Owner
     When I click the "Submit" button
     Then I should be on the show page for "Awesome restaurant"
     And I should see "Thai"
-
-
+    And "Thai" should be a restaurant category of "Awesome restaurant"
+    And "Thai" should be an allowed restaurant category
