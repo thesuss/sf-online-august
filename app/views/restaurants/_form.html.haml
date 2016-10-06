@@ -3,10 +3,8 @@
   = f.text_field :name, class: 'form-control', value: @restaurant.name
   = f.label :description
   = f.text_area :description, class: 'form-control', value: @restaurant.description
-
-  %select{ name: "question[question_status]", id: "Category" }
-    %option{value: 1}= "Pizza"
-    %option{value: 2}= "Korv"
+  = f.label :category
+  = f.select :category, ['Pizza', 'Korv']
 
   = f.label :street
   = f.text_field :street, class: 'form-control', value: @restaurant.street
