@@ -1,19 +1,21 @@
 - @headline = "#{@dish.dish_name}"
-%p
-  Dish description: #{@dish.dish_desc}
-%p
-  Dish price: #{@dish.dish_price}
-%p
-  Allergens: #{@dish.dish_allergy}
-%p
-  Ingredients: #{@dish.dish_ingredients}
-%p
-  Calories: #{@dish.dish_cal}
-%h4
-  Menu(s):
-%ul
-- @dish.menus.each do |menu|
-  %li = menu.title
-%p
-- if can? :create, ShoppingCart
-  = link_to 'Add to cart', dish_add_item_path(@dish), method: :post, class: 'btn btn-success'
+.row
+  .col-md-8.col-xs-12
+    %p
+      Dish description: #{@dish.dish_desc}
+    %p
+      Dish price: #{@dish.dish_price}
+    %p
+      Allergens: #{@dish.dish_allergy}
+    %p
+      Ingredients: #{@dish.dish_ingredients}
+    %p
+      Calories: #{@dish.dish_cal}
+    %h4
+      Menu(s):
+    %ul
+    - @dish.menus.each do |menu|
+      %li = menu.title
+    %p
+    - if can? :create, ShoppingCart
+      = link_to 'Add to cart', dish_add_item_path(@dish), method: :post, class: 'btn btn-success'

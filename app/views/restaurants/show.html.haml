@@ -1,14 +1,16 @@
 - @headline = "#{@restaurant.name}"
-%p
-  = @restaurant.description
-%p
-  = @restaurant.street
-%p
-  = @restaurant.zipcode
-  ,
-  = @restaurant.town
-%p
-  - @restaurant.menus.each do |menu|
-    = link_to menu.title, menu_path(menu)
-- if can? :manage, Menu
-  = link_to 'Edit', edit_restaurant_path(@restaurant), class: "btn btn-warning"
+.row
+  .col-md-8.col-xs-12
+    %p
+      = @restaurant.description
+    %p
+      = @restaurant.street
+    %p
+      = @restaurant.zipcode
+      ,
+      = @restaurant.town
+    %p
+      - @restaurant.menus.each do |menu|
+        = link_to menu.title, menu_path(menu)
+    - if can? :manage, Menu
+      = link_to 'Edit', edit_restaurant_path(@restaurant), class: "btn btn-warning"

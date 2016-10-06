@@ -1,12 +1,13 @@
 - @headline = "#{@menu.title} for #{@menu.restaurant.name}"
-%br/
-- if current_user == @menu.restaurant.user #this is throwing a nil error
-  = link_to 'Edit Menu', edit_menu_path(@menu)
-- if !@menu.dishes.nil?
-  %p
-    Dishes:
-  .dishes
-  - @menu.dishes.each do |dish|
-    %ul
-      %li
-        = link_to dish.dish_name, dish
+.row
+  .col-md-8.col-xs-12
+    - if current_user == @menu.restaurant.user #this is throwing a nil error
+      = link_to 'Edit Menu', edit_menu_path(@menu)
+    - if !@menu.dishes.nil?
+      %p
+        Dishes:
+      .dishes
+      - @menu.dishes.each do |dish|
+        %ul
+          %li
+            = link_to dish.dish_name, dish
