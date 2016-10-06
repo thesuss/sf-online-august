@@ -3,10 +3,9 @@ Hey, you're checking out.
 You ordered:
 %br
   - @order.shopping_cart_items.each do |dish|
-    = dish.price_cents
     = dish.item.dish_name
 Total price:
-= @order.total
+= @order.total.to_i
 %p
   Delivery address:
   = current_user.address

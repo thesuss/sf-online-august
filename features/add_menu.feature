@@ -19,6 +19,17 @@ Feature: As a restaurant Owner
     And I click the "create" button
     Then I should see "Successfully added menu"
 
+  Scenario: Adding a menu with a dish
+    Given I have the following dishes:
+      | name   |
+      | Pizza  |
+      | Olives |
+    When I am on the "add menu" page
+    And I fill in "title" with "Salty Menu"
+    And I check the "Olives" box
+    And I click the "create" button
+    And I should see "Dishes: Olives"
+
   Scenario: Viewing my menu
     Given I create a menu "Lunch"
     Then I should see "Successfully added menu"

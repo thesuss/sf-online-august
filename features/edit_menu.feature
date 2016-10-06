@@ -23,3 +23,12 @@ Scenario: I edit my menu
   Then I should be on the menu page for "Lunch"
   And I should see "Pizza"
   And I should not see "Salad"
+
+Scenario: I only see my own dishes on edit menu page
+  Given the following owners exist:
+    | name | email         |
+    | Eli  | eli@owner.com |
+  And "Eli" has a restaurant
+  And "Eli" has a dish "Chocolate"
+  When I am on the edit menu page for "Lunch"
+  Then I should not see "Chocolate"

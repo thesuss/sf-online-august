@@ -12,6 +12,7 @@ RSpec.describe Restaurant, type: :model do
     it { is_expected.to have_db_column :longitude}
     it { is_expected.to belong_to :user }
     it { is_expected.to have_many :menus }
+    it { is_expected.to have_many :dishes }
     it {is_expected.to validate_presence_of :user}
   end
 
