@@ -1,11 +1,9 @@
+- if current_user
+  - @headline = "Cart for #{current_user.name}"
+- else
+  - @headline = "Your cart"
 .row
   .column-md-12
-    - if current_user
-      %h1
-        Cart for
-        = current_user.name
-    - else
-      %h1 Your cart
     %p selected dishes
     - if @cart.shopping_cart_items.count == 0
       You have no dishes in your cart.

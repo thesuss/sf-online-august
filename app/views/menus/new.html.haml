@@ -1,7 +1,6 @@
+- @headline = "Add menu to your restaurant"
 .row
   .column-md-12
-    %h1 Add menu
-
     = form_for @menu, class: 'form-group' do |f|
       = f.label :title do
         = f.text_field :title, id: 'title', class: 'form-control'

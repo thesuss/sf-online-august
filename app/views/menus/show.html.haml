@@ -3,8 +3,10 @@
 - if current_user == @menu.restaurant.user #this is throwing a nil error
   = link_to 'Edit Menu', edit_menu_path(@menu)
 - if !@menu.dishes.nil?
-  Dishes:
-  %br/
+  %p
+    Dishes:
+  .dishes
   - @menu.dishes.each do |dish|
-    = link_to dish.dish_name, dish
-    %br/
+    %ul
+      %li
+        = link_to dish.dish_name, dish

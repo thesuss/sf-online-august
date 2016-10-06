@@ -1,6 +1,5 @@
+- @headline = "Edit menu: #{@menu.title}"
 .row
-  .column-md-12
-    %h1 Edit menu: #{@menu.title}
   .col-md-8.col-xs-12
     = form_for @menu, action: :update, class: 'form-group'  do |f|
       = f.label :title, 'Edit Title'
