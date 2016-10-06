@@ -19,6 +19,7 @@
     .landing-container
       = yield
   - else
+    = render partial: 'page_header'
     .container
       = yield
       - unless current_user
