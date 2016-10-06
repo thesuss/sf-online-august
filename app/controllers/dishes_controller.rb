@@ -1,5 +1,6 @@
 class DishesController < ApplicationController
-  before_action :find_dish_from_params, only: [:show, :edit, :update]
+  before_action :authenticate_user!,
+                :find_dish_from_params, only: [:show, :edit, :update]
 
   load_and_authorize_resource
 
