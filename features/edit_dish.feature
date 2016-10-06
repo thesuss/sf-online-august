@@ -1,6 +1,6 @@
 Feature: As a restaurant owner
   in order to change my mind
-  I need to be able to edit dishes.
+  I need to be able to edit dishes
 
   Background:
     Given I am logged in as a restaurant owner
