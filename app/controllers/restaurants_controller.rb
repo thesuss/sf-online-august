@@ -9,6 +9,7 @@ class RestaurantsController < ApplicationController
 
   def new
     @restaurant = Restaurant.new
+    @headline = "Create restaurant"
   end
 
   def create
@@ -22,9 +23,11 @@ class RestaurantsController < ApplicationController
   end
 
   def show
+    @headline = "#{@restaurant.name}"
   end
 
   def edit
+    @headline = "Editing #{@restaurant.name}"
   end
 
   def update

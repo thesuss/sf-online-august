@@ -5,6 +5,7 @@ class DishesController < ApplicationController
   def new
     @dish = Dish.new
     @menus = Menu.where(restaurant: current_user.restaurant)
+    @headline = "Add a Dish to your restaurant"
   end
 
   def create
@@ -19,6 +20,7 @@ class DishesController < ApplicationController
 
   def show
     @dish = Dish.find(params[:id])
+    @headline = "#{@dish.dish_name}"
   end
 
   private

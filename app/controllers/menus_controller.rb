@@ -5,14 +5,17 @@ class MenusController < ApplicationController
   load_and_authorize_resource
 
   def index
+    @headline = "All menues"
   end
 
   def new
     @menu = Menu.new
     @dishes = current_user.restaurant.dishes
+    @headline = "Add menu to your restaurant"
   end
 
   def show
+    @headline = "#{@menu.title} for #{@menu.restaurant.name}"
   end
 
   def create
@@ -29,6 +32,7 @@ class MenusController < ApplicationController
 
   def edit
     @dishes = current_user.restaurant.dishes
+    @headline = "Edit menu: #{@menu.title}"
   end
 
   def update
