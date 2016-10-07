@@ -14,7 +14,7 @@
         = link_to 'Search for dishes!', root_path
       - else
         - @cart.shopping_cart_items.each do |dish|
-          = dish.item.dish_name
+          = dish.item.name
         %p
           Total:
           = @cart.total.to_i
