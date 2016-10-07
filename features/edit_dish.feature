@@ -27,9 +27,11 @@ Feature: As a restaurant owner
     Given the following users exist
       | name  | email         | role  |
       | Bosse | bosse@food.se | owner |
-    And I log in as "Bosse"
-    And I visit the restaurant page for "Anna"
+    When I log in as "Bosse"
+    And I am on the dish page for "Kebab"
     Then I should not see "Edit dish"
+    When I somehow end up on edit dish page for "Kebab"
+    Then I should see "You are not authorized to access this page."
 
   Scenario: Visitors can not edit dishes
     Given I am not logged in

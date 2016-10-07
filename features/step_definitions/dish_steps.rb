@@ -46,3 +46,9 @@ Then(/^I should be on the edit dish page for "([^"]*)"$/) do |name|
   dish = Dish.find_by(name: name)
   expect(current_path).to eq edit_dish_path(dish)
 end
+
+When(/^I somehow end up on edit dish page for "([^"]*)"$/) do |name|
+  dish = Dish.find_by(name: name)
+  visit edit_dish_path(dish)
+end
+

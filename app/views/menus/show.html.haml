@@ -12,5 +12,5 @@
           %ul
             %li
               = link_to dish.name, dish
-      - if can? :manage, Menu
+      - if (can? :manage, Menu) && (current_user = @menu.restaurant.user)
         = link_to 'Edit Menu', edit_menu_path(@menu)
