@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161005101225) do
+ActiveRecord::Schema.define(version: 20161006152332) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,13 +47,14 @@ ActiveRecord::Schema.define(version: 20161005101225) do
     t.string   "name"
     t.text     "description"
     t.integer  "user_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
     t.string   "street"
     t.integer  "zipcode"
     t.string   "town"
     t.float    "latitude"
     t.float    "longitude"
+    t.string   "category",    default: "Other"
     t.index ["user_id"], name: "index_restaurants_on_user_id", using: :btree
   end
 
@@ -70,8 +71,12 @@ ActiveRecord::Schema.define(version: 20161005101225) do
   end
 
   create_table "shopping_carts", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.integer  "user_id"
+    t.string   "stripe_customer"
+    t.boolean  "paid",            default: false
+    t.index ["user_id"], name: "index_shopping_carts_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -97,4 +102,5 @@ ActiveRecord::Schema.define(version: 20161005101225) do
   add_foreign_key "dishes", "restaurants"
   add_foreign_key "menus", "restaurants"
   add_foreign_key "restaurants", "users"
+  add_foreign_key "shopping_carts", "users"
 end

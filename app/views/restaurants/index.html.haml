@@ -4,15 +4,23 @@
     - if current_user
       Buy some food, #{current_user.name}
 #map{data: {test: {env: "#{Rails.env.test?}"}}}
-.container
-  .row
-    .col-md-12
-      %div Picture placeholder
+%section#story.description_content
+  .container
+    .col-md-6
+      %h1 About us
+      %p.desc-text Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+    .col-md-6
+      %h1 Popular restaurants
       - @restaurants.each do | restaurant |
-        %h5
-          = link_to restaurant.name, restaurant_path(restaurant.id)
-      %div Placeholder for popular restaurants
-      %div Highlighted dishes placeholder
-      %div Comment and rate placeholder
+        %ul
+          %li
+            = link_to restaurant.name, restaurant_path(restaurant.id)
+%section#info.description_content
+  .info.background_content
+    %h1
+      %span Quick
+      deliveries
+  .container
+    .col-md-8.col-sm-12
       - unless current_user
         = link_to 'Register your restaurant account', new_user_registration_path(role: 'owner')

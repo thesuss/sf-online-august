@@ -24,3 +24,7 @@ coverage/
 
 #vendor files
 vendor/bundle/
+
+
+#ignore the env file
+.env

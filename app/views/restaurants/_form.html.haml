@@ -3,6 +3,8 @@
   = f.text_field :name, class: 'form-control', value: @restaurant.name
   = f.label :description
   = f.text_area :description, class: 'form-control', value: @restaurant.description
+  = f.label :category
+  = f.select :category, options_for_select(Restaurant::PERMITTED_CATEGORIES), class: 'form-control'
   = f.label :street
   = f.text_field :street, class: 'form-control', value: @restaurant.street
   = f.label :zipcode

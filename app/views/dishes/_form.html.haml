@@ -1,0 +1,21 @@
+= form_for @dish, class: 'form-group' do |form|
+  = form.label :dish_name, 'Dish Name'
+  = form.text_field :dish_name, class: 'form-control'
+  = form.label :dish_desc, 'Dish description'
+  = form.text_area :dish_desc, class: 'form-control'
+  = form.label :dish_price, 'Price'
+  = form.text_field :dish_price, class: 'form-control'
+  = form.label :dish_allergy, 'Allergy Info'
+  = form.text_area :dish_allergy, class: 'form-control'
+  = form.label :dish_cal, 'Calories'
+  = form.text_field :dish_cal, class: 'form-control'
+  = form.label :dish_ingredients, 'Ingredients'
+  = form.text_field :dish_ingredients, class: 'form-control'
+  %p#menus
+    - if !@menus.nil?
+      %h3 Add to Menu
+      = form.collection_check_boxes :menu_ids, @menus, :id, :title do |b|
+        .checkbox
+          = b.check_box + b.label
+  %p
+    = form.submit 'Submit', class: 'btn btn-warning'

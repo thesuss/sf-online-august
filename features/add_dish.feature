@@ -22,7 +22,7 @@ Scenario: I create a dish and put it on a menu
     | Dish description | Delicious pizza      |
     | Price            | 7000kr               |
   And I check the "Lunch" box
-  When I click the "Add a Dish" button
+  And I click the "Submit" button
   Then I should see "Pizza"
   And I should see "Lunch"
 

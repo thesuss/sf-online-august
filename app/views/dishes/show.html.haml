@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .row
   .col-md-8.col-xs-12
     %p
@@ -19,3 +20,5 @@
     %p
     - if can? :create, ShoppingCart
       = link_to 'Add to cart', dish_add_item_path(@dish), method: :post, class: 'btn btn-success'
+    - if can? :manage, Dish
+      = link_to 'Edit dish', edit_dish_path(@dish), class: 'btn btn-primary'
