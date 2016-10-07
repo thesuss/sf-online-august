@@ -10,14 +10,6 @@ class CartsController < ApplicationController
     flash[:notice] = "#{@dish.dish_name} added to cart"
     redirect_back(fallback_location: restaurants_path)
   end
-
-  def checkout
-    @order = ShoppingCart.find(params[:format])
-    session.delete(:cart_id)
-    flash[:notice] = 'Your food is on its way!'
-    # In a later feature this needs to create some action item to actually make the order happen.
-    # Restrict this function to a Customer
-  end
   def create
     link_user_and_cart(params)
     charge = StripePayment.perform_payment(params, @cart)
