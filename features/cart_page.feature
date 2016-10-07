@@ -14,8 +14,8 @@ Feature: As a Customer
       | Salad     | Leafy           | 200        |
 
   Scenario: Adding dish to cart
-    Given I am not logged in
-    And I am on the dish page for "Pizza"
+    Given I am on the dish page for "Pizza"
+    Then show me an image of the page
     When I click the link "Add to cart"
     Then I should see "Delicious pizza"
     And I click the link "Show cart"
