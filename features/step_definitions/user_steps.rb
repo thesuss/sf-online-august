@@ -36,8 +36,8 @@ Given(/^I register as a user with address "([^"]*)"$/) do |address|
 end
 
 Given(/^I am logged in as a user$/) do
-  user = FactoryGirl.create(:user, role: 'customer')
-  login_as(user, scope: :user)
+  @user = FactoryGirl.create(:user, role: 'customer', email: 'whatever1@test.com')
+  login_as(@user, scope: :user)
 end
 
 Given(/^the following users exist$/) do |table|

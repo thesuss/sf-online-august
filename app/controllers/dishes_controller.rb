@@ -1,4 +1,6 @@
 class DishesController < ApplicationController
+  before_action :find_dish_from_params, only: [:show, :edit, :update]
+
   load_and_authorize_resource
   before_action :owner_has_restaurant?, only: :new
 
@@ -18,12 +20,27 @@ class DishesController < ApplicationController
   end
 
   def show
-    @dish = Dish.find(params[:id])
+  end
+
+  def edit
+  end
+
+  def update
+    if @dish.update(dish_params)
+      render :show
+    else
+      flash[:alert] = @dish.errors.full_messages.first
+      render :edit
+    end
   end
 
   private
 
   def dish_params
     params.require(:dish).permit(:dish_name, :dish_desc, :dish_price, :dish_allergy, :dish_ingredients, :dish_cal, {menu_ids: []})
+  end
+
+  def find_dish_from_params
+    @dish = Dish.find(params[:id])
   end
 end

@@ -8,6 +8,11 @@ Given(/^I am logged in as a restaurant owner$/) do
   login_as(user, scope: :user)
 end
 
+And(/^"([^"]*)" is logged in as restaurant owner$/) do |name|
+  owner = User.find_by(name: name)
+  login_as(owner, scope: :user)
+end
+
 Given(/^I already have a restaurant$/) do
   steps %q{
     Given I am on the "create restaurant" page
@@ -37,10 +42,16 @@ Then(/^I should be on the edit restaurant page for "([^"]*)"$/) do |restaurant|
   expect(current_path).to eq edit_restaurant_path(id: restaurant)
 end
 
-Then(/^I should be on the show page for "([^"]*)"$/) do |restaurant|
-  restaurant = Restaurant.find_by(name: restaurant)
-  expect(current_path).to eq restaurant_path(id: restaurant)
+Then(/^I should be on the show page for "([^"]*)"$/) do |name|
+  restaurant = Restaurant.find_by(name: name)
+  expect(current_path).to eq restaurant_path(restaurant)
 end
+
+Given(/^I am on the edit restaurant page for "([^"]*)"$/) do |name|
+  restaurant = Restaurant.find_by(name: name)
+  visit edit_restaurant_path(restaurant)
+end
+
 
 Given(/^I try to visit the restaurant page for a restaurant that doesn't exist$/) do
   visit restaurant_path(99999)
@@ -99,3 +110,5 @@ private
 def set_user(name)
   @user = User.find_by(name: name)
 end
+
+

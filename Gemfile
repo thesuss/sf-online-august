@@ -16,6 +16,8 @@ gem 'cancancan', '~> 1.10'
 gem 'geocoder'
 gem 'gmapsjs'
 gem 'gon'
+gem 'stripe-rails'
+
 
 
 group :development, :test do
@@ -32,6 +34,8 @@ group :development, :test do
   gem 'launchy'
   gem 'poltergeist'
   gem 'capybara-screenshot'
+  gem 'dotenv-rails'
+  gem 'stripe-ruby-mock', '~> 2.3.1', require: 'stripe_mock'
 end
 
 group :development do

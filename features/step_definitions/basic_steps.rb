@@ -43,13 +43,18 @@ When(/^I fill in "([^"]*)" with "([^"]*)"$/) do |element, text|
   fill_in element, with: text
 end
 
-Then(/^I should be on the "([^"]*)" page for "([^"]*)"$/) do |page, dish|
-  dish_id = Dish.find_by(dish_name: dish)
-  expect(current_path).to eq dish_path(dish_id)
+Given(/^I am on the "([^"]*)" page for "([^"]*)"$/) do |page, dish|
+  @dish = Dish.find_by(dish_name: dish)
+  visit goto(page)
 end
+
 
 Then(/^show me the page$/) do
   save_and_open_page
+end
+
+Then(/^I select "([^"]*)" from "([^"]*)"$/) do |category, list|
+  page.select category, from: list
 end
 
 
@@ -69,6 +74,10 @@ def goto(page)
     new_menu_path
   when 'Create Dish'
     new_dish_path
+  when 'edit dish'
+    edit_dish_path(@dish)
+  when 'show dish'
+    dish_path(@dish)
   when 'cart'
     carts_path
   when 'register'

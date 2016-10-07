@@ -4,3 +4,11 @@ After '@javascript' do
     session.driver.restart
   end
 end
+
+Before '@stripe' do
+  StripeMock.start
+end
+
+After '@stripe' do
+  StripeMock.stop
+end
