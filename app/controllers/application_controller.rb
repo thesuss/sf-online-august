@@ -25,15 +25,6 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def owner_of_restaurant?
-    if Restaurant.name == current_user.name
-      true
-    else
-      flash[:alert] = 'You are not authorized to access this page.'
-      redirect_to root_path
-    end
-  end
-
   private
   def store_current_location
     store_location_for(:user, request.url)

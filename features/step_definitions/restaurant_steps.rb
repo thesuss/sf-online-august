@@ -105,6 +105,12 @@ When(/^I log in as "([^"]*)"$/) do |name|
   login_as(user, scope: :user)
 end
 
+When(/^I somehow end up on edit restaurant page for "([^"]*)"$/) do |name|
+  owner = User.find_by(name: name)
+  restaurant = Restaurant.find_by(user: owner)
+  visit edit_restaurant_path(restaurant)
+end
+
 private
 def set_user(name)
   @user = User.find_by(name: name)

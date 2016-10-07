@@ -86,3 +86,7 @@ Then(/^my order should be registered in the system$/) do
   cart = ShoppingCart.last
   expect(cart.stripe_customer).not_to eq nil
 end
+
+And(/^do pry$/) do
+  binding.pry
+end

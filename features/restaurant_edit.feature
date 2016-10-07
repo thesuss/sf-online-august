@@ -24,13 +24,15 @@ Feature: As a restaurant Owner
   Scenario: I should be the only one who can edit my restaurant
     Given the following users exist
       | name  | email         | role  |
-      | Anna  | anna@food.se  | owner |
+      | Anne  | anna@food.se  | owner |
       | Janne | janne@food.se | owner |
     And the following restaurants exists
       | name | description | town | owner | category |
-      | MAC  | Nice food   | Home | Anna  | Thai     |
+      | MAC  | Nice food   | Home | Anne  | Thai     |
     When I log in as "Janne"
-    And "Anna" has a restaurant
-    And I visit the restaurant page for "Anna"
-    And I click the link "Edit"
-    Then I should see "You are not authorized to access this page."
+    And "Anne" has a restaurant
+    And I visit the restaurant page for "Anne"
+    Then I should not see "Edit"
+    When I somehow end up on edit restaurant page for "Anne"
+    Then I should be on the "index" page
+    And I should see "You are not authorized to access this page."
