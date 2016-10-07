@@ -4,9 +4,9 @@ class Ability
   def initialize(user)
     user ||= User.new # guest user (not logged in)
     if user.owner?
-      can :manage, Menu
-      can :manage, Dish
-      can :manage, Restaurant, user_id: user.id 
+      can :manage, Menu, user_id: user.id
+      can :manage, Dish, user_id: user.id
+      can :manage, Restaurant, user_id: user.id
       cannot :create, ShoppingCart
       can :read, :all
     elsif user.customer?
