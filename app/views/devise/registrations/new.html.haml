@@ -1,29 +1,30 @@
-.row
-  .column-md-12
-    %h2= "Sign up as #{resource.role.humanize}"
-  .col-md-8.col-xs-12
-    = form_for(resource, as: resource_name, url: registration_path(resource_name), class: 'form-group') do |f|
-      = f.hidden_field :role, value: resource.role
-      = devise_error_messages!
-      .form-group
-        = f.label :name
-        = f.text_field :name, autofocus: true, class: 'form-control'
-      .form-group
-        = f.label :email
-        = f.email_field :email, class: 'form-control'
-      .form-group
-        = f.label :address
-        = f.text_field :address, class: 'form-control'
-      .form-group
-        = f.label :password
-        - if @minimum_password_length
-          %em
-            (#{@minimum_password_length} characters minimum)
-        = f.password_field :password, autocomplete: 'off', class: 'form-control'
-      .form-group
-        = f.label :password_confirmation
-        = f.password_field :password_confirmation, autocomplete: 'off', class: 'form-control'
-        %br/
-      .actions
-        = f.submit 'Register', class: 'btn btn-warning'
-    = render 'devise/shared/links'
+.h1-top
+  %h1 Sign up as #{resource.role.humanize}
+.container
+  .row
+    .col-md-8.col-xs-12
+      = form_for(resource, as: resource_name, url: registration_path(resource_name), class: 'form-group') do |f|
+        = f.hidden_field :role, value: resource.role
+        = devise_error_messages!
+        .form-group
+          = f.label :name
+          = f.text_field :name, autofocus: true, class: 'form-control'
+        .form-group
+          = f.label :email
+          = f.email_field :email, class: 'form-control'
+        .form-group
+          = f.label :address
+          = f.text_field :address, class: 'form-control'
+        .form-group
+          = f.label :password
+          - if @minimum_password_length
+            %em
+              (#{@minimum_password_length} characters minimum)
+          = f.password_field :password, autocomplete: 'off', class: 'form-control'
+        .form-group
+          = f.label :password_confirmation
+          = f.password_field :password_confirmation, autocomplete: 'off', class: 'form-control'
+          %br/
+        .actions
+          = f.submit 'Register', class: 'btn btn-warning'
+      = render 'devise/shared/links'

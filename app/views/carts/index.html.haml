@@ -1,28 +1,28 @@
-.row
-  .column-md-12
-    - if current_user
-      %h1
-        Cart for
-        = current_user.name
-    - else
-      %h1 Your cart
-    %p selected dishes
-    - if @cart.shopping_cart_items.count == 0
-      You have no dishes in your cart.
-      %br
-      = link_to 'Search for dishes!', root_path
-    - else
-      - @cart.shopping_cart_items.each do |dish|
-        = dish.item.name
-      %p
-        Total:
-        = @cart.total.to_i
-      - if current_user
-        = form_tag charges_path do
-          = hidden_field_tag :cart_id, @cart.id
-          %script.stripe-button{ src: 'https://checkout.stripe.com/checkout.js',
-              data: {amount: @cart.total*100, description: 'Whatever', key: ENV['STRIPE_PUBLISHABLE_KEY'], currency: 'sek'}}
-
+.h1-top
+  - if current_user
+    %h1 Cart for #{current_user.name}
+  - else
+    %h1 Your cart
+.container
+  .row
+    .col-md-8.col-xs-12
+      %p selected dishes
+      - if @cart.shopping_cart_items.count == 0
+        You have no dishes in your cart.
+        %br
+        = link_to 'Search for dishes!', root_path
       - else
-        = link_to 'Log in to pay', new_user_registration_path
+        - @cart.shopping_cart_items.each do |dish|
+          = dish.item.name
+        %p
+          Total:
+          = @cart.total.to_i
+        - if current_user
+          = form_tag charges_path do
+            = hidden_field_tag :cart_id, @cart.id
+            %script.stripe-button{ src: 'https://checkout.stripe.com/checkout.js',
+                data: {amount: @cart.total*100, description: 'Whatever', key: ENV['STRIPE_PUBLISHABLE_KEY'], currency: 'sek'}}
+
+        - else
+          = link_to 'Log in to pay', new_user_registration_path
 = stripe_javascript_tag

@@ -1,22 +1,26 @@
-here is the show for restaurants
-%br/
-%br/
-= @restaurant.name
-%br/
-= @restaurant.category
-%br/
-= @restaurant.description
-%br/
-= @restaurant.street
-%br/
-= @restaurant.zipcode
-%br/
-= @restaurant.town
-%br/
-%br/
+.h1-top
+  %h1 here is the show for restaurants
+.container
+  .row
+    .col-md-8.col-xs-12
+      %br/
+      %br/
+      = @restaurant.name
+      %br/
+      = @restaurant.category
+      %br/
+      = @restaurant.description
+      %br/
+      = @restaurant.street
+      %br/
+      = @restaurant.zipcode
+      %br/
+      = @restaurant.town
+      %br/
+      %br/
 
-%p
-  - @restaurant.menus.each do |menu|
-    = link_to menu.title, menu_path(menu)
+      %p
+        - @restaurant.menus.each do |menu|
+          = link_to menu.title, menu_path(menu)
 
-= link_to 'Edit', edit_restaurant_path(@restaurant), class: "btn btn-success"
+      = link_to 'Edit', edit_restaurant_path(@restaurant), class: "btn btn-success"
