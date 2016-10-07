@@ -1,12 +1,14 @@
-%h1 Here's the menu page for #{@menu.title}
-%br/
-- if current_user == @menu.restaurant.user #this is throwing a nil error
-  = link_to 'Edit Menu', edit_menu_path(@menu)
-- if !@menu.dishes.nil?
-  Dishes:
-  %br/
-  - @menu.dishes.each do |dish|
-    = link_to dish.dish_name, dish
-    %br/
-- if can? :manage, Menu
-  = link_to 'Edit menu', edit_menu_path(@menu.id), class: 'btn btn-warning'
+.row
+  .column-md-12
+    %h1 #{@menu.title}
+  .col-md-8.col-xs-12
+    - if current_user == @menu.restaurant.user #this is throwing a nil error
+      = link_to 'Edit Menu', edit_menu_path(@menu)
+    - if !@menu.dishes.nil?
+      Dishes:
+      %br/
+      - @menu.dishes.each do |dish|
+        = link_to dish.dish_name, dish
+        %br/
+    - if can? :manage, Restaurant
+      = link_to 'Edit menu', edit_menu_path(@menu.id), class: 'btn btn-warning'

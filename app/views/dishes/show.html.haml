@@ -1,21 +1,25 @@
-%h1
-  Dish page for #{@dish.dish_name}
-Dish description: #{@dish.dish_desc}
-%br/
-Dish price: #{@dish.dish_price}
-%br/
-Allergens: #{@dish.dish_allergy}
-%br/
-Ingredients: #{@dish.dish_ingredients}
-%br/
-Calories: #{@dish.dish_cal}
-%br/
-%br/
-Menu(s):
-- @dish.menus.each do |menu|
-  = menu.title
-%br/
-- if can? :create, ShoppingCart
-  = link_to 'Add to cart', dish_add_item_path(@dish), method: :post, class: 'btn btn-success'
-- if can? :manage, Dish
-  = link_to 'Edit dish', edit_dish_path(@dish), class: 'btn btn-primary'
+.row
+  .column-md-12
+    %h1 #{@dish.dish_name}
+  .col-md-8.col-xs-12
+    %p
+      Dish description: #{@dish.dish_desc}
+    %p
+      Dish price: #{@dish.dish_price}
+    %p
+      Allergens: #{@dish.dish_allergy}
+    %p
+      Ingredients: #{@dish.dish_ingredients}
+    %p
+      Calories: #{@dish.dish_cal}
+    %h2
+      Menu(s):
+    - @dish.menus.each do |menu|
+      %ul
+        %li
+          = menu.title
+    %p
+      - if can? :create, ShoppingCart
+        = link_to 'Add to cart', dish_add_item_path(@dish), method: :post, class: 'btn btn-success'
+      - if can? :manage, Restaurant
+        = link_to 'Edit dish', edit_dish_path(@dish), class: 'btn btn-primary'
