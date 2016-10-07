@@ -15,11 +15,11 @@
         %a.close{aria: {label:'close'}, data: {dismiss: 'alert'}, href: '#'} ×
         %strong
           = value
-  - if current_page?(root_path)
-    .landing-container
-      = yield
-  - else
-    .container
-      = yield
-      - unless current_user
-        = link_to 'Register your restaurant account', new_user_registration_path(role: 'owner')
+    - if current_page?(root_path)
+      .landing-container
+        = yield
+    - else
+      .container
+        = yield
+    - unless current_user.try(:owner?)
+      = link_to 'Register your restaurant account', new_user_registration_path(role: 'owner')

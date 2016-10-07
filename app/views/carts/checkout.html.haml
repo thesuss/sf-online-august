@@ -1,11 +1,17 @@
-Hey, you're checking out.
-
-You ordered:
-%br
-  - @order.shopping_cart_items.each do |dish|
-    = dish.item.dish_name
-Total price:
-= @order.total.to_i
-%p
-  Delivery address:
-  = current_user.address
+.row
+  .column-md-8.column-sm-12
+    %h1
+      Hey, you're checking out.
+    %p
+      You ordered:
+      %ul
+        - @order.shopping_cart_items.each do |dish|
+          %li
+            = dish.item.dish_name
+    %p
+      Total price:
+      = @order.total.to_i
+      kr
+    %p
+      Delivery address:
+      = current_user.address

@@ -11,18 +11,41 @@
       %ul.nav.navbar-nav
         %li
           = link_to 'Home', root_path
-          - if current_user.try(:customer?)
-            %li
-              = link_to 'Edit profile', edit_user_registration_path
-          - if current_user.try(:owner?)
-            %li
-              = link_to 'Create restaurant', new_restaurant_path
-            %li
-              = link_to 'Create menu', new_menu_path
-            %li
-              = link_to 'Create dish', new_dish_path
-        %li
-          - unless current_user.try(:owner?)
+        - if current_user
+          %li
+            = link_to 'Edit profile', edit_user_registration_path
+        - if current_user.try(:owner?)
+          %li.dropdown
+            = link_to '#', {class: 'dropdown-toggle', data: {toggle: 'dropdown'}} do
+              Restaurant
+              %strong.caret
+            %ul.dropdown-menu
+              %li
+                = link_to 'Show restaurant', restaurant_path(current_user)
+              %li
+                = link_to 'Create restaurant', new_restaurant_path(current_user)
+              %li
+                = link_to 'Edit restaurant', edit_restaurant_path(current_user)
+          %li.dropdown
+            = link_to '#', {class: 'dropdown-toggle', data: {toggle: 'dropdown'}} do
+              Menu
+              %strong.caret
+            %ul.dropdown-menu
+              %li
+                = link_to 'Show menus', menu_path(current_user.restaurant)
+              %li
+                = link_to 'Create menu', new_menu_path(current_user.restaurant)
+              %li
+                = link_to 'Edit menu', edit_menu_path(current_user.restaurant)
+          %li.dropdown
+            = link_to '#', {class: 'dropdown-toggle', data: {toggle: 'dropdown'}} do
+              Dishes
+              %strong.caret
+            %ul.dropdown-menu
+              %li
+                = link_to 'Create dish', new_dish_path(current_user.restaurant)
+        - unless current_user.try(:owner?)
+          %li
             = link_to 'Show cart', carts_path
       %ul.nav.navbar-nav.navbar-right
         - if current_user

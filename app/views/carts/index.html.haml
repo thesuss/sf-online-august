@@ -1,5 +1,5 @@
 .row
-  .column-md-12
+  .column-md-8.column-sm-12
     - if current_user
       %h1
         Cart for
@@ -10,13 +10,14 @@
     - if @cart.shopping_cart_items.count == 0
       You have no dishes in your cart.
       %br
-      = link_to 'Search for dishes!', root_path
+      = link_to 'Search for dishes!', root_path, class: 'btn btn-warning'
     - else
       - @cart.shopping_cart_items.each do |dish|
         = dish.item.dish_name
       %p
         Total:
         = @cart.total.to_i
+          kr
       - if current_user
         = form_tag charges_path do
           = hidden_field_tag :cart_id, @cart.id
@@ -24,5 +25,5 @@
               data: {amount: @cart.total*100, description: 'Whatever', key: ENV['STRIPE_PUBLISHABLE_KEY'], currency: 'sek'}}
 
       - else
-        = link_to 'Log in to pay', new_user_registration_path
+        = link_to 'Log in to pay', new_user_registration_path, class: 'btn btn-warning'
 = stripe_javascript_tag
