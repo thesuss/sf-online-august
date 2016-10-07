@@ -8,7 +8,7 @@ Feature: As a restaurant Owner
 
   Scenario: I edit my restaurant
     Given I am on the restaurant page for "Awesome"
-    And I click the link "Edit"
+    And I click the link "Edit restaurant"
     When I fill in "Name" with "tacos"
     And I click the "Submit" button
     Then I should be on the show page for "tacos"
@@ -16,7 +16,7 @@ Feature: As a restaurant Owner
 
   Scenario: I messed up the edit
     Given I am on the restaurant page for "Awesome"
-    And I click the link "Edit"
+    And I click the link "Edit restaurant"
     And I fill in "Name" with ""
     And I click the "Submit" button
     Then I should see "Name can't be blank"
@@ -31,4 +31,4 @@ Feature: As a restaurant Owner
       | MAC  | Nice food   | Home | Anna  |
     When I log in as "Janne"
     And I visit the restaurant page for "Anna"
-    And I should not see "Edit"
+    And I should not see "Edit restaurant"

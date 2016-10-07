@@ -33,8 +33,6 @@
                 %strong.caret
               %ul.dropdown-menu
                 %li
-                  = link_to 'Show menus', menu_path(current_user.restaurant)
-                %li
                   = link_to 'Create menu', new_menu_path(current_user.restaurant)
                 %li
                   = link_to 'Edit menu', edit_menu_path(current_user.restaurant)

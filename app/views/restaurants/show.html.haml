@@ -12,8 +12,9 @@
       = @restaurant.zipcode
       ,
       = @restaurant.town
-    %p
+    %ul
       - @restaurant.menus.each do |menu|
-        = link_to menu.title, menu_path(menu)
+        %li
+          = link_to menu.title, menu_path(menu)
     - if can? :manage, Restaurant
-      = link_to 'Edit', edit_restaurant_path(@restaurant), class: "btn btn-warning"
+      = link_to 'Edit restaurant', edit_restaurant_path(@restaurant), class: 'btn btn-warning'

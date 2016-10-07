@@ -11,8 +11,8 @@
       %p.desc-text Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
     .col-md-6
       %h1 Popular restaurants
-      - @restaurants.each do | restaurant |
-        %ul
+      %ul
+        - @restaurants.each do | restaurant |
           %li
             = link_to restaurant.name, restaurant_path(restaurant.id)
 %section#info.description_content
@@ -22,5 +22,4 @@
       deliveries
   .container
     .col-md-8.col-sm-12
-      - unless current_user
-        = link_to 'Register your restaurant account', new_user_registration_path(role: 'owner')
+

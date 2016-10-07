@@ -14,10 +14,10 @@
       Calories: #{@dish.dish_cal}
     %h2
       Menu(s):
-    - @dish.menus.each do |menu|
-      %ul
-        %li
-          = menu.title
+        %ul
+        - @dish.menus.each do |menu|
+          %li
+            = menu.title
     %p
       - if can? :create, ShoppingCart
         = link_to 'Add to cart', dish_add_item_path(@dish), method: :post, class: 'btn btn-success'

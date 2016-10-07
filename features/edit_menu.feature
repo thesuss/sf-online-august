@@ -41,4 +41,4 @@ Scenario: I should be the only one who can edit my menu
     | Bosse | bosse@food.se | owner |
   And I log in as "Bosse"
   And I visit the restaurant page for "Anna"
-  Then I should not see "Edit"
+  Then I should not see "Edit Lunch"

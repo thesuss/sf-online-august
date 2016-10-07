@@ -14,7 +14,7 @@ Feature: As a restaurant owner
 
   Scenario: Navigating to edit page
     Given I am on the dish page for "Kebab"
-    And I click the link "Edit"
+    And I click the link "Edit dish"
     Then I should be on the edit dish page for "Kebab"
 
   Scenario: Edit dish details
@@ -29,13 +29,12 @@ Feature: As a restaurant owner
       | Bosse | bosse@food.se | owner |
     And I log in as "Bosse"
     And I visit the restaurant page for "Anna"
-    And I click the link "Edit"
-    Then I should see "You are not authorized to access this page."
+    Then I should not see "Edit dish"
 
   Scenario: Visitors can not edit dishes
     Given I am not logged in
     And I am on the dish page for "Kebab"
-    Then I should not see "Edit"
+    Then I should not see "Edit dish"
 
   Scenario: Customers can not edit dishes
     Given the following users exist
