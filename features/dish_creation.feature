@@ -44,7 +44,7 @@ Feature: As a restaurant Owner
       | Dish description | Delicious pizza |
       | Price            | 7000kr          |
     And I click the "Submit" button
-    Then I should see "Dish name can't be blank"
+    Then I should see "Name can't be blank"
 
   Scenario: I attempt to create a dish without description
     Given I am on the "Create Dish" page
@@ -54,7 +54,7 @@ Feature: As a restaurant Owner
       | Dish description |         |
       | Price            | 7000kr  |
     And I click the "Submit" button
-    Then I should see "Dish desc can't be blank"
+    Then I should see "Description can't be blank"
 
   Scenario: I attempt to create a dish without price
     Given I am on the "Create Dish" page
@@ -64,4 +64,4 @@ Feature: As a restaurant Owner
       | Dish description | Delicious pizza |
       | Price            |                 |
     And I click the "Submit" button
-    Then I should see "Dish price can't be blank"
+    Then I should see "Price can't be blank"

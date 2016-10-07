@@ -6,8 +6,8 @@
       %h2
         You ordered:
       %ul
-        %li
-          - @order.shopping_cart_items.each do |dish|
+        - @order.shopping_cart_items.each do |dish|
+          %li
             = dish.item.dish_name
       %h3
         Total price:

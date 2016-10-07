@@ -50,7 +50,7 @@ h1 {
 
 #map {
   width: 100%;
-  min-height: 350px;
+  min-height: 450px;
   z-index: 2;
 }
 
@@ -66,13 +66,13 @@ h1 {
   width: 100%;
   z-index: 3;
   left: 0;
-  top: 120px;
+  top: 0px;
 }
 .question-container {
   margin-left: auto;
   margin-right: auto;
-  margin-top: 30px;
-  padding: 15px 15px 15px 15px;
+  margin-top: 0px;
+  padding: 65px 15px 15px 15px;
   background: rgba(255,159,79,0.8);
   width: 50%;
   z-index: 4;

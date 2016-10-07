@@ -9,7 +9,7 @@ Feature: As a Customer
       | Anna |
     And "Anna" has a restaurant
     And the following dish exist
-      | dish_name | dish_desc       | dish_price |
+      | name | description       | price |
       | Pizza     | Delicious pizza | 7000       |
       | Salad     | Leafy           | 200        |
 

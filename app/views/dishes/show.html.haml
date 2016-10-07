@@ -1,19 +1,19 @@
 .h1-top
   %h1
-    = "#{@dish.dish_name} for #{@dish.restaurant.name}"
+    = "#{@dish.name} for #{@dish.restaurant.name}"
 .container
   .row
     .col-md-8.col-xs-12
       %p
-        Dish description: #{@dish.dish_desc}
+        Dish description: #{@dish.description}
       %p
-        Dish price: #{@dish.dish_price}
+        Dish price: #{@dish.price}
       %p
-        Allergens: #{@dish.dish_allergy}
+        Allergens: #{@dish.allergies}
       %p
-        Ingredients: #{@dish.dish_ingredients}
+        Ingredients: #{@dish.ingredients}
       %p
-        Calories: #{@dish.dish_cal}
+        Calories: #{@dish.calories}
       %h4
         Menu(s):
       %ul

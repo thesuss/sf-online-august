@@ -7,7 +7,7 @@ end
 
 Given(/^there is one dish in my cart$/) do
   steps %q{Given the following dish exist
-    | dish_name | dish_desc       | dish_price |
+    | name | description       | price |
     | Pizza     | Delicious pizza | 70         |
     And I am on the dish page for "Pizza"
     Then I click the link "Add to cart"}
@@ -15,7 +15,7 @@ end
 
 Given(/^there are two dishes in my cart$/) do
   steps %q{Given the following dish exist
-    | dish_name | dish_desc       | dish_price |
+    | name | description       | price |
     | Pizza     | Delicious pizza | 7000       |
     | Salad     | Leaves & stuff  | 1500       |
     And I am on the dish page for "Pizza"

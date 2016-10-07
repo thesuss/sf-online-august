@@ -2,20 +2,34 @@ var map;
 $(document).ready(function () {
     map = new GMaps({
         div: '#map',
-        lat: 57.7089,
-        lng: 11.9746
+        lat: 57.690123,
+        lng: 11.950632,
+        zoom: 13,
+        zoomControlOptions: {
+              position: google.maps.ControlPosition.RIGHT_BOTTOM
+          },
+        mapTypeControl: false,
+        streetViewControl: false
     });
     performGeolocation();
     addMarkers();
 });
 function addMarkers() {
-    if (gon.restaurants) {
+  if (gon.global.selected_restaurants.length > 0) {
+    gon.global.selected_restaurants.forEach(function (restaurant) {
+        map.addMarker({
+            lat: restaurant.latitude,
+            lng: restaurant.longitude
+        });
+    });
+    delete gon.global.selected_restaurants;
+  } else {
         gon.restaurants.forEach(function (restaurant) {
             map.addMarker({
-                lat: restaurant.lattitude,
+                lat: restaurant.latitude,
                 lng: restaurant.longitude
             });
-        })
+        });
     }
 }
 function performGeolocation() {
@@ -37,8 +51,8 @@ function performGeolocation() {
             }
         });
     } else {
-        latitude = 59.3293235;
-        longitude = 18.0685808;
+        latitude = 57.690123;
+        longitude = 11.950632;
         map.setCenter(latitude, longitude);
     }
 }

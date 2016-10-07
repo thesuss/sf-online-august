@@ -93,11 +93,10 @@ end
 
 Given(/^the following restaurants exists$/) do |table|
   table.hashes.each do |hash|
-    user = User.find_by(name: hash[:owner])
     FactoryGirl.create(:restaurant, name: hash[:name],
                                     description: hash[:description],
-                                    town: hash[:town],
-                                    user: user)
+                                    category: hash[:category]
+                                    )
   end
 end
 
@@ -110,5 +109,3 @@ private
 def set_user(name)
   @user = User.find_by(name: name)
 end
-
-

@@ -19,7 +19,6 @@ gem 'gon'
 gem 'stripe-rails'
 
 
-
 group :development, :test do
   gem 'listen', '~> 3.0.5'
   gem 'erb2haml'
@@ -36,6 +35,7 @@ group :development, :test do
   gem 'capybara-screenshot'
   gem 'dotenv-rails'
   gem 'stripe-ruby-mock', '~> 2.3.1', require: 'stripe_mock'
+  gem 'faker'
 end
 
 group :development do

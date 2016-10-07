@@ -1,10 +1,11 @@
 class RestaurantsController < ApplicationController
-  load_and_authorize_resource # potentially refactor this into ApplicationController
+  load_and_authorize_resource except: :dropdown # potentially refactor this into ApplicationController
   before_action :check_for_exisiting_restaurant, only: [:new]
   before_action :find_restaurant_from_params, only: [:show, :edit, :update]
 
   def index
-    gon.restaurants = Restaurant.all
+    @restaurants = Restaurant.all
+    gon.restaurants = @restaurants
   end
 
   def new
@@ -35,6 +36,11 @@ class RestaurantsController < ApplicationController
       @restaurant.reload
       render :edit
     end
+  end
+
+  def dropdown
+    gon.global.selected_restaurants = Restaurant.where(category: params[:category])
+    redirect_back(fallback_location: root_path)
   end
 
 

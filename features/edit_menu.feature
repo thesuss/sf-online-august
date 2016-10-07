@@ -6,7 +6,7 @@ Background:
   Given I am logged in as a restaurant owner
   And I already have a restaurant
   And the following dishes exist
-    | dish_name | dish_desc       | dish_price |
+    | name | description       | price |
     | Pizza     | Delicious pizza | 7000       |
     | Salad     | Leafy           | 1500       |
     | Olives    | Salty           | 900        |

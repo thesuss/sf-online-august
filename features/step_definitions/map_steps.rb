@@ -34,7 +34,7 @@ end
 
 
 Then(/^I should see "([^"]*)" (?:marker|markers)$/) do |count|
-  sleep(0.1) until page.evaluate_script('$.active') == 0
+  sleep(1)
   expected_count = page.evaluate_script('map.markers.length')
   expect(expected_count).to eq count.to_i
 end

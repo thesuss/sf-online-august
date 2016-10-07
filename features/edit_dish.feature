@@ -9,7 +9,7 @@ Feature: As a restaurant owner
     And "Anna" is logged in as restaurant owner
     And "Anna" has a restaurant
     And the following dishes exist
-      | dish_name | dish_desc       | dish_price |
+      | name | description       | price |
       | Kebab     | Delicious kebab | 9000       |
 
   Scenario: Navigating to edit page
@@ -49,4 +49,4 @@ Feature: As a restaurant owner
     And I click the link "Edit dish"
     And I fill in "Dish Name" with ""
     And I click the "Submit" button
-    Then I should see "Dish name can't be blank"
+    Then I should see "Name can't be blank"

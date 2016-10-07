@@ -27,9 +27,10 @@ Feature: As a restaurant Owner
       | Anna  | anna@food.se  | owner |
       | Janne | janne@food.se | owner |
     And the following restaurants exists
-      | name | description | town | owner |
-      | MAC  | Nice food   | Home | Anna  |
+      | name | description | town | owner | category |
+      | MAC  | Nice food   | Home | Anna  | Thai     |
     When I log in as "Janne"
+    And "Anna" has a restaurant
     And I visit the restaurant page for "Anna"
     And I click the link "Edit"
     Then I should see "You are not authorized to access this page."

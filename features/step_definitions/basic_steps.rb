@@ -44,12 +44,12 @@ When(/^I fill in "([^"]*)" with "([^"]*)"$/) do |element, text|
 end
 
 Given(/^I am on the "([^"]*)" page for "([^"]*)"$/) do |page, dish|
-  @dish = Dish.find_by(dish_name: dish)
+  @dish = Dish.find_by(name: dish)
   visit goto(page)
 end
 
 Then(/^I should be on the "([^"]*)" page for "([^"]*)"$/) do |page, dish|
-  @dish = Dish.find_by(dish_name: dish)
+  @dish = Dish.find_by(name: dish)
   expect(current_path).to eq goto(page)
 end
 

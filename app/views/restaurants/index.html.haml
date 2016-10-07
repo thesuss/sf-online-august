@@ -1,14 +1,13 @@
 .question-row
   .question-container
     %h2 What do you feel like tonight?
-    - if current_user
-      Buy some food, #{current_user.name}
+    = render partial: 'category_drop'
 #map{data: {test: {env: "#{Rails.env.test?}"}}}
 %section#story.description_content
   .container
     .col-md-6
       %h1 About us
-      %p.desc-text Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+      %p.desc-text Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
     .col-md-6
       %h1 Popular restaurants
       - @restaurants.each do | restaurant |

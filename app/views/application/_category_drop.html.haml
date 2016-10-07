@@ -1,0 +1,2 @@
+= form_tag(controller: :restaurants, action: :dropdown, class: 'form-group') do
+  = select_tag 'category', options_for_select(Restaurant::PERMITTED_CATEGORIES), include_blank: 'Anything', onChange: "javascript: $('form').submit()", class: 'form-control'
