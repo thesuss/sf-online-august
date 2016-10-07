@@ -1,7 +1,8 @@
-.row
-  .column-md-12
-    %h2 Log in
-  .col-md-8.col-xs-12
+.h1-top
+  %h1 Log in
+.container
+  .row
+    .col-md-8.col-xs-12
     = form_for(resource, as: resource_name, url: session_path(resource_name), class: 'form-group') do |f|
       .form-group
         = f.label :email

@@ -1,10 +1,8 @@
 .h1-top
 - if current_user
-  %h1
-    = "Cart for #{current_user.name}"
+  %h1 Cart for #{current_user.name}
 - else
-  %h1
-    Your cart
+  %h1 Your cart
 .container
   .row
     .col-md-8.col-xs-12

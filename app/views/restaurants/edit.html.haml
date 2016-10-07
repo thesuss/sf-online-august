@@ -1,9 +1,6 @@
-this is the edit page for
-
-= @restaurant.name
-
-.row
-  .column-md-12
-    %h1 Edit restaurant: #{@restaurant.name}
-  .col-md-8.col-xs-12
-    = render partial: 'form'
+.h1-top
+  %h1 Edit restaurant: #{@restaurant.name}
+.container
+  .row
+    .col-md-8.col-xs-12
+      = render partial: 'form'

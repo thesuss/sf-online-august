@@ -1,21 +1,24 @@
-%h1
-  Dish page for #{@dish.name}
-Dish description: #{@dish.description}
-%br/
-Dish price: #{@dish.price}
-%br/
-Allergens: #{@dish.allergies}
-%br/
-Ingredients: #{@dish.ingredients}
-%br/
-Calories: #{@dish.calories}
-%br/
-%br/
-Menu(s):
-- @dish.menus.each do |menu|
-  = menu.title
-%br/
-- if can? :create, ShoppingCart
-  = link_to 'Add to cart', dish_add_item_path(@dish), method: :post, class: 'btn btn-success'
-- if can? :manage, Dish
-  = link_to 'Edit dish', edit_dish_path(@dish), class: 'btn btn-primary'
+.h1-top
+  %h1 Dish page for #{@dish.name}
+.container
+  .row
+    .col-md-8.col-xs-12
+      Dish description: #{@dish.description}
+      %br/
+      Dish price: #{@dish.price}
+      %br/
+      Allergens: #{@dish.allergies}
+      %br/
+      Ingredients: #{@dish.ingredients}
+      %br/
+      Calories: #{@dish.calories}
+      %br/
+      %br/
+      Menu(s):
+      - @dish.menus.each do |menu|
+        = menu.title
+      %br/
+      - if can? :create, ShoppingCart
+        = link_to 'Add to cart', dish_add_item_path(@dish), method: :post, class: 'btn btn-success'
+      - if can? :manage, Dish
+        = link_to 'Edit dish', edit_dish_path(@dish), class: 'btn btn-primary'

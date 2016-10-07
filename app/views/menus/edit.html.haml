@@ -1,13 +1,14 @@
-.row
-  .column-md-12
-    %h1 Edit menu: #{@menu.title}
-  .col-md-8.col-xs-12
-    = form_for @menu, action: :update, class: 'form-group'  do |f|
-      = f.label :title, 'Edit Title'
-      = f.text_field :title, id: 'title', class: 'form-control'
-      - if !@menu.dishes.nil?
-        %h3 Check to add dishes to menu:
-        = f.collection_check_boxes :dish_ids, @dishes, :id, :name do |b|
-          .checkbox
-            = b.check_box + b.label
-      = f.submit 'Update', id: 'create', class: 'btn btn-warning'
+.h1-top
+  %h1 Edit menu: #{@menu.title}
+.container
+  .row
+    .col-md-8.col-xs-12
+      = form_for @menu, action: :update, class: 'form-group'  do |f|
+        = f.label :title, 'Edit Title'
+        = f.text_field :title, id: 'title', class: 'form-control'
+        - if !@menu.dishes.nil?
+          %h3 Check to add dishes to menu:
+          = f.collection_check_boxes :dish_ids, @dishes, :id, :name do |b|
+            .checkbox
+              = b.check_box + b.label
+        = f.submit 'Update', id: 'create', class: 'btn btn-warning'

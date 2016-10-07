@@ -1,14 +1,15 @@
-.row
-  .column-md-12
-    %h1 Add menu
-
-    = form_for @menu, class: 'form-group' do |f|
-      = f.label :title do
-        = f.text_field :title, id: 'title', class: 'form-control'
-      %p#dishes
-        - unless @dishes.nil?
-          %h3 Add Dishes
-          = f.collection_check_boxes :dish_ids, @dishes, :id, :name do |b|
-            .checkbox
-              = b.check_box + b.label
-      = f.submit 'Create', id: 'create', class: 'btn btn-warning'
+.h1-top
+  %h1 Add menu
+.container
+  .row
+    .col-md-8.col-xs-12
+      = form_for @menu, class: 'form-group' do |f|
+        = f.label :title do
+          = f.text_field :title, id: 'title', class: 'form-control'
+        %p#dishes
+          - unless @dishes.nil?
+            %h3 Add Dishes
+            = f.collection_check_boxes :dish_ids, @dishes, :id, :name do |b|
+              .checkbox
+                = b.check_box + b.label
+        = f.submit 'Create', id: 'create', class: 'btn btn-warning'
