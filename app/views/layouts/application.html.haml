@@ -19,8 +19,6 @@
     .landing-container
       = yield
   - else
-    = render partial: 'page_header'
-    .container
       = yield
       - unless current_user
         = link_to 'Register your restaurant account', new_user_registration_path(role: 'owner')

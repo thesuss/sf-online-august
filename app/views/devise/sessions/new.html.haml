@@ -1,19 +1,20 @@
 .h1-top
   %h1
     Log in
-.row
-  .col-md-8.col-xs-12
-    = form_for(resource, as: resource_name, url: session_path(resource_name), class: 'form-group') do |f|
-      .form-group
-        = f.label :email
-        = f.email_field :email, autofocus: true, class: 'form-control'
-      .form-group
-        = f.label :password
-        = f.password_field :password, autocomplete: 'off', class: 'form-control'
-      - if devise_mapping.rememberable?
-        .checkbox
-          = f.check_box :remember_me
-          = f.label :remember_me
-      .actions
-        = f.submit 'Log in', class: 'btn btn-warning'
-    = render 'devise/shared/links'
+.container
+  .row
+    .col-md-8.col-xs-12
+      = form_for(resource, as: resource_name, url: session_path(resource_name), class: 'form-group') do |f|
+        .form-group
+          = f.label :email
+          = f.email_field :email, autofocus: true, class: 'form-control'
+        .form-group
+          = f.label :password
+          = f.password_field :password, autocomplete: 'off', class: 'form-control'
+        - if devise_mapping.rememberable?
+          .checkbox
+            = f.check_box :remember_me
+            = f.label :remember_me
+        .actions
+          = f.submit 'Log in', class: 'btn btn-warning'
+      = render 'devise/shared/links'

@@ -1,18 +1,19 @@
 .h1-top
   %h1 = "Hey #{current_user.name}, you're checking out"
-.row
-  .col-md-8.col-xs-12
-    %h2
-      You ordered:
-    %ul
-      %li
-        - @order.shopping_cart_items.each do |dish|
-          = dish.item.dish_name
-    %h3
-      Total price:
+.container
+  .row
+    .col-md-8.col-xs-12
+      %h2
+        You ordered:
+      %ul
+        %li
+          - @order.shopping_cart_items.each do |dish|
+            = dish.item.dish_name
+      %h3
+        Total price:
+        %p
+          = @order.total.to_i
       %p
-        = @order.total.to_i
-    %p
-      Delivery address:
-    %p
-      = current_user.address
+        Delivery address:
+      %p
+        = current_user.address
