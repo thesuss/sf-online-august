@@ -31,5 +31,4 @@ Feature: As a restaurant Owner
       | MAC  | Nice food   | Home | Anna  |
     When I log in as "Janne"
     And I visit the restaurant page for "Anna"
-    And I click the link "Edit"
-    Then I should see "You are not authorized to access this page."
+    And I should not see "Edit"
