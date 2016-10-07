@@ -20,7 +20,7 @@ Scenario: Links to see as a visitor
     | content     |
     | Home        |
     | Show cart   |
-  And I should not see "Create dish"
+  And I should not see "Create a new restaurant"
 
 Scenario: Links to see as a user
   Given I am logged in as a user
@@ -28,16 +28,16 @@ Scenario: Links to see as a user
   Then I should see:
     | content      |
     | Home         |
-    | Edit profile |
+    | Your profile |
     | Show cart    |
-  And I should not see "Create dish"
+  And I should not see "Create a new restaurant"
 
 Scenario: Links to see as a restaurant owner
   Given I am logged in as a restaurant owner
   And I am on the "index" page
   Then I should see:
-    | content     |
-    | Home        |
-    | Create menu |
-    | Create dish |
+    | content                 |
+    | Home                    |
+    | Create a new restaurant |
+    | Show your restaurant    |
   And I should not see "Show cart"
