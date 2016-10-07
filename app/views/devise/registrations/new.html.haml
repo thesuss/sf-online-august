@@ -1,4 +1,6 @@
-- @headline = "Sign up as #{resource.role.humanize}"
+.h1-top
+  %h1
+    = "Sign up as #{resource.role.humanize}"
 .row
   .col-md-8.col-xs-12
     = form_for(resource, as: resource_name, url: registration_path(resource_name), class: 'form-group') do |f|

@@ -2,11 +2,6 @@ class CartsController < ApplicationController
   before_action :find_or_create_cart, only: [:index, :add_item]
 
   def index
-    if current_user
-      @headline = "Cart for #{current_user.name}"
-    else
-      @headline = "Your cart"
-    end
   end
 
   def add_item
@@ -18,7 +13,6 @@ class CartsController < ApplicationController
 
   def checkout
     @order = ShoppingCart.find(params[:format])
-    @headline = "Hey #{current_user.name}, you're checking out"
     session.delete(:cart_id)
     flash[:notice] = 'Your food is on its way!'
     # In a later feature this needs to create some action item to actually make the order happen.

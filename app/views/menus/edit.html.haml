@@ -1,3 +1,6 @@
+.h1-top
+  %h1
+    = "Edit menu: #{@menu.title}"
 .row
   .col-md-8.col-xs-12
     = form_for @menu, action: :update, class: 'form-group'  do |f|

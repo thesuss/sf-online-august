@@ -5,17 +5,14 @@ class MenusController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @headline = "All menues"
   end
 
   def new
     @menu = Menu.new
     @dishes = current_user.restaurant.dishes
-    @headline = "Add menu to your restaurant"
   end
 
   def show
-    @headline = "#{@menu.title} for #{@menu.restaurant.name}"
   end
 
   def create
@@ -23,7 +20,6 @@ class MenusController < ApplicationController
     @menu = restaurant.menus.new(menu_params)
     if @menu.save
       flash[:notice] = 'Successfully added menu'
-      @headline = "#{@menu.title} for #{@menu.restaurant.name}"
       render :show
     else
       flash[:alert] = @menu.errors.full_messages.first
@@ -33,12 +29,10 @@ class MenusController < ApplicationController
 
   def edit
     @dishes = current_user.restaurant.dishes
-    @headline = "Edit menu: #{@menu.title}"
   end
 
   def update
     @menu.update(menu_params)
-    @headline = "#{@menu.title} for #{@menu.restaurant.name}"
     render :show
   end
 

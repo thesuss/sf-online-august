@@ -7,13 +7,11 @@ class DishesController < ApplicationController
   def new
     @dish = Dish.new
     @menus = Menu.where(restaurant: current_user.restaurant)
-    @headline = "Add a Dish to your restaurant"
   end
 
   def create
     @dish = current_user.restaurant.dishes.create(dish_params)
     if @dish.save
-      @headline = "#{@dish.dish_name}"
       render :show
     else
       flash[:alert] = @dish.errors.full_messages.first
@@ -23,7 +21,6 @@ class DishesController < ApplicationController
 
   def show
     @dish = Dish.find(params[:id])
-    @headline = "#{@dish.dish_name}"
   end
 
   def edit

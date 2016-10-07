@@ -1,4 +1,6 @@
-- @headline = "Forgot your password?"
+.h1-top
+  %h1
+    Forgot your password?
 .row
   .col-md-8.col-xs-12
     = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }, class: 'form-group') do |f|
