@@ -1,3 +1,28 @@
+.navbar, .alert {
+  margin-bottom: 0px;
+}
+.h1-top {
+  width: 100%;
+  background: url('http://www.annasuss.com/h/restaurant_header.jpg');
+  min-height: 150px;
+  padding: 20px 0px 30px 0px;
+  margin-bottom: 30px;
+  background-size: cover;
+}
+p {
+  font-size: 16px;
+}
+h1 {
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  margin: 2em 0 1em;
+  text-align: center;
+  background-color: rgba(255,255,255,0.6);
+  padding: 5px 0px;
+
+}
+
 .checkbox label::before {
   position: absolute;
   width: 17px;
@@ -55,18 +80,6 @@
 }
 .question-container h2 {
   margin-top: 0px;
-}
-
-@media (max-width: 600px) {
-  .question-container {
-    margin-top: 5px;
-    width: 100%;
-  }
-  .question-row {
-    z-index: 0;
-    top: 0px;
-    position: relative;
-  }
 }
 
 .background_content {
@@ -149,3 +162,18 @@ p.desc-text{
   padding-left: 20px;
   color: #000;
 }
+
+@media (max-width: 600px) {
+  .question-container {
+    margin-top: 5px;
+    width: 100%;
+  }
+  .question-row {
+    z-index: 0;
+    top: 0px;
+    position: relative;
+  }
+}
+
+
+
