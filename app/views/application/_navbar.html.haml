@@ -14,7 +14,7 @@
         - if current_user
           %li
             = link_to 'Your profile', edit_user_registration_path
-        - if current_user.try(:owner?)
+        - if can? :manage, Restaurant
           %li.dropdown
             = link_to '#', {class: 'dropdown-toggle', data: {toggle: 'dropdown'}} do
               Restaurant
@@ -26,7 +26,6 @@
                 = link_to 'Create a new restaurant', new_restaurant_path(current_user)
               %li
                 = link_to 'Update your restaurant', edit_restaurant_path(current_user)
-          - if current_user.restaurant
             %li.dropdown
               = link_to '#', {class: 'dropdown-toggle', data: {toggle: 'dropdown'}} do
                 Menu
@@ -41,7 +40,7 @@
               %ul.dropdown-menu
                 %li
                   = link_to 'Create a dish', new_dish_path(current_user.restaurant)
-        - unless current_user.try(:owner?)
+        - if can? :create, ShoppingCart
           %li
             = link_to 'Show cart', carts_path
       %ul.nav.navbar-nav.navbar-right
