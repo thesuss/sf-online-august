@@ -5,7 +5,7 @@ class RestaurantsController < ApplicationController
 
   def index
     @restaurants = Restaurant.all
-    gon.restaurants = @restaurants
+    gon.all_restaurants = @restaurants
   end
 
   def new
@@ -37,12 +37,6 @@ class RestaurantsController < ApplicationController
       render :edit
     end
   end
-
-  def dropdown
-    gon.global.selected_restaurants = Restaurant.where(category: params[:category])
-    redirect_back(fallback_location: root_path)
-  end
-
 
   private
 

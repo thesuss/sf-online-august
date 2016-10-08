@@ -20,7 +20,7 @@ Given(/^my location is set to "([^"]*)" lat and "([^"]*)" lng$/) do |lat, lng|
 end
 
 When(/^(?:I expect a Google map to load|the map has been loaded)$/)do
-  loop until all(:css, '#map .gm-style').length == 1
+  sleep(1)
   expect(page).to have_css '#map .gm-style'
 end
 

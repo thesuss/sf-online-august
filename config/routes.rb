@@ -7,8 +7,6 @@ Rails.application.routes.draw do
 
   resources :restaurants, only: [:index, :new, :create, :show, :edit, :update]
 
-  post '/dropdown', controller: :restaurants, action: :dropdown
-
   resources :dishes, only: [:new, :show, :create, :edit, :update] do
     post 'add_item', controller: :carts, action: :add_item
   end

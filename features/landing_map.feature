@@ -24,7 +24,7 @@ Feature: As a Customer
   Scenario: Viewing the restaurants on the map
     Given my location is set to "57.7088700" lat and "11.9745600" lng
     And the map has been loaded
-    When I select "BBQ" from "category"
+    When I select "All Restaurants" from "category"
     And the map has been loaded
     Then I should see "3" markers
 

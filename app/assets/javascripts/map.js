@@ -11,48 +11,52 @@ $(document).ready(function () {
         mapTypeControl: false,
         streetViewControl: false
     });
+    var selection;
     performGeolocation();
-    addMarkers();
 });
 function addMarkers() {
-  if (gon.global.selected_restaurants.length > 0) {
-    gon.global.selected_restaurants.forEach(function (restaurant) {
+  if(selection == ('All Restaurants' || undefined) ){
+    map.removeMarkers();
+    gon.all_restaurants.forEach(function (restaurant) {
         map.addMarker({
             lat: restaurant.latitude,
             lng: restaurant.longitude
         });
-    });
-    delete gon.global.selected_restaurants;
+      }
+    );
   } else {
-        gon.restaurants.forEach(function (restaurant) {
+    map.removeMarkers();
+        gon.all_restaurants.forEach(function (restaurant) {
+          if(restaurant.category == selection){
             map.addMarker({
                 lat: restaurant.latitude,
                 lng: restaurant.longitude
             });
+          }
         });
     }
 }
 function performGeolocation() {
-    var latitude;
-    var longitude;
-    var testing_env = $('#map').data().testEnv;
-    if (testing_env == false) {
-        GMaps.geolocate({
-            success: function (position) {
-                latitude = position.coords.latitude;
-                longitude = position.coords.longitude;
-                map.setCenter(latitude, longitude);
-            },
-            error: function (error) {
-                alert('Geolocation failed: ' + error.message);
-            },
-            not_supported: function () {
-                alert('Your browser does not support geolocation');
-            }
-        });
-    } else {
-        latitude = 57.690123;
-        longitude = 11.950632;
-        map.setCenter(latitude, longitude);
-    }
+  var latitude;
+  var longitude;
+  var testing_env = $('#map').data().testEnv;
+  if (testing_env === false) {
+      GMaps.geolocate({
+          success: function (position) {
+              latitude = position.coords.latitude;
+              longitude = position.coords.longitude;
+              map.setCenter(latitude, longitude);
+          },
+          error: function (error) {
+              alert('Geolocation failed: ' + error.message);
+          },
+          not_supported: function () {
+              alert('Your browser does not support geolocation');
+          }
+      });
+  } else {
+      latitude = 57.690123;
+      longitude = 11.950632;
+      map.setCenter(latitude, longitude);
+  }
 }

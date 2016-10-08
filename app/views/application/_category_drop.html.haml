@@ -1,2 +1,1 @@
-= form_tag(controller: :restaurants, action: :dropdown, class: 'form-group') do
-  = select_tag 'category', options_for_select(dropdown_options), include_blank: 'Pick a Category', onChange: "javascript: $('form').submit()", class: 'form-control'
+= select_tag 'category', options_for_select(dropdown_options), include_blank: 'Pick a Category', id: 'category-dropdown', onChange: "selection = $(this).val(); addMarkers();", class: 'form-control'
