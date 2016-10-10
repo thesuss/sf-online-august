@@ -4,30 +4,31 @@ RSpec.describe Api::V1::RestaurantsController, type: :request do
   let(:headers) { { HTTP_ACCEPT: 'application/json' } }
 
   describe 'GET /v1/restaurants' do
+    let!(:owner) do
+      create(:user, email: 'whatever@random_restaurant.com', role: 'owner')
+    end
 
-    let!(:owner) { create(:user, email: 'whatever@random_restaurant.com', role: 'owner') }
     let!(:restaurant) { create(:restaurant, user: owner) }
 
     it 'should return json with restaurants' do
       get '/api/v1/restaurants'
-      json_response = JSON.parse(response.body).except('created_at', 'updated_at')
+      json_response = JSON.parse(response.body)
       expect(response.status).to eq 200
-      binding.pry
-      expect(json_response['restaurants']).to eq [{"id"=>1,
-                                                    "name"=>"MyString",
-                                                    "description"=>"MyText",
-                                                    "user_id"=>1,
-                                                    "created_at"=>restaurant.created_at.strftime("%Y-%m-%dT%H:%M:%S Z"),
-                                                    "updated_at"=>restaurant.updated_at.to_json.to_s,
-                                                    "street"=>"Fjällgatan 3",
-                                                    "zipcode"=>41463,
-                                                    "town"=>"Gothenburg",
-                                                    "latitude"=>57.696531,
-                                                    "longitude"=>11.9448777,
-                                                    "category"=>"Thai"}]
 
+      expected_response = [{
+        'id' => 1,
+        'name' => 'MyString',
+        'description' => 'MyText',
+        'user_id' => 1,
+        'street' => 'Fjällgatan 3',
+        'zipcode' => 41463,
+        'town' => 'Gothenburg',
+        'latitude' => 57.696531,
+        'longitude' => 11.9448777,
+        'category' => 'Thai'
+      }]
+
+      expect(json_response['restaurants']).to eq expected_response
     end
-
   end
-
 end

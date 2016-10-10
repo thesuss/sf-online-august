@@ -17,10 +17,9 @@ Rails.application.routes.draw do
 
   root to: 'restaurants#index'
 
-
-  namespace :api do
+  namespace :api, defaults: { format: :json } do
     namespace :v1 do
-      resources :restaurants, only: [:index], constraints: { format: 'json' }
+      resources :restaurants, only: [:index]
     end
   end
 end
