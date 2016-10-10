@@ -18,10 +18,10 @@ RSpec.describe Api::V1::RestaurantsController, type: :request do
       json_response = JSON.parse(response.body)
       expect(response.status).to eq 200
       expected_response = {
-        'id' => 1,
+        'id' => restaurant.id,
         'name' => 'MyString',
         'description' => 'MyText',
-        'user_id' => 1,
+        'user_id' => restaurant.user_id,
         'street' => 'Fjällgatan 3',
         'zipcode' => 41463,
         'town' => 'Gothenburg',
