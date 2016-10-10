@@ -7,7 +7,7 @@ RSpec.describe Api::V1::RestaurantsController, type: :request do
 
       json_response = JSON.parse(response.body)
       expect(response.status).to eq 200
-      expect(json_response['message']).to eq 'Lots of stuff'
+      expect(json_response['restaurants']).to eq 'Lots of stuff'
     end
   end
 end
