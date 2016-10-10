@@ -17,7 +17,7 @@ RSpec.describe Api::V1::RestaurantsController, type: :request do
       get '/api/v1/restaurants'
       json_response = JSON.parse(response.body)
       expect(response.status).to eq 200
-      expected_response = [{
+      expected_response = {
         'id' => 1,
         'name' => 'MyString',
         'description' => 'MyText',
@@ -28,8 +28,8 @@ RSpec.describe Api::V1::RestaurantsController, type: :request do
         'latitude' => 57.696531,
         'longitude' => 11.9448777,
         'category' => 'Thai'
-      }]
-      expect([json_response['restaurants'][0]]).to eq expected_response
+      }
+      expect(json_response['restaurants'][0]).to eq expected_response
     end
 
     it 'should return a list of restaurants' do
