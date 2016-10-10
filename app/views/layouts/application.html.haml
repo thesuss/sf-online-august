@@ -20,5 +20,8 @@
       = yield
   - else
     = yield
+  .footer
+    %p
+      A Craft Academy production
     - unless current_user
-      = link_to 'Register your restaurant account', new_user_registration_path(role: 'owner')
+      = link_to ' » Register your restaurant account «', new_user_registration_path(role: 'owner')
