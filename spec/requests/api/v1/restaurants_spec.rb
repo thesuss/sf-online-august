@@ -13,17 +13,17 @@ RSpec.describe Api::V1::RestaurantsController, type: :request do
       json_response = JSON.parse(response.body)
       expect(response.status).to eq 200
       expect(json_response['restaurants']).to eq [{"id"=>1,
-                                                   "name"=>"MyString",
-                                                   "description"=>"MyText",
-                                                   "user_id"=>1,
-                                                   "created_at"=>"2016-10-10T13:40:08.716Z",
-                                                   "updated_at"=>"2016-10-10T13:40:08.716Z",
-                                                   "street"=>"Fjällgatan 3",
-                                                   "zipcode"=>41463,
-                                                   "town"=>"Gothenburg",
-                                                   "latitude"=>57.696531,
-                                                   "longitude"=>11.9448777,
-                                                   "category"=>"Thai"}]
+                                                    "name"=>"MyString",
+                                                    "description"=>"MyText",
+                                                    "user_id"=>1,
+                                                    "created_at"=>"2016-10-10T14:10:47.228Z",
+                                                    "updated_at"=>"2016-10-10T14:10:47.228Z",
+                                                    "street"=>"Fjällgatan 3",
+                                                    "zipcode"=>41463,
+                                                    "town"=>"Gothenburg",
+                                                    "latitude"=>57.696531,
+                                                    "longitude"=>11.9448777,
+                                                    "category"=>"Thai"}]
 
     end
 
