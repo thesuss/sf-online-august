@@ -10,14 +10,15 @@ RSpec.describe Api::V1::RestaurantsController, type: :request do
 
     it 'should return json with restaurants' do
       get '/api/v1/restaurants'
-      json_response = JSON.parse(response.body)
+      json_response = JSON.parse(response.body).except('created_at', 'updated_at')
       expect(response.status).to eq 200
+      binding.pry
       expect(json_response['restaurants']).to eq [{"id"=>1,
                                                     "name"=>"MyString",
                                                     "description"=>"MyText",
                                                     "user_id"=>1,
-                                                    "created_at"=>"2016-10-10T14:10:47.228Z",
-                                                    "updated_at"=>"2016-10-10T14:10:47.228Z",
+                                                    "created_at"=>restaurant.created_at.strftime("%Y-%m-%dT%H:%M:%S Z"),
+                                                    "updated_at"=>restaurant.updated_at.to_json.to_s,
                                                     "street"=>"Fjällgatan 3",
                                                     "zipcode"=>41463,
                                                     "town"=>"Gothenburg",

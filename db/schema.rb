@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20161008085356) do
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
     t.integer  "restaurant_id"
+    t.string   "category"
     t.boolean  "highlight",     default: false
     t.index ["restaurant_id"], name: "index_dishes_on_restaurant_id", using: :btree
   end
