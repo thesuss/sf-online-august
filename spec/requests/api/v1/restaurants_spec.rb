@@ -28,14 +28,23 @@ RSpec.describe Api::V1::RestaurantsController, type: :request do
       expect(response_json['restaurants'][0]).to eq expected_response
     end
 
-    it 'should return json with menus' do
-      get '/api/v1/restaurants'
+    it 'should return json with ONE restaurant' do
+      get '/api/v1/restaurants/1'
       expected_response = {
-          'id' => menu.id,
-          'title' => 'title',
-          'restaurant_id' => restaurant.id
+          'id' => restaurant.id,
+          'name' => 'MyString',
+          'description' => 'MyText',
+          'user_id' => restaurant.user_id,
+          'street' => 'Fjällgatan 3',
+          'zipcode' => 41463,
+          'town' => 'Gothenburg',
+          'latitude' => 57.696531,
+          'longitude' => 11.9448777,
+          'category' => 'Thai'
       }
-      expect(response_json)['restaurant']['menus'].to eq expected_response
+      binding.pry
+      @restaurant = Restaurant.find(params[:id])
+      expect(response_json)['restaurant'][0].to eq expected_response
 
 
     end
