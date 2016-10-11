@@ -7,15 +7,11 @@ RSpec.describe Api::V1::RestaurantsController, type: :request do
     let!(:owner) do
       create(:user, email: 'whatever@random_restaurant.com', role: 'owner')
     end
-    let!(:owner_2) do
-      create(:user, email: 'whatever@random_restaurant2.com', role: 'owner')
-    end
     let!(:restaurant) { create(:restaurant, user: owner) }
     let!(:restaurant_2) { create(:restaurant, user: owner) }
 
     it 'should return json with restaurants' do
       get '/api/v1/restaurants'
-      json_response = JSON.parse(response.body)
       expect(response.status).to eq 200
       expected_response = {
         'id' => restaurant.id,
@@ -29,13 +25,12 @@ RSpec.describe Api::V1::RestaurantsController, type: :request do
         'longitude' => 11.9448777,
         'category' => 'Thai'
       }
-      expect(json_response['restaurants'][0]).to eq expected_response
+      expect(response_json['restaurants'][0]).to eq expected_response
     end
 
     it 'should return a list of restaurants' do
       get '/api/v1/restaurants'
-      json_response = JSON.parse(response.body)
-      expect(json_response['restaurants'].size).to eq(2)
+      expect(response_json['restaurants'].size).to eq(2)
     end
 
   end
