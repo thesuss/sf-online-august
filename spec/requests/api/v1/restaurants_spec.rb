@@ -27,6 +27,18 @@ RSpec.describe Api::V1::RestaurantsController, type: :request do
       expect(response_json['restaurants'][0]).to eq expected_response
     end
 
+    it 'should return json with menus' do
+      get '/api/v1/restaurants'
+      expected_response = {
+          'id' => menu.id,
+          'title' => 'title',
+          'restaurant_id' => restaurant.id
+      }
+      expect(response_json)['restaurant']['menus'].to eq expected_response
+
+
+    end
+
     it 'should return a list of restaurants' do
       get '/api/v1/restaurants'
       expect(response_json['restaurants'].size).to eq(2)
