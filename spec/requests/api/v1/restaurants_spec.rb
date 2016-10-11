@@ -41,9 +41,15 @@ RSpec.describe Api::V1::RestaurantsController, type: :request do
     let!(:restaurant) { create(:restaurant, user: owner) }
     let!(:menu) { create(:menu, restaurant: restaurant) }
     let!(:menu2) { create(:menu, title: 'menu2', restaurant: restaurant) }
+    let!(:dish) { create(:dish, name: 'dish1', restaurant: restaurant) }
+    let!(:dish2) { create(:dish, name: 'dish2', restaurant: restaurant) }
+
 
     it 'should return json with menus on show' do
+      menu.dishes << dish
+      menu2.dishes << dish2
       get "/api/v1/restaurants/#{restaurant.id}"
+
       expected_response = {
           'id' => restaurant.id,
           'name' => 'MyString',
@@ -55,9 +61,10 @@ RSpec.describe Api::V1::RestaurantsController, type: :request do
           'latitude' => 57.696531,
           'longitude' => 11.9448777,
           'category' => 'Thai',
-          'menus' => [{'title' => menu.title},
-          {'title' => menu2.title
-          }]
+          'menus' => [{'title' => menu.title,
+                        'dishes' => [{ 'dish' => dish.name }]},
+                      {'title' => menu2.title,
+                        'dishes' => [{ 'dish' => dish2.name }]}]
       }
       expect(response_json).to eq expected_response
     end
