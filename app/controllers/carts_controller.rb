@@ -16,9 +16,9 @@ class CartsController < ApplicationController
     charge = StripePayment.perform_payment(params, @cart)
     @order = ShoppingCart.find_by(user_id: current_user.id)
     if charge.class == Stripe::Charge
+      flash[:notice] = 'Your food is on its way!'
       mark_cart_as_paid(charge)
       session.delete(:cart_id)
-      flash[:notice] = 'Your food is on its way!'
       render :checkout
     else
       redirect_to carts_path, alert: charge
