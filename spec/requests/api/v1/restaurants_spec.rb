@@ -45,7 +45,7 @@ RSpec.describe Api::V1::RestaurantsController, type: :request do
     let!(:dish2) { create(:dish, name: 'dish2', restaurant: restaurant) }
 
 
-    it 'should return json with menus on show' do
+    it 'should return json with restaurant, menus and dishes on show' do
       menu.dishes << dish
       menu2.dishes << dish2
       get "/api/v1/restaurants/#{restaurant.id}"
