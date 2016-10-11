@@ -15,4 +15,8 @@ class Restaurant < ApplicationRecord
   def full_address
     [street, zipcode, town].join(', ')
   end
+
+  def has_menus?
+    self.menus != nil && self.menus.ids != nil
+  end
 end

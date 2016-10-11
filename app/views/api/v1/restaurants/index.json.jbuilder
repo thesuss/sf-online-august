@@ -9,4 +9,10 @@ json.restaurants @restaurants do |restaurant|
   json.latitude restaurant.latitude
   json.longitude restaurant.longitude
   json.category restaurant.category
+
+  if restaurant.has_menus? do |menu|
+        json.id menu.id
+        json.title menu.title
+      end
+    end
 end
