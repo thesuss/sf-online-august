@@ -1,8 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Api::V1::RestaurantsController, type: :request do
-  let(:headers) { { HTTP_ACCEPT: 'application/json' } }
-
+  
   describe 'GET /v1/restaurants' do
     let!(:owner) do
       create(:user, email: 'whatever@random_restaurant.com', role: 'owner')
