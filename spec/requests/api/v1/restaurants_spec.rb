@@ -8,6 +8,7 @@ RSpec.describe Api::V1::RestaurantsController, type: :request do
     end
     let!(:restaurant) { create(:restaurant, user: owner) }
     let!(:restaurant_2) { create(:restaurant, user: owner) }
+    let!(:menu) { create(:menu, restaurant: restaurant) }
 
     it 'should return json with restaurants' do
       get '/api/v1/restaurants'
