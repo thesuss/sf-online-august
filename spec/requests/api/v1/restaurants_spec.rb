@@ -42,11 +42,7 @@ RSpec.describe Api::V1::RestaurantsController, type: :request do
           'longitude' => 11.9448777,
           'category' => 'Thai'
       }
-      binding.pry
-      @restaurant = Restaurant.find(params[:id])
-      expect(response_json)['restaurant'][0].to eq expected_response
-
-
+      expect(response_json['restaurant']).to eq expected_response
     end
 
     it 'should return a list of restaurants' do
