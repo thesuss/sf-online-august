@@ -28,5 +28,15 @@ module SlowFood
     config.stripe.secret_key = ENV['STRIPE_SECRET_KEY']
     config.stripe.publishable_key = ENV['STRIPE_PUBLISHABLE_KEY']
     config.stripe.endpoint = '/payment/stripe-integration'
+
+    config.middleware.insert_before 0, Rack::Cors do
+      allow do
+        origins '*'
+        resource '*', headers: :any,
+                      methods: [:get],
+                      expose: %w(access-token expiry token-type uid client),
+                      max_age: 0
+      end
+    end
   end
 end
