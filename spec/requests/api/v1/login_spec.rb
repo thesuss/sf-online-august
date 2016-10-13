@@ -18,7 +18,7 @@ RSpec.describe 'Sessions', type: :request do
           'address' => customer.address,
           'role'=>'customer',
           'uid' => customer.email
-        }
+          }
       }
       expect(response_json).to eq expected_response
     end
