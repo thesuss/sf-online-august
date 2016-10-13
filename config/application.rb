@@ -34,7 +34,6 @@ module SlowFood
         origins '*'
         resource '*', headers: :any,
                       methods: [:get, :post],
-                      expose: %w(access-token expiry token-type uid client format),
                       max_age: 0
       end
     end
