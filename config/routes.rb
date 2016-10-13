@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
       resources :restaurants, only: [:index, :show]
-      mount_devise_token_auth_for 'User', at: 'auth', skip: [:omniauth_callbacks]
+      mount_devise_token_auth_for 'User', at: 'auth', controllers: { sessions: 'api/v1/login'}, skip: [:omniauth_callbacks]
     end
   end
 end
