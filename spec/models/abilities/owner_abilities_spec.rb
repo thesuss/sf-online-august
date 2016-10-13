@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe 'Owners Abilities', type: :model do
-  let(:owner) { create(:user, email: 'owner@random_restaurant.com', role: 'owner') }
-  let(:owner_2) { create(:user, email: 'owner_2@random_restaurant.com', role: 'owner') }
+  let(:owner) { create(:user, email: 'owner@randomrestaurant.com', role: 'owner') }
+  let(:owner_2) { create(:user, email: 'owner_2@randomrestaurant.com', role: 'owner') }
   let(:restaurant_1) { create(:restaurant, user: owner)}
   let(:restaurant_2) { create(:restaurant, user: owner_2)}
   let(:dish_1) { create(:dish, restaurant: restaurant_1 ) }
