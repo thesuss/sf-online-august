@@ -12,15 +12,13 @@ RSpec.describe 'Sessions', type: :request do
       expected_response = {
         'customer' => {
           'id' => customer.id,
-          # 'uid' => customer.email,
+          'uid' => customer.email,
           'email' => customer.email,
-          # 'provider' => 'email',
+          'provider' => 'email',
           'name' => customer.name,
           # 'nickname' => nil,
           # 'image' => nil,
-          'street' => customer.street,
-          'zipcode' => customer.zipcode,
-          'town' => customer.town
+          'address' => customer.address
         }
       }
 
