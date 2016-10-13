@@ -4,7 +4,7 @@ RSpec.describe Api::V1::RestaurantsController, type: :request do
 
   describe 'GET /v1/restaurants' do
     let!(:owner) do
-      create(:user, email: 'whatever@random_restaurant.com', role: 'owner')
+      create(:user, email: 'whatever@randomrestaurant.com', role: 'owner')
     end
     let!(:restaurant) { create(:restaurant, user: owner) }
     let!(:restaurant_2) { create(:restaurant, user: owner) }
@@ -36,7 +36,7 @@ RSpec.describe Api::V1::RestaurantsController, type: :request do
 
   describe 'GET /v1/restaurants/1' do
     let!(:owner) do
-      create(:user, email: 'whatever@random_restaurant.com', role: 'owner')
+      create(:user, email: 'whatever@randomrestaurant.com', role: 'owner')
     end
     let!(:restaurant) { create(:restaurant, user: owner) }
     let!(:menu) { create(:menu, restaurant: restaurant) }
