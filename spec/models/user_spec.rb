@@ -7,6 +7,9 @@ RSpec.describe User, type: :model do
     it { is_expected.to have_db_column :address }
     it { is_expected.to have_db_column :encrypted_password }
     it { is_expected.to have_db_column :role }
+    it { is_expected.to have_db_column :provider }
+    it { is_expected.to have_db_column :uid }
+    it { is_expected.to have_db_column :tokens }
   end
 
   describe 'Validations' do
@@ -55,7 +58,7 @@ RSpec.describe User, type: :model do
 
   describe 'scopes' do
     let(:customer) { create(:user, role: 'customer') }
-    let(:owner) { create(:user, email: 'whatever@random_restaurant.com', role: 'owner') }
+    let(:owner) { create(:user, email: 'whatever@randomrestaurant.com', role: 'owner') }
 
     it '#customers' do
       expect(User.customers).to include customer
@@ -69,7 +72,7 @@ RSpec.describe User, type: :model do
   end
 
   describe 'Owner methods' do
-    let(:owner) { create(:user, email: 'whatever@random_restaurant.com', role: 'owner') }
+    let(:owner) { create(:user, email: 'whatever@randomrestaurant.com', role: 'owner') }
     let(:restaurant) { create(:restaurant, user: User.first) }
 
     it 'has a restaurant' do
