@@ -10,7 +10,7 @@ Feature: As a restaurant Owner
     When I fill in:
       | element               | content                                         |
       | Name                  | Ahmad                                           |
-      | Email                 | ahmad@random_restaurant.com                     |
+      | Email                 | ahmad@randomrestaurant.com                      |
       | Address               | Fjällgatan 3, Göteborg, Västa Götaland, Sverige |
       | Password              | password                                        |
       | Password confirmation | password                                        |
