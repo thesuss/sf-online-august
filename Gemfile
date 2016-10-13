@@ -22,6 +22,7 @@ gem 'faker'
 gem 'paperclip', '~> 5.0.0'
 gem 'aws-sdk'
 gem 'rack-cors', require: 'rack/cors'
+gem 'devise_token_auth'
 
 group :development, :test do
   gem 'listen', '~> 3.0.5'
