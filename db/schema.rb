@@ -26,11 +26,11 @@ ActiveRecord::Schema.define(version: 20161013135832) do
     t.datetime "updated_at",                         null: false
     t.integer  "restaurant_id"
     t.boolean  "highlight",          default: false
+    t.string   "category"
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
-    t.string   "category"
     t.index ["restaurant_id"], name: "index_dishes_on_restaurant_id", using: :btree
   end
 

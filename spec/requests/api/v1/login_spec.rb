@@ -10,18 +10,16 @@ RSpec.describe 'Sessions', type: :request do
       }
 
       expected_response = {
-        'customer' => {
+        'data' => {
           'id' => customer.id,
-          'uid' => customer.email,
           'email' => customer.email,
           'provider' => 'email',
           'name' => customer.name,
-          # 'nickname' => nil,
-          # 'image' => nil,
-          'address' => customer.address
+          'address' => customer.address,
+          'role'=>'customer',
+          'uid' => customer.email
         }
       }
-
       expect(response_json).to eq expected_response
     end
   end
