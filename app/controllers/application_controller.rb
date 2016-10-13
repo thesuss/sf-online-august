@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   include CanCan::ControllerAdditions
-  protect_from_forgery with: :null_session
+  protect_from_forgery with: :null_session, if: Proc.new { |c| c.request.format.json? }
   before_action :store_current_location, unless: :devise_controller?
 
   rescue_from CanCan::AccessDenied do |exception|
