@@ -10,15 +10,17 @@ RSpec.describe 'Sessions', type: :request do
       }
 
       expected_response = {
-        'data' => {
+        'customer' => {
           'id' => customer.id,
-          'uid' => customer.email,
+          # 'uid' => customer.email,
           'email' => customer.email,
-          'provider' => 'email',
-          'name' => nil,
-          'nickname' => nil,
-          'image' => nil,
-          'address' => customer.address
+          # 'provider' => 'email',
+          'name' => customer.name,
+          # 'nickname' => nil,
+          # 'image' => nil,
+          'street' => customer.street,
+          'zipcode' => customer.zipcode,
+          'town' => customer.town
         }
       }
 
