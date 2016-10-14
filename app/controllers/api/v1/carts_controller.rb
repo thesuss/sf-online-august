@@ -10,5 +10,5 @@ class Api::V1::CartsController < ApplicationController
   end
 
   def update
-  end
+    render json: 
 end
