@@ -8,4 +8,7 @@ class Api::V1::CartsController < ApplicationController
     #binding.pry
     render json: ({cart_id: cart.id, dish_id: cart.shopping_cart_items[0].item.id})
   end
+
+  def update
+  end
 end

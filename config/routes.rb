@@ -21,7 +21,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :restaurants, only: [:index, :show]
       mount_devise_token_auth_for 'User', at: 'auth', controllers: { sessions: 'api/v1/login'}, skip: [:omniauth_callbacks]
-      resources :carts, only: [:create]
+      resources :carts, only: [:create, :update]
     end
   end
 end
