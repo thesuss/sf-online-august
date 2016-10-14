@@ -1,6 +1,6 @@
 class Api::V1::CartsController < ApplicationController
   protect_from_forgery with: :null_session
-
+  before_action :find_or_create_cart, only: [:update]
 
   def create
     dish = Dish.find(params[:dish_id])
@@ -10,11 +10,15 @@ class Api::V1::CartsController < ApplicationController
   end
 
   def update
-    @cart = ShoppingCart.find_or_create_by(id: params[:id])
     dish = Dish.find(params[:dish_id])
     @cart.add(dish, dish.price)
   rescue
     render json: ({'error' => 'Dish ID was invalid'})
+  end
+
+  private
+  def find_or_create_cart
+    @cart = ShoppingCart.find_or_create_by(id: params[:id])
   end
 
 end
