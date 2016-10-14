@@ -25,8 +25,8 @@ ActiveRecord::Schema.define(version: 20161013135832) do
     t.datetime "created_at",                         null: false
     t.datetime "updated_at",                         null: false
     t.integer  "restaurant_id"
-    t.boolean  "highlight",          default: false
     t.string   "category"
+    t.boolean  "highlight",          default: false
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"

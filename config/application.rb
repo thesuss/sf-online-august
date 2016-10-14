@@ -33,7 +33,7 @@ module SlowFood
       allow do
         origins '*'
         resource '*', headers: :any,
-                      methods: [:get, :post],
+                      methods: [:get, :post, :put],
                       max_age: 0
       end
     end
