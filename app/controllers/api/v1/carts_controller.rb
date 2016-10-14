@@ -1,6 +1,6 @@
 class Api::V1::CartsController < ApplicationController
   protect_from_forgery with: :null_session
-  before_action :find_or_create_cart, only: [:update]
+  before_action :find_or_create_cart, only: [:update, :checkout]
 
   def create
     dish = Dish.find(params[:dish_id])
@@ -15,6 +15,18 @@ class Api::V1::CartsController < ApplicationController
   rescue
     render json: ({'error' => 'Dish ID was invalid'})
   end
+
+  def checkout
+    @cart = ShoppingCart.find_by(id: params[:id])
+    #This will be conditioned on stripe later
+    @cart.paid = true
+    if @cart.paid = true
+      render json: ({'status' => 'Checkout successful'})
+    else
+      render json: ({'status' => 'Checkout unsuccessful'})
+    end
+  end
+
 
   private
   def find_or_create_cart
