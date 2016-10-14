@@ -18,11 +18,9 @@ class Api::V1::CartsController < ApplicationController
 
   def checkout
     @cart = ShoppingCart.find_by(id: params[:id])
-    #This will be conditioned on stripe later
     @cart.paid = true
-    if @cart.paid = true
-      render json: ({'status' => 'Checkout successful'})
-    else
+    #This will be conditioned on stripe later
+    unless @cart.paid = true
       render json: ({'status' => 'Checkout unsuccessful'})
     end
   end
