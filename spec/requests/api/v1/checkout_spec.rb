@@ -10,8 +10,8 @@ RSpec.describe Api::V1::CartsController do
     cart.add(dish, dish.price)
     cart.add(dish2, dish2.price)
     post '/api/v1/checkout', {params: {id: cart.id}}
-    expect(response_json).to eq({'cart_id'=>1, 'dishes'=>[{'name'=>'Spaghetti', 'price' => 1},
-                                                          {'name'=>'Chocolate', 'price' => 1}],
-                                                                                   'total'=>2})
+    expect(response_json).to eq({'cart_id'=>cart.id, 'dishes'=>[{'name'=>dish.name, 'price' => dish.price},
+                                                                {'name'=>dish2.name, 'price' => dish2.price}],
+                                 'total'=>2})
   end
 end
