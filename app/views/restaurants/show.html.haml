@@ -24,7 +24,8 @@
         - @restaurant.menus.each do |menu|
           = link_to menu.title, menu_path(menu)
 
-      = link_to 'Edit', edit_restaurant_path(@restaurant), class: "btn btn-success"
+      - if can? :manage, @restaurant
+        = link_to 'Edit', edit_restaurant_path(@restaurant), class: "btn btn-success"
 
   .highlighted
     %h3 Highlighted Dishes
