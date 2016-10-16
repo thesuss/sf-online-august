@@ -19,8 +19,8 @@ class Api::V1::CartsController < ApplicationController
   def checkout
     @cart = ShoppingCart.find(params[:id])
     @cart.user = User.find(params[:user_id])
-    no_dishes_error
-    @cart.paid = true
+    # no_dishes_error
+    @cart.paid = true unless no_dishes_error
   rescue
     no_user_error
   end
