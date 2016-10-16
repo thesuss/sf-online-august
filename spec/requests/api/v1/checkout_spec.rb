@@ -5,11 +5,12 @@ RSpec.describe Api::V1::CartsController do
   let(:dish) { create(:dish, restaurant: restaurant, name: 'Spaghetti') }
   let(:dish2) { create(:dish, restaurant: restaurant, name: 'Chocolate') }
   let(:cart) { create(:shopping_cart)}
+  let(:user) { create(:user)}
 
   it 'returns list of items in order with price & total price' do
     cart.add(dish, dish.price)
     cart.add(dish2, dish2.price)
-    post '/api/v1/checkout', {params: {id: cart.id}}
+    post '/api/v1/checkout', {params: {id: cart.id, user: user}}
     expect(response_json).to eq({ 'cart_id' => cart.id,
                                   'dishes'=>[{'name'=> dish.name,
                                              'price' => dish.price },
@@ -17,5 +18,11 @@ RSpec.describe Api::V1::CartsController do
                                              'price' => dish2.price }],
                                   'total'=> cart.total.to_i,
                                   'message' => 'Your food is on its way!' })
+  end
+
+  it 'returns an error message if not signed in' do
+    cart.add(dish, dish.price)
+    post '/api/v1/checkout', {params: {id: cart.id, user: 'nonsense'}}
+    expect(response_json).to eq({ 'message' => 'Cart not associated with a customer' })
   end
 end
