@@ -24,3 +24,7 @@ Scenario: I view the restaurant page as a visitor
   And "Pizza" is a highlighted dish
   When I am on my restaurant page
   Then I should see "Add to cart"
+
+Scenario: Viewing a restaurant with no highlighted dishes
+  When I am on my restaurant page
+  Then I should not see "Highlighted Dishes"

@@ -27,21 +27,22 @@
       - if can? :manage, @restaurant
         = link_to 'Edit', edit_restaurant_path(@restaurant), class: "btn btn-success"
 
-  .highlighted
-    %h3 Highlighted Dishes
-    - @restaurant.dishes.where(highlight: true).limit(6).each do |dish|
-      .col-sm-4
-        .graybackground
-          .dish.h4
-            = dish.name
-          .dish
-            = dish.description
-          .dish
-            Price:
-            = dish.price
-          - unless dish.image.nil?
-            .dish.image
-              = image_tag dish.image.url(:medium)
-          .order_button
-            - if can? :create, ShoppingCart
-              = link_to 'Add to cart', dish_add_item_path(dish), method: :post, class: 'btn btn-success'
+  - unless @restaurant.dishes.where(highlight: true).empty?
+    .highlighted
+      %h3 Highlighted Dishes
+      - @restaurant.dishes.where(highlight: true).limit(6).each do |dish|
+        .col-sm-4
+          .graybackground
+            .dish.h4
+              = dish.name
+            .dish
+              = dish.description
+            .dish
+              Price:
+              = dish.price
+            - unless dish.image.nil?
+              .dish.image
+                = image_tag dish.image.url(:medium)
+            .order_button
+              - if can? :create, ShoppingCart
+                = link_to 'Add to cart', dish_add_item_path(dish), method: :post, class: 'btn btn-success'
