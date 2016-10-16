@@ -23,6 +23,14 @@ p {
   color: rgba(255,159,79,0.8);
 }
 
+.restaurant_address {
+  background: image-url('map-icon.png') no-repeat left;
+  min-height: 50px;
+  padding-left: 60px;
+  vertical-align: middle;
+  font-size: 120%
+}
+
 .h1-top h1 {
   font-weight: 400;
   text-transform: uppercase;
@@ -138,6 +146,10 @@ p {
 .description_body {
   margin: 45px auto;
   max-width: 300px;
+}
+.description {
+  font-size: 200%;
+  padding: 50px;
 }
 
 p.desc-text{
