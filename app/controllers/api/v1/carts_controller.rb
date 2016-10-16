@@ -18,6 +18,7 @@ class Api::V1::CartsController < ApplicationController
 
   def checkout
     @cart = ShoppingCart.find(params[:id])
+    @cart.user_id = params[:user_id]
     if @cart.user_id.nil?
       render json: ({ 'message' => 'Cart not associated with a customer' })
     end
