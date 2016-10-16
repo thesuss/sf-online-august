@@ -17,6 +17,12 @@
 p {
   font-size: 16px;
 }
+
+.menulinks {
+  font-size: 140%;
+  color: rgba(255,159,79,0.8);
+}
+
 .h1-top h1 {
   font-weight: 400;
   text-transform: uppercase;
@@ -208,6 +214,7 @@ p.desc-text{
   height: 150px;
   width: 100%;
   padding: 30px 0;
+  margin: 30px 0 0 0;
 }
 
 .footer a {

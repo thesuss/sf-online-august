@@ -33,5 +33,3 @@ Feature: As a restaurant Owner
     And "Anna" has a restaurant
     And I visit the restaurant page for "Anna"
     Then I should not see "Edit"
-    # And I click the link "Edit"
-    # Then I should see "You are not authorized to access this page."

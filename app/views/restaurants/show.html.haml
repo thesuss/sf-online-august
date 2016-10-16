@@ -19,10 +19,11 @@
       = @restaurant.town
       %br/
       %br/
-
+    .col-md-4.col-xs-12
       %p
         - @restaurant.menus.each do |menu|
-          = link_to menu.title, menu_path(menu)
+          %p.menulink
+            = link_to menu.title, menu_path(menu), class: 'menulinks'
 
       - if can? :manage, @restaurant
         = link_to 'Edit', edit_restaurant_path(@restaurant), class: "btn btn-success"
