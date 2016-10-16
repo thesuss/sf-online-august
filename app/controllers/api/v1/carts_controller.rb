@@ -19,6 +19,9 @@ class Api::V1::CartsController < ApplicationController
   def checkout
     @cart = ShoppingCart.find(params[:id])
     @cart.user = User.find(params[:user_id])
+    if @cart.shopping_cart_items.empty?
+      render json: ({ 'message' => 'No dishes in cart' })
+    end
     @cart.paid = true
   rescue
     if @cart.user_id.nil?
