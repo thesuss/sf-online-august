@@ -8,12 +8,13 @@
     .col-md-8.col-xs-12
       %p.description
         = @restaurant.description
-      .restaurant_address
-        = @restaurant.street
-        %br/
-        = @restaurant.zipcode
-        %br/
-        = @restaurant.town
+      - unless @restaurant.town.nil?
+        .restaurant_address
+          = @restaurant.street
+          %br/
+          = @restaurant.zipcode
+          %br/
+          = @restaurant.town
       %br/
       %br/
 
