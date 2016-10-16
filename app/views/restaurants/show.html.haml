@@ -1,8 +1,8 @@
 .h1-top
-  %h1
+  .circle
+    = @restaurant.category
+  %h1.restaurant
     = @restaurant.name
--# .category
--#   = @restaurant.category
 .container
   .row
     .col-md-8.col-xs-12
@@ -19,11 +19,13 @@
       %br/
 
       - if can? :manage, @restaurant
-        = link_to 'Edit', edit_restaurant_path(@restaurant), class: "btn btn-success"
+        = link_to 'Edit', edit_restaurant_path(@restaurant), class: 'btn btn-success'
     .col-md-4.col-xs-12
-      %p
+      .panel.panel-default
+        .panel-heading Our menus
+        %ul.list-group
         - @restaurant.menus.each do |menu|
-          %p.menulink
+          %li.list-group-item
             = link_to menu.title, menu_path(menu), class: 'menulinks'
 
   - unless @restaurant.dishes.where(highlight: true).empty?
