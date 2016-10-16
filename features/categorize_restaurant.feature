@@ -15,11 +15,11 @@ Feature: As a restaurant Owner
     Then I select "Thai" from "Category"
     When I click the "Submit" button
     Then I should be on the restaurant page for "Awesome restaurant"
-    And I should see "Thai"
+    And "Awesome restaurant" should have category "Thai"
 
-  Scenario: I leave category blank
+  Scenario: I leave category blank and get default "Other"
     Given I already have a restaurant
     And I am on the edit restaurant page for "Awesome restaurant"
     And I click the "Submit" button
     Then I should be on the restaurant page for "Awesome restaurant"
-    And I should see "Other"
+    And "Awesome restaurant" should have category "Other"
