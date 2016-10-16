@@ -1,46 +1,49 @@
 .h1-top
-  %h1
+  .circle
+    = @restaurant.category
+  %h1.restaurant
     = @restaurant.name
 .container
   .row
     .col-md-8.col-xs-12
-      %br/
-      %br/
-      = @restaurant.name
-      %br/
-      = @restaurant.category
-      %br/
-      = @restaurant.description
-      %br/
-      = @restaurant.street
-      %br/
-      = @restaurant.zipcode
-      %br/
-      = @restaurant.town
+      %p.description
+        = @restaurant.description
+      - unless @restaurant.town.nil?
+        .restaurant_address
+          = @restaurant.street
+          %br/
+          = @restaurant.zipcode
+          %br/
+          = @restaurant.town
       %br/
       %br/
 
-      %p
+      - if can? :manage, @restaurant
+        = link_to 'Edit', edit_restaurant_path(@restaurant), class: 'btn btn-success'
+    .col-md-4.col-xs-12
+      .panel.panel-default
+        .panel-heading Our menus
+        %ul.list-group
         - @restaurant.menus.each do |menu|
-          = link_to menu.title, menu_path(menu)
+          %li.list-group-item
+            = link_to menu.title, menu_path(menu), class: 'menulinks'
 
-      = link_to 'Edit', edit_restaurant_path(@restaurant), class: "btn btn-success"
-
-  .highlighted
-    %h3 Highlighted Dishes
-    - @restaurant.dishes.where(highlight: true).limit(6).each do |dish|
-      .col-sm-4
-        .graybackground
-          .dish.h4
-            = dish.name
-          .dish
-            = dish.description
-          .dish
-            Price:
-            = dish.price
-          - unless dish.image.nil?
-            .dish.image
-              = image_tag dish.image.url(:medium)
-          .order_button
-            - if can? :create, ShoppingCart
-              = link_to 'Add to cart', dish_add_item_path(dish), method: :post, class: 'btn btn-success'
+  - unless @restaurant.dishes.where(highlight: true).empty?
+    .highlighted
+      %h3 Highlighted Dishes
+      - @restaurant.dishes.where(highlight: true).limit(6).each do |dish|
+        .col-sm-4
+          .graybackground
+            .dish.h4
+              = dish.name
+            .dish
+              = dish.description
+            .dish
+              Price:
+              = dish.price
+            - unless dish.image.nil?
+              .dish.image
+                = image_tag dish.image.url(:medium)
+            .order_button
+              - if can? :create, ShoppingCart
+                = link_to 'Add to cart', dish_add_item_path(dish), method: :post, class: 'btn btn-success'

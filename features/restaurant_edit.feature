@@ -32,5 +32,4 @@ Feature: As a restaurant Owner
     When I log in as "Janne"
     And "Anna" has a restaurant
     And I visit the restaurant page for "Anna"
-    And I click the link "Edit"
-    Then I should see "You are not authorized to access this page."
+    Then I should not see "Edit"

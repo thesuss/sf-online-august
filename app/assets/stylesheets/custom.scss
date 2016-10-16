@@ -17,14 +17,62 @@
 p {
   font-size: 16px;
 }
+
+.circle {
+  background-color: rgba(255,159,79,0.8);
+  width:120px;
+  height:120px;
+  border-radius:250px;
+  font-size:30px;
+  color:#fff;
+  line-height:120px;
+  text-align:center;
+  float:right;
+  margin-top: -20px;
+}
+a.menulinks, a:hover.menulinks {
+  color:#000;
+}
+.panel {
+  border-radius: 0;
+}
+.panel-default {
+  border-color: rgba(255,159,79,1);
+}
+.panel-heading {
+  padding: 10px 15px;
+  border:none;
+  font-weight: 500;
+  border-radius: 0;
+}
+.panel-default > .panel-heading {
+  color: #FFF;
+  background-color: rgba(255,159,79,1);
+  border:none;
+}
+.list-group-item:last-child {
+  margin-bottom: 0;
+  border-bottom: 1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.restaurant_address {
+  background: image-url('map-icon.png') no-repeat left;
+  min-height: 50px;
+  padding-left: 60px;
+  vertical-align: middle;
+  font-size: 120%
+}
+
 .h1-top h1 {
   font-weight: 400;
   text-transform: uppercase;
-  letter-spacing: .1em;
+  letter-spacing: .05em;
   margin: 2em 0 1em;
   text-align: center;
   background-color: rgba(255,255,255,0.6);
-  padding: 5px 0px;
+  padding: 5px 0;
 
 }
 
@@ -37,7 +85,7 @@ p {
 
 .radio input[type='radio'], .radio-inline input[type='radio'], .checkbox input[type='checkbox'], .checkbox-inline input[type='checkbox'] {
   position: absolute;
-  margin-left: 0px;
+  margin-left: 0;
 }
 .navbar-text {
   padding-right:20px;
@@ -62,8 +110,8 @@ p {
 .landing-container {
   width: 100%;
   height: 100%;
-  padding: 0px;
-  margin: 0px 0px 0px 0px;
+  padding: 0;
+  margin: 0;
   z-index: 1;
 }
 
@@ -72,24 +120,24 @@ p {
   width: 100%;
   z-index: 3;
   left: 0;
-  top: 0px;
+  top: 0;
 }
 .question-container {
   margin-left: auto;
   margin-right: auto;
-  margin-top: 0px;
+  margin-top: 0;
   padding: 65px 15px 15px 15px;
   background: rgba(255,159,79,0.8);
   width: 50%;
   z-index: 4;
 }
 .question-container h2 {
-  margin-top: 0px;
+  margin-top: 0;
 }
 
 .background_content {
   position: relative;
-  top: 0px;
+  top: 0;
   width: 100%;
   height: 250px;
   background-color: white;
@@ -133,6 +181,10 @@ p {
   margin: 45px auto;
   max-width: 300px;
 }
+.description {
+  font-size: 200%;
+  padding: 50px;
+}
 
 p.desc-text{
   font-size: 20px;
@@ -154,7 +206,7 @@ p.desc-text{
 }
 
 #story li {
-  margin: 3px 0px;
+  margin: 3px 0;
   border-left: 3px solid rgba(255,159,79,0.8);
   background-color: rgba(255,159,79,0.5);
   text-align:left;;
@@ -174,7 +226,7 @@ p.desc-text{
   }
   .question-row {
     z-index: 0;
-    top: 0px;
+    top: 0;
     position: relative;
   }
 }
@@ -208,8 +260,10 @@ p.desc-text{
   height: 150px;
   width: 100%;
   padding: 30px 0;
+  margin: 30px 0 0 0;
 }
 
 .footer a {
   color: #FFF;
 }
+
