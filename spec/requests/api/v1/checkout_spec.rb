@@ -24,10 +24,12 @@ RSpec.describe Api::V1::CartsController do
     cart.add(dish, dish.price)
     post '/api/v1/checkout', {params: {id: cart.id, user_id: 'nonsense'}}
     expect(response_json).to eq({ 'message' => 'Cart not associated with a customer' })
+    expect(cart.paid).to eq false
   end
 
   it 'returns error message if there are no dishes in the cart' do
     post '/api/v1/checkout', {params: {id: cart.id, user_id: customer.id}}
     expect(response_json).to eq({ 'message' => 'No dishes in cart' })
+    expect(cart.paid).to eq false
   end
 end
